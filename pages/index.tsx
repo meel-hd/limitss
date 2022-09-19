@@ -20,7 +20,7 @@ const Home: NextPage = () => {
         </h1>
         <Link href={'/setup'}>
         <Button
-          className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:bg-gradient-to-l"
+          className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:bg-gradient-to-b"
           mt={50}
         >
           Get Started

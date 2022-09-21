@@ -11,7 +11,7 @@ function Setup() {
         <div className="flex flex-row justify-between">
           <PrimaryInputs />
           <div>
-            <Loader variant="bars" />
+            <Loader color={'violet'} variant="bars" />
           </div>
           <WindowValues />
         </div>

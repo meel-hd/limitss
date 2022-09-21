@@ -14,6 +14,7 @@ function PrimaryInputs() {
       <TextInput
         required
         label="Product name"
+        description='This will show as the name of the app in the dock and other parts'
         placeholder="The name visible to users"
         value={productName}
         onChange={(e) => setProductName(e.target.value)}
@@ -28,6 +29,7 @@ function PrimaryInputs() {
       <TextInput
         required
         label="Description"
+        description='This will show in some parts of the OS about the app'
         placeholder="Two sentences describing the app..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
@@ -36,6 +38,7 @@ function PrimaryInputs() {
         data={Licenses}
         required
         label="License"
+        description='Establish how your software is distributed'
         placeholder="Software license"
         value={license}
         onChange={setLicense}
@@ -43,6 +46,7 @@ function PrimaryInputs() {
       <FileInput
         required
         label="Icon"
+        description='This is the icon of the app'
         placeholder="Choose app icon"
         value={icon}
         onChange={setIcon}
@@ -51,6 +55,7 @@ function PrimaryInputs() {
       <TextInput
         required
         label="App Id"
+        description='This will appears when you hover on the app'
         placeholder="Example: My app Desktop"
         value={appId}
         onChange={(e) => setAppId(e.target.value)}
@@ -58,6 +63,7 @@ function PrimaryInputs() {
       <TextInput
         required
         label="Version"
+        description='For the users to know which version of the app they are using'
         placeholder="Example: 1.0.0"
         value={version}
         onChange={(e) => setVersion(e.target.value)}

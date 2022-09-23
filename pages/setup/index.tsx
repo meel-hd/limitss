@@ -27,6 +27,7 @@ function Setup() {
               className={step == CREATE_APP_STEP.GENERAL ? 'opacity-0': ''}
               onClick={()=> setStep(CREATE_APP_STEP.GENERAL)}
               variant="white"
+              color={'violet'}
             >
               Go Back
             </Button>

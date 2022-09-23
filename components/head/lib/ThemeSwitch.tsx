@@ -19,7 +19,7 @@ function ThemeSwitch() {
         size="md"
         color={theme.colorScheme === "dark" ? "gray" : "dark"}
         offLabel={
-          <Sun size={16} strokeWidth={2.5} color={theme.colors.yellow[4]} />
+          <Sun size={16} strokeWidth={2.5} color={theme.colors.indigo[4]} />
         }
         onLabel={
           <MoonStars size={16} strokeWidth={2.5} color={theme.colors.violet[6]} />

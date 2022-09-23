@@ -1,4 +1,4 @@
-import { Autocomplete, FileInput, TextInput } from "@mantine/core";
+import { Autocomplete, TextInput } from "@mantine/core";
 import { useState } from "react";
 const Licenses = ["MIT", "Apache", "BSD", "GPL"];
 function PrimaryInputs() {
@@ -8,7 +8,6 @@ function PrimaryInputs() {
   const [license, setLicense] = useState("");
   const [version, setVersion] = useState("1.0.0");
   const [appId, setAppId] = useState("");
-  const [icon, setIcon] = useState<File | null>(null);
   return (
     <div className="flex flex-col w-1/2 sm:w-1/3">
       <TextInput
@@ -42,14 +41,6 @@ function PrimaryInputs() {
         placeholder="Software license"
         value={license}
         onChange={setLicense}
-      />
-      <FileInput
-        required
-        label="Icon"
-        description='This is the icon of the app'
-        placeholder="Choose app icon"
-        value={icon}
-        onChange={setIcon}
       />
       {/* { icon != null && <Avatar src={URL.createObjectURL(icon)} />} */}
       <TextInput

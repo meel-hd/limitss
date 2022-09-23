@@ -1,4 +1,4 @@
-import { NumberInput, Switch, Text, TextInput } from "@mantine/core";
+import { NumberInput, Switch, Text, FileInput, TextInput } from "@mantine/core";
 import { useState } from "react";
 function WindowValues() {
   const [title, setTitle] = useState("");
@@ -7,6 +7,7 @@ function WindowValues() {
   const [fullscreen, setFullscreen] = useState(false);
   const [titleChange, setTitleChange] = useState(false);
   const [topMenu, setTopMenu] = useState(false);
+  const [icon, setIcon] = useState<File | null>(null);
   return (
     <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3">
       <TextInput
@@ -16,6 +17,14 @@ function WindowValues() {
         placeholder="Title of the app"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+      />
+      <FileInput
+        required
+        label="Icon"
+        description='This is the icon of the app'
+        placeholder="Choose app icon"
+        value={icon}
+        onChange={setIcon}
       />
       <NumberInput
         min={200}

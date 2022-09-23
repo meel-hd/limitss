@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.jpeg" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <ColorSchemeProvider
         colorScheme={colorScheme}

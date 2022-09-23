@@ -11,7 +11,7 @@ import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
-    defaultValue: "light",
+    defaultValue: "dark",
     getInitialValueInEffect: true,
   });
 
@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   autoComplete: "off",
                 },
                 classNames: {
-                  input: "border-2 rounded-full focus:border-indigo-400",
+                  input: "border-2 focus:border-indigo-400 focus:shadow-md rounded-full",
                 },
               },
               Button: {
@@ -49,6 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 },
               },
             },
+            loader: 'bars' 
           }}
         >
           <Component {...pageProps} />

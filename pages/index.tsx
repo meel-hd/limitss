@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 const Home: NextPage = () => {
+  
   return (
     <>
       <Head>
@@ -20,7 +21,6 @@ const Home: NextPage = () => {
         </h1>
         <Link href={'/setup'}>
         <Button
-          
           className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl"
           mt={50}
         >

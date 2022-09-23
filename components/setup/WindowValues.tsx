@@ -10,6 +10,7 @@ function WindowValues() {
   return (
     <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3">
       <TextInput
+        required
         label="Title"
         description="This will appear as the title off the app when it loads"
         placeholder="Title of the app"

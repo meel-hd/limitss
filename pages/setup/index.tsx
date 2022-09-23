@@ -1,36 +1,43 @@
-import { Button, Card, LoadingOverlay } from "@mantine/core";
+import { Button, Card } from "@mantine/core";
 import { useState } from "react";
 import Header from "../../components/head/Header";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
 
+enum CREATE_APP_STEP {
+  GENERAL = "GENERAL",
+  WINDOW = "WINDOW",
+  SUCCESS = "SUCCESS",
+}
+
 function Setup() {
-  const [isBuilding, setIsBuilding] = useState(false);
+  const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
   return (
     <>
       <Header />
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
         <Card radius={0} shadow="md" className="w-3/4 h-3/4">
-          <div className="flex flex-row justify-between">
-            <PrimaryInputs />
-            <div>
-              <LoadingOverlay
-                onClick={() => setIsBuilding(false)}
-                visible={isBuilding}
-              />
-            </div>
-            <WindowValues />
-          </div>
+          {step == CREATE_APP_STEP.GENERAL && <PrimaryInputs />}
+          {step == CREATE_APP_STEP.WINDOW && <WindowValues />}
           <Card.Section
             p={20}
-            className="flex flex-row justify-end items-center"
+            className="flex flex-row justify-between items-center"
           >
             <Button
-              onClick={() => setIsBuilding(true)}
-              className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl"
+              className={step == CREATE_APP_STEP.GENERAL ? 'opacity-0': ''}
+              onClick={()=> setStep(CREATE_APP_STEP.GENERAL)}
+              variant="white"
             >
-              Next Step
+              Go Back
             </Button>
+            {step == CREATE_APP_STEP.GENERAL && (
+              <Button
+                onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
+                className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl"
+              >
+                Next Step
+              </Button>
+            )}
           </Card.Section>
         </Card>
       </div>

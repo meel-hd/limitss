@@ -9,7 +9,7 @@ function PrimaryInputs() {
   const [version, setVersion] = useState("1.0.0");
   const [appId, setAppId] = useState("");
   return (
-    <div className="flex flex-col w-1/2 sm:w-1/3">
+    <div className="flex flex-col w-full sm:w-1/3">
       <TextInput
         required
         label="Product name"

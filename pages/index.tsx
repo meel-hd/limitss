@@ -2,6 +2,7 @@ import { Button } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import Header from "../components/head/Header";
 
 const Home: NextPage = () => {
   
@@ -11,11 +12,11 @@ const Home: NextPage = () => {
         <title> DesWapp | Build Desktops App for Businesses</title>
         <meta name="description" content="Generate Native Desktop App for your Business Website" />
       </Head>
-
-      <main className="min-h-screen flex-1 flex flex-col justify-center items-center">
+      <Header />
+      <main className="min-h-screen flex-1 flex flex-col justify-center items-center  p-5 ">
         <h1 className="text-6xl">
           Welcome to{" "}
-          <a className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600 font-semibold font-mono hover:underline " href="#">
+          <a className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-400 font-semibold font-mono  " href="#">
           DesWapp
           </a>
         </h1>

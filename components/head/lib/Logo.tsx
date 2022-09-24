@@ -11,7 +11,7 @@ function Logo({ width }: { width?: number | string }) {
       <Text
         color={'violet'}
         weight={700}
-        className='text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600'
+        className='text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-400'
       >
         esWapp
       </Text>

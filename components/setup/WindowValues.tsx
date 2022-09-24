@@ -9,7 +9,7 @@ function WindowValues() {
   const [topMenu, setTopMenu] = useState(false);
   const [icon, setIcon] = useState<File | null>(null);
   return (
-    <div className="flex flex-col justify-start items-start w-1/2 sm:w-1/3">
+    <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
       <TextInput
         required
         label="Title"
@@ -20,6 +20,7 @@ function WindowValues() {
       />
       <FileInput
         required
+        className="w-full sm:w-1/2"
         label="Icon"
         description='This is the icon of the app'
         placeholder="Choose app icon"

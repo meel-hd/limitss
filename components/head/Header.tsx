@@ -7,7 +7,7 @@ function Header() {
   return (
     <header className="shadow-sm h-12 px-2 flex flex-row justify-between items-center">
       <Logo width={40} />
-      <div>
+      {/* <div>
         <Link href={"/"}>
           <Button className="hover:underline" variant="white" color={"violet"}>
             Home
@@ -23,7 +23,7 @@ function Header() {
             Pricing
           </Button>
         </Link>
-      </div>
+      </div> */}
       <ThemeSwitch />
     </header>
   );

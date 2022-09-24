@@ -1,21 +1,15 @@
-import { ColorScheme, Group, Switch, useMantineTheme } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
+import { Group, Switch, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 import { MoonStars, Sun } from "tabler-icons-react";
 
 function ThemeSwitch() {
   const theme = useMantineTheme();
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: "mantine-color-scheme",
-    defaultValue: "dark",
-    getInitialValueInEffect: true,
-  });
-
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+  
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   return (
     <Group position="center">
       <Switch
-        onClick={() => toggleColorScheme()}
+      checked={colorScheme == 'dark'}
+        onChange={() => toggleColorScheme()}
         size="md"
         color={theme.colorScheme === "dark" ? "gray" : "dark"}
         offLabel={

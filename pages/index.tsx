@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       <main className="min-h-screen flex-1 flex flex-col justify-center items-center">
         <h1 className="text-6xl">
           Welcome to{" "}
-          <a className="text-indigo-500 font-semibold font-mono hover:underline " href="#">
+          <a className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600 font-semibold font-mono hover:underline " href="#">
           DesWapp
           </a>
         </h1>

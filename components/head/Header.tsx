@@ -7,9 +7,23 @@ function Header() {
   return (
     <header className="shadow-sm h-12 px-2 flex flex-row justify-between items-center">
       <Logo width={40} />
-      <Link href={'/'} >
-        < Button variant="white" color={'violet'}>Home</Button>
-      </Link>
+      <div>
+        <Link href={"/"}>
+          <Button className="hover:underline" variant="white" color={"violet"}>
+            Home
+          </Button>
+        </Link>
+        <Link href={"/docs"}>
+          <Button className="hover:underline" variant="white" color={"violet"}>
+            Docs
+          </Button>
+        </Link>
+        <Link href={"/pricing"}>
+          <Button className="hover:underline" variant="white" color={"violet"}>
+            Pricing
+          </Button>
+        </Link>
+      </div>
       <ThemeSwitch />
     </header>
   );

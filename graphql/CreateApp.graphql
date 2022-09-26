@@ -1,0 +1,18 @@
+mutation CreateApp($arg: CreateAppInput!) {
+  createApp(arg: $arg) {
+    productName
+    name
+    description
+    license
+    icon
+    appId
+    version
+    title
+    width
+    height
+    fullscreen
+    titleChange
+    topMenu
+    id
+  }
+}

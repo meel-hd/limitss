@@ -16,7 +16,7 @@ function Setup() {
     <>
       <Header />
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
-        <Card radius={0} shadow="md" className="w-3/4 h-3/4">
+        <Card radius={0} shadow="md" className="w-2/4 h-3/4">
           {step == CREATE_APP_STEP.WINDOW && <PrimaryInputs />}
           {step == CREATE_APP_STEP.GENERAL && <WindowValues />}
           <Card.Section

@@ -1,4 +1,4 @@
-import { NumberInput, Switch, Text, FileInput, TextInput } from "@mantine/core";
+import { NumberInput, Switch, Text, FileInput, TextInput, Avatar } from "@mantine/core";
 import { Dispatch, SetStateAction, useState } from "react";
 import { CreateAppInput } from "../../generated/graphql";
 
@@ -10,7 +10,6 @@ interface WindowValuesProps {
 }
 
 function WindowValues({ createAppValues, handleChange}: WindowValuesProps) {
-  const [icon, setIcon] = useState<File | null>(null);
 
   return (
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
@@ -26,14 +25,19 @@ function WindowValues({ createAppValues, handleChange}: WindowValuesProps) {
       />
       <FileInput
         required
-        className="w-full sm:w-1/2"
+        className="w-full sm:w-1/2 truncate"
         label="Icon"
         description="This is the icon of the app"
         placeholder="Choose app icon"
         // TODO: Figure out how to implement icons
         // value={createAppValues.icon}
-        onChange={setIcon}
+        onChange={icon => {
+          handleChange(oldValus =>{
+            return {...oldValus, icon : URL.createObjectURL(icon as Blob)}
+          })
+        }}
       />
+      {createAppValues.icon.length > 0 && <Avatar className="shadow-sm" radius={'xl'} src={createAppValues.icon} />}
       <NumberInput
         min={200}
         hideControls

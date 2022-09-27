@@ -1,4 +1,4 @@
-import { Group, Switch, useMantineColorScheme, useMantineTheme } from "@mantine/core";
+import { ActionIcon, Group, Switch, useMantineColorScheme, useMantineTheme } from "@mantine/core";
 import { MoonStars, Sun } from "tabler-icons-react";
 
 function ThemeSwitch() {
@@ -7,18 +7,15 @@ function ThemeSwitch() {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   return (
     <Group position="center">
-      <Switch
-      checked={colorScheme == 'dark'}
-        onChange={() => toggleColorScheme()}
-        size="md"
-        color={theme.colorScheme === "dark" ? "gray" : "dark"}
-        offLabel={
-          <Sun size={16} strokeWidth={2.5} color={theme.colors.indigo[4]} />
-        }
-        onLabel={
-          <MoonStars size={16} strokeWidth={2.5} color={theme.colors.violet[6]} />
-        }
-      />
+      
+      <ActionIcon
+      variant="transparent"
+        onClick={() => toggleColorScheme()}
+        size="lg"
+        // sx={{background: 'transparent'}}
+      >
+        {colorScheme === 'dark' ? <Sun size={18} color={theme.colors.yellow[6]}/> : <MoonStars size={18} color={theme.colors.violet[6]} />}
+      </ActionIcon>
     </Group>
   );
 }

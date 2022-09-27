@@ -1,5 +1,5 @@
-import { Autocomplete, TextInput } from "@mantine/core";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Select, TextInput } from "@mantine/core";
+import { Dispatch, SetStateAction } from "react";
 import { CreateAppInput } from "../../generated/graphql";
 
 export const LICENSES = ["MIT", "Apache", "BSD", "GPL"];
@@ -9,12 +9,6 @@ interface PrimaryInputsProps {
 }
 
 function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
-  const [productName, setProductName] = useState("");
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [license, setLicense] = useState("");
-  const [version, setVersion] = useState("1.0.0");
-  const [appId, setAppId] = useState("");
   return (
     <div className="flex flex-col w-full sm:w-1/3">
       <TextInput
@@ -46,15 +40,17 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
           return {...oldValues, description: e.target.value}
         })}
       />
-      <Autocomplete
+      <Select 
         data={LICENSES}
         required
+        searchable
+        clearable
         label="License"
         description="Establish how your software is distributed"
         placeholder="Software license"
         value={createAppValues.license}
         onChange={license => handleChange(oldValues => {
-          return {...oldValues, license : license}
+          return {...oldValues, license: license as string}
         })}
       />
       {/* { icon != null && <Avatar src={URL.createObjectURL(icon)} />} */}

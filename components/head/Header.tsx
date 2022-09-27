@@ -5,8 +5,8 @@ import ThemeSwitch from "./lib/ThemeSwitch";
 
 function Header() {
   return (
-    <header className="shadow-sm h-12 px-2 flex flex-row justify-between items-center">
-      <Logo width={40} />
+    <header className="shado h-12 px-2 flex flex-row justify-between items-center">
+      <Logo width={30} />
       {/* <div>
         <Link href={"/"}>
           <Button className="hover:underline" variant="white" color={"violet"}>

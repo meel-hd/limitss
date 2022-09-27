@@ -60,6 +60,7 @@ function Setup() {
             >
               Go Back
             </Button>
+            <button onClick={() => mutateAsync()}>test</button>
             {step == CREATE_APP_STEP.GENERAL && (
               <Button
                 onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
@@ -68,11 +69,10 @@ function Setup() {
                 Next Step
               </Button>
             )}
-            <button onClick={() => mutateAsync()}>test</button>
           </Card.Section>
         </Card>
           
-        {data && <code>{JSON.stringify(data)}</code>}
+        {/* {data && <code>{JSON.stringify(data)}</code>} */}
       </div>
         <p >{JSON.stringify(createAppVars)}</p>
     </>

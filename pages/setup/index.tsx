@@ -1,7 +1,7 @@
 import { Button, Card } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import Header from "../../components/head/Header";
+import Navigation from "../../components/head/Navigation";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
 import { CreateApp } from "../../lib/gql.client";
@@ -43,7 +43,7 @@ function Setup() {
 
   return (
     <>
-      <Header />
+      <Navigation onLeft={true}/>
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
         <Card radius={0} shadow="md" className="w-3/4 h-3/4">
           {step == CREATE_APP_STEP.WINDOW && <PrimaryInputs createAppValues={createAppVars} handleChange={setCreateAppVars} />}
@@ -60,7 +60,7 @@ function Setup() {
             >
               Go Back
             </Button>
-            <button onClick={() => mutateAsync()}>test</button>
+            {/* <button onClick={() => mutateAsync()}>test</button> */}
             {step == CREATE_APP_STEP.GENERAL && (
               <Button
                 onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
@@ -73,8 +73,8 @@ function Setup() {
         </Card>
           
         {/* {data && <code>{JSON.stringify(data)}</code>} */}
+        {/* <p >{JSON.stringify(createAppVars)}</p> */}
       </div>
-        <p >{JSON.stringify(createAppVars)}</p>
     </>
   );
 }

@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       boxShadow: {
         '0xl': '7px 10px 0px rgba(0, 0, 0,1)',
+        'shadow-r-sm' : '20px 3px 15px red'
       }
     },
   },

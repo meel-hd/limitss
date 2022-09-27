@@ -7,11 +7,13 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { queryClient } from "../lib/gql.client";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
-    defaultValue: "dark",
+    defaultValue: "light",
     getInitialValueInEffect: true,
   });
 
@@ -52,7 +54,10 @@ function MyApp({ Component, pageProps }: AppProps) {
             loader: 'bars' 
           }}
         >
+          <QueryClientProvider client={queryClient}>
+            
           <Component {...pageProps} />
+          </QueryClientProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

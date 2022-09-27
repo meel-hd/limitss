@@ -2,7 +2,7 @@ import { GraphQLClient } from "graphql-request";
 import { QueryClient } from "@tanstack/react-query";
 import { getSdk } from "../generated/graphql";
 
-const gqlClient = new GraphQLClient(process.env.APP_PUBLIC_API_URL as string);
+const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
 
 export const {
     CreateApp

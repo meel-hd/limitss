@@ -3,6 +3,9 @@ import { useState } from "react";
 import Header from "../../components/head/Header";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
+import { useMutation } from "@tanstack/react-query";
+import { CreateApp } from "../../lib/gql.client";
+import { showNotification } from "@mantine/notifications";
 
 enum CREATE_APP_STEP {
   GENERAL = "GENERAL",
@@ -12,6 +15,27 @@ enum CREATE_APP_STEP {
 
 function Setup() {
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
+  const { data, mutateAsync } = useMutation({
+    mutationKey: ["CreateApp"],
+    mutationFn: () =>
+      CreateApp({
+        arg: {
+          productName: "Linear App",
+          name: "linear",
+          description: "Moder issue tracking",
+          license: "MIT",
+          icon: "",
+          appId: "Linear App Desktop",
+          version: "1.0.0",
+          title: "Linear",
+          width: 600,
+          height: 600,
+          fullscreen: true,
+          titleChange: false,
+          topMenu: false,
+        },
+      }),
+  });
   return (
     <>
       <Header />
@@ -24,10 +48,10 @@ function Setup() {
             className="flex flex-row justify-between items-center"
           >
             <Button
-              className={step == CREATE_APP_STEP.GENERAL ? 'opacity-0': ''}
-              onClick={()=> setStep(CREATE_APP_STEP.GENERAL)}
+              className={step == CREATE_APP_STEP.GENERAL ? "opacity-0" : ""}
+              onClick={() => setStep(CREATE_APP_STEP.GENERAL)}
               variant="white"
-              color={'violet'}
+              color={"violet"}
             >
               Go Back
             </Button>
@@ -39,6 +63,7 @@ function Setup() {
                 Next Step
               </Button>
             )}
+            <button onClick={() => mutateAsync()}>test</button>
           </Card.Section>
         </Card>
       </div>

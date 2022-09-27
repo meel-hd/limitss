@@ -11,6 +11,7 @@ function Logo({ width, withoutText, withoutIcon }: LogoProps) {
     <div className="flex flex-row justify-center items-center">
       {!withoutIcon && (
         <Image
+          className="select-none"
           width={width ? width : 20}
           alt="DesWapp logo"
           src="./logo-transparent.png"
@@ -20,7 +21,7 @@ function Logo({ width, withoutText, withoutIcon }: LogoProps) {
         <Text
           color={"violet"}
           weight={700}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-400"
+          className="text-transparent select-none bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-400"
         >
           DesWapp
         </Text>

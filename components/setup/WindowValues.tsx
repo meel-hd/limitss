@@ -1,13 +1,17 @@
 import { NumberInput, Switch, Text, FileInput, TextInput } from "@mantine/core";
-import { useState } from "react";
-function WindowValues() {
-  const [title, setTitle] = useState("");
-  const [windowWidth, setWindowWidth] = useState(800);
-  const [windowHeight, setWindowHeight] = useState(600);
-  const [fullscreen, setFullscreen] = useState(false);
-  const [titleChange, setTitleChange] = useState(false);
-  const [topMenu, setTopMenu] = useState(false);
+import { Dispatch, SetStateAction, useState } from "react";
+import { CreateAppInput } from "../../generated/graphql";
+
+interface WindowValuesProps {
+  createAppValues: CreateAppInput;
+  // handleChange: (a: CreateAppInput) => CreateAppInput;
+  // 
+  handleChange: Dispatch<SetStateAction<CreateAppInput>>;
+}
+
+function WindowValues({ createAppValues, handleChange}: WindowValuesProps) {
   const [icon, setIcon] = useState<File | null>(null);
+
   return (
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
       <TextInput
@@ -15,32 +19,39 @@ function WindowValues() {
         label="Title"
         description="This will appear as the title off the app when it loads"
         placeholder="Title of the app"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={createAppValues.title}
+        onChange={(e) => handleChange(oldValues => {
+          return {...oldValues, title: e.target.value}
+        })}
       />
       <FileInput
         required
         className="w-full sm:w-1/2"
         label="Icon"
-        description='This is the icon of the app'
+        description="This is the icon of the app"
         placeholder="Choose app icon"
-        value={icon}
+        // TODO: Figure out how to implement icons
+        // value={createAppValues.icon}
         onChange={setIcon}
       />
       <NumberInput
         min={200}
         hideControls
         label="Width"
-        value={windowWidth}
-        onChange={(val) => setWindowWidth(val as number)}
+        value={createAppValues.width}
+        onChange={(val) => handleChange(oldValues =>{
+          return {...oldValues, width: val as number}
+        })}
       />
       <NumberInput
         min={200}
         hideControls
         defaultValue={600}
         label="Height"
-        value={windowHeight}
-        onChange={(val) => setWindowHeight(val as number)}
+        value={createAppValues.height}
+        onChange={(val) => handleChange(oldValues =>{
+          return {...oldValues, height: val as number}
+        })}
       />
       <Text mt={25} size={"xs"} color="dimmed">
         Show the app in fullscreen when it loads
@@ -49,8 +60,10 @@ function WindowValues() {
         color={"violet"}
         size="md"
         label="Fullscreen"
-        checked={fullscreen}
-        onChange={(e) => setFullscreen(e.currentTarget.checked)}
+        checked={createAppValues.fullscreen}
+        onChange={(e) => handleChange(oldValues => {
+          return {...oldValues, fullscreen: e.target.checked}
+        })}
       />
       <Text mt={15} size="xs" color={"dimmed"}>
         When visiting different URLs if the title should change
@@ -59,8 +72,10 @@ function WindowValues() {
         color={"violet"}
         size="md"
         label="Title Change"
-        checked={titleChange}
-        onChange={(e) => setTitleChange(e.currentTarget.checked)}
+        checked={createAppValues.titleChange}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, titleChange: e.target.checked}
+        })}
       />
       <Text mt={15} size="xs" color={"dimmed"}>
         A menu with some options Like refrech and force reload
@@ -69,8 +84,10 @@ function WindowValues() {
         color={"violet"}
         size="md"
         label="Top Menu"
-        checked={topMenu}
-        onChange={(e) => setTopMenu(e.currentTarget.checked)}
+        checked={createAppValues.topMenu}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, topMenu : e.target.checked}
+        })}
       />
     </div>
   );

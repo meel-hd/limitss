@@ -1,7 +1,14 @@
 import { Autocomplete, TextInput } from "@mantine/core";
-import { useState } from "react";
-const Licenses = ["MIT", "Apache", "BSD", "GPL"];
-function PrimaryInputs() {
+import { Dispatch, SetStateAction, useState } from "react";
+import { CreateAppInput } from "../../generated/graphql";
+
+export const LICENSES = ["MIT", "Apache", "BSD", "GPL"];
+interface PrimaryInputsProps {
+  createAppValues: CreateAppInput;
+  handleChange: Dispatch<SetStateAction<CreateAppInput>>;
+}
+
+function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
   const [productName, setProductName] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -13,51 +20,63 @@ function PrimaryInputs() {
       <TextInput
         required
         label="Product name"
-        description='This will show as the name of the app in the dock and other parts'
+        description="This will show as the name of the app in the dock and other parts"
         placeholder="The name visible to users"
-        value={productName}
-        onChange={(e) => setProductName(e.target.value)}
+        value={createAppValues.productName}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, productName: e.target.value}
+        })}
       />
       <TextInput
         required
         label="Name"
         placeholder="Example: myapp"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={createAppValues.name}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, name: e.target.value}
+        })}
       />
       <TextInput
         required
         label="Description"
-        description='This will show in some parts of the OS about the app'
+        description="This will show in some parts of the OS about the app"
         placeholder="Two sentences describing the app..."
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        value={createAppValues.description}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, description: e.target.value}
+        })}
       />
       <Autocomplete
-        data={Licenses}
+        data={LICENSES}
         required
         label="License"
-        description='Establish how your software is distributed'
+        description="Establish how your software is distributed"
         placeholder="Software license"
-        value={license}
-        onChange={setLicense}
+        value={createAppValues.license}
+        onChange={license => handleChange(oldValues => {
+          return {...oldValues, license : license}
+        })}
       />
       {/* { icon != null && <Avatar src={URL.createObjectURL(icon)} />} */}
       <TextInput
         required
         label="App Id"
-        description='This will appears when you hover on the app'
+        description="This will appears when you hover on the app"
         placeholder="Example: My app Desktop"
-        value={appId}
-        onChange={(e) => setAppId(e.target.value)}
+        value={createAppValues.appId}
+        onChange={(e) => handleChange(oldValues =>{
+          return {...oldValues, appId: e.target.value}
+        })}
       />
       <TextInput
         required
         label="Version"
-        description='For the users to know which version of the app they are using'
+        description="For the users to know which version of the app they are using"
         placeholder="Example: 1.0.0"
-        value={version}
-        onChange={(e) => setVersion(e.target.value)}
+        value={createAppValues.version}
+        onChange={(e) => handleChange(oldValues => {
+          return {...oldValues, version: e.target.value.trim()}
+        })}
       />
     </div>
   );

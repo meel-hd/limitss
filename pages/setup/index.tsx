@@ -1,11 +1,11 @@
 import { Button, Card } from "@mantine/core";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import Header from "../../components/head/Header";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
-import { useMutation } from "@tanstack/react-query";
 import { CreateApp } from "../../lib/gql.client";
-import { showNotification } from "@mantine/notifications";
+import { CreateAppInput } from "../../generated/graphql";
 
 enum CREATE_APP_STEP {
   GENERAL = "GENERAL",
@@ -15,34 +15,39 @@ enum CREATE_APP_STEP {
 
 function Setup() {
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
+  const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
+    appId: "",
+    description: "",
+    fullscreen: true,
+    height: 600,
+    icon: "",
+    license: "",
+    name: "",
+    productName: "",
+    title: "",
+    titleChange: false,
+    topMenu: false,
+    version: "",
+    width: 800,
+  });
+
   const { data, mutateAsync } = useMutation({
     mutationKey: ["CreateApp"],
     mutationFn: () =>
       CreateApp({
         arg: {
-          productName: "Linear App",
-          name: "linear",
-          description: "Moder issue tracking",
-          license: "MIT",
-          icon: "",
-          appId: "Linear App Desktop",
-          version: "1.0.0",
-          title: "Linear",
-          width: 600,
-          height: 600,
-          fullscreen: true,
-          titleChange: false,
-          topMenu: false,
+          ...createAppVars,
         },
       }),
   });
+
   return (
     <>
       <Header />
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
         <Card radius={0} shadow="md" className="w-3/4 h-3/4">
-          {step == CREATE_APP_STEP.WINDOW && <PrimaryInputs />}
-          {step == CREATE_APP_STEP.GENERAL && <WindowValues />}
+          {step == CREATE_APP_STEP.WINDOW && <PrimaryInputs createAppValues={createAppVars} handleChange={setCreateAppVars} />}
+          {step == CREATE_APP_STEP.GENERAL && <WindowValues createAppValues={createAppVars} handleChange={setCreateAppVars}/>}
           <Card.Section
             p={20}
             className="flex flex-row justify-between items-center"
@@ -66,7 +71,10 @@ function Setup() {
             <button onClick={() => mutateAsync()}>test</button>
           </Card.Section>
         </Card>
+          
+        {data && <code>{JSON.stringify(data)}</code>}
       </div>
+        <p >{JSON.stringify(createAppVars)}</p>
     </>
   );
 }

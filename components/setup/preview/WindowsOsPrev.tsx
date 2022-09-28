@@ -3,14 +3,19 @@ import { PreviewProps } from "./MacOsPrev";
 
 function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
   return (
-    <Tooltip color={'gray'} radius='xl' className="select-none " label="Double click to switch preview">
+    <Tooltip
+      color={"gray"}
+      radius="xl"
+      className="select-none   hidden  sm:flex "
+      label="Double click to switch preview"
+    >
       <div
         onDoubleClick={() => togglePrev((old) => !old)}
         style={{
           backgroundImage: 'url("wallpaper.png")',
           backgroundSize: "100%",
         }}
-        className="bg-blue-400 select-none shadow-md flex flex-col justify-end items-center w-[500px] h-[296px] overflow-hidden rounded-xl "
+        className="bg-blue-400 select-none   hidden  sm:flex  shadow-md  flex-col justify-end items-center w-[500px] h-[296px] overflow-hidden rounded-xl "
       >
         {appName.length > 0 && icon.length > 0 && (
           <div

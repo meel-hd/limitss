@@ -25,7 +25,7 @@ function NavbarLink({ Icon, href, label, expanded, active }: NavbarLinkProps) {
         w-full flex flex-row justify-around items-center m-1 p-2 hover:bg-[#ffffff20] hover:shadow-md hover:cursor-pointer`}
     >
       <Icon
-        size={30}
+        size={25}
         strokeWidth={1.5}
         color={active ? theme.colors.violet[5] : "gray"}
       />

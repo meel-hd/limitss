@@ -25,7 +25,7 @@ function ThemeSwitch({
       ) : (
         <MoonStars
           strokeWidth={1.5}
-          className="active:-rotate-90 duration-700  transition-all"
+          className="active:rotate-90 duration-700  transition-all"
           size={size ? size : 18}
           color={theme.colors.blue[9]}
         />

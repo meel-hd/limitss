@@ -7,6 +7,7 @@ import {
   Avatar,
 } from "@mantine/core";
 import { Dispatch, SetStateAction, useState } from "react";
+import { Check, X } from "tabler-icons-react";
 import { CreateAppInput } from "../../generated/graphql";
 
 interface WindowValuesProps {
@@ -81,6 +82,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Fullscreen"
         checked={createAppValues.fullscreen}
+        offLabel={<X size={15}/>}
+        onLabel={<Check size={15}/>}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, fullscreen: e.target.checked };
@@ -95,6 +98,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Title Change"
         checked={createAppValues.titleChange}
+        offLabel={<X size={15}/>}
+        onLabel={<Check size={15}/>}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, titleChange: e.target.checked };
@@ -109,6 +114,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Top Menu"
         checked={createAppValues.topMenu}
+        offLabel={<X size={15}/>}
+        onLabel={<Check size={15}/>}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, topMenu: e.target.checked };

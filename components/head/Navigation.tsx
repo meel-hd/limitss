@@ -1,7 +1,6 @@
 import { Card, useMantineTheme } from "@mantine/core";
-import Link from "next/link";
 import { useState } from "react";
-import { AdjustmentsHorizontal, ChevronsRight, Home, Icon, Settings } from "tabler-icons-react";
+import { AdjustmentsHorizontal, ChevronsRight, Home, Settings } from "tabler-icons-react";
 import Logo from "./lib/Logo";
 import NavbarLink from "./lib/NavbarLink";
 import ThemeSwitch from "./lib/ThemeSwitch";
@@ -20,10 +19,12 @@ function Navigation() {
       }`}
     >
       <div className="justify-start">
-        <Logo width={30} withoutIcon={expanded} withoutText={!expanded} />
-        <div className={`${expanded ? 'w-[150%]' : 'w-full'} p-0 flex justify-end items-center`}>
+        <Logo width={30}  withoutText={!expanded} />
+        <div className={`${expanded ? 'w-[100%]' : 'w-full'} p-0 flex justify-end items-center`}>
           <ChevronsRight
             color="gray"
+            size={25}
+            strokeWidth={1}
             className={`cursor-pointer mt-10 ${expanded && "-rotate-180"} `}
             onClick={() => setExpanded((oldVal) => !oldVal)}
           />

@@ -1,6 +1,5 @@
 import { Button, Image, Text } from "@mantine/core";
 import Link from "next/link";
-import { Home } from "tabler-icons-react";
 
 function NotFound() {
   return (
@@ -10,8 +9,7 @@ function NotFound() {
       <Text mb={80} size={'lg'} weight={400}>It looks like the page you are looking for does not exist.</Text>
       <Link href={"/"}>
         <Button
-          leftIcon={<Home color="#9333ea" />}
-          variant='white'
+          variant='outline'
           color={'violet'}
         >
           Get Back to Home Sweet Home

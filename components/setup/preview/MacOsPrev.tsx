@@ -15,7 +15,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
         style={{ backgroundImage: 'url("https://picsum.photos/1000")' }}
         className="bg-gray-500 shadow-md flex flex-col justify-end items-center select-none w-[500px] h-[296px] overflow-hidden rounded-xl "
       >
-        {appName.length > 0 && (
+        {appName.length > 0 && icon.length > 0 && (
           <div
             className="text-black bg-[#ffffff60] mb-6
         max-w-[300px] overflow-hidden text-ellipsis whitespace-nowrap
@@ -31,11 +31,11 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
           }}
           className=" w-[313px] h-[110px] rounded-t-md flex justify-center items-center"
         >
-          <Avatar
+         { icon.length > 0 && <Avatar
             className="rounded-none pointer-events-none"
             size={"xl"}
-            src={icon.length > 0 ? icon : "logo-transparent.png"}
-          />
+            src={icon}
+          />}
         </div>
       </div>
     </Tooltip>

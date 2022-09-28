@@ -11,7 +11,7 @@ function Logo({ width, withoutText, withoutIcon }: LogoProps) {
     <div className="flex flex-row justify-center items-center">
       {!withoutIcon && (
         <Image
-          className="select-none"
+          className="select-none pointer-events-none"
           width={width ? width : 20}
           alt="DesWapp logo"
           src="./logo-transparent.png"

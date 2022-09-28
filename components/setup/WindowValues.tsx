@@ -40,17 +40,21 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         // value={createAppValues.icon}
         onChange={(icon) => {
           handleChange((oldValus) => {
-            return { ...oldValus, icon: URL.createObjectURL(icon as Blob) };
+            if (icon != null) {
+              return { ...oldValus, icon: URL.createObjectURL(icon as Blob) };
+            } else {
+              return {...oldValus, icon:''};
+            }
           });
         }}
       />
-      {createAppValues.icon.length > 0 && (
+      {/* {createAppValues.icon.length > 0 && (
         <Avatar
           className="shadow-sm"
           radius={"xl"}
           src={createAppValues.icon}
         />
-      )}
+      )} */}
       <NumberInput
         min={200}
         hideControls
@@ -82,8 +86,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Fullscreen"
         checked={createAppValues.fullscreen}
-        offLabel={<X size={15}/>}
-        onLabel={<Check size={15}/>}
+        offLabel={<X size={15} />}
+        onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, fullscreen: e.target.checked };
@@ -98,8 +102,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Title Change"
         checked={createAppValues.titleChange}
-        offLabel={<X size={15}/>}
-        onLabel={<Check size={15}/>}
+        offLabel={<X size={15} />}
+        onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, titleChange: e.target.checked };
@@ -114,8 +118,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         size="sm"
         label="Top Menu"
         checked={createAppValues.topMenu}
-        offLabel={<X size={15}/>}
-        onLabel={<Check size={15}/>}
+        offLabel={<X size={15} />}
+        onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, topMenu: e.target.checked };

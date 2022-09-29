@@ -20,14 +20,14 @@ function ThemeSwitch({
         <Sun
           className="active:rotate-90 duration-700  transition-all"
           size={size ? size : 18}
-          color={theme.colors.yellow[3]}
+          color={theme.colors.yellow[4]}
         />
       ) : (
         <MoonStars
           strokeWidth={1.5}
           className="active:rotate-90 duration-700  transition-all"
           size={size ? size : 18}
-          color={theme.colors.blue[9]}
+          color={theme.colors.blue[6]}
         />
       )}
       {expanded && (

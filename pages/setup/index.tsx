@@ -84,7 +84,7 @@ function Setup() {
             className="flex flex-row justify-between items-center"
           >
             <Button
-              className={step == CREATE_APP_STEP.GENERAL ? "opacity-0" : ""}
+              className={step == CREATE_APP_STEP.GENERAL ? "opacity-0 cursor-default" : ""}
               onClick={() => setStep(CREATE_APP_STEP.GENERAL)}
               variant="white"
               color={"violet"}

@@ -15,7 +15,7 @@ function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
           backgroundImage: 'url("wallpaper.png")',
           backgroundSize: "100%",
         }}
-        className="bg-blue-400 select-none   hidden  sm:flex  shadow-md  flex-col justify-end items-center w-[500px] h-[296px] overflow-hidden rounded-xl "
+        className="bg-gradient-to-br from-blue-400  to-sky-300 bg-no-repeat select-none   hidden  sm:flex  shadow-md  flex-col justify-end items-center w-[500px] h-[296px] overflow-hidden rounded-xl "
       >
         {appName.length > 0 && icon.length > 0 && (
           <div

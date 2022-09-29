@@ -12,10 +12,10 @@ function Navigation() {
     <Card
       color="violet"
       shadow={"xl"}
-      className={` px-1 flex z-10 justify-between items-center 
+      className={` px-1 flex z-10 justify-between items-center
           flex-col fixed top-0 left-0 h-screen  borderf-r-[1px] pt-2 pb-10
       } ${theme.colorScheme == "dark" && "bordfer-gray-800"} ${
-        expanded ? "min-w-[150px]" : "min-w-[60px]"
+        expanded ? "min-w-[150px]" : "min-w-[60px]  transition-all duration-500"
       }`}
     >
       <div className="justify-start">

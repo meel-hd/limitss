@@ -26,11 +26,12 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
         )}
         <div
           style={{
+            backgroundColor:'rgba(243 ,244 ,246,0.7)',
             backgroundImage: 'url("dock.png")',
             backgroundSize: "90%",
             backgroundPosition: 'center'
           }}
-          className=" w-[50%] h-11 mb-1 mx-1 bg-no-repeat bg-gray-100 opacity-70 rounded-lg flex justify-center items-center"
+          className=" w-[50%] h-11 mb-1 mx-1 bg-no-repeat rounded-lg flex justify-center items-center"
         >
          { icon.length > 0 && <Avatar
             className="rounded-none pointer-events-none"

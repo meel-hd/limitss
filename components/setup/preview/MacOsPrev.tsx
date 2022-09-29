@@ -17,7 +17,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
       >
         {appName.length > 0 && icon.length > 0 && (
           <div
-            className="text-black bg-[#ffffff60] mb-6
+            className="text-black bg-[#ffffff60] mb-4
         max-w-[300px] overflow-hidden text-ellipsis whitespace-nowrap
         py-[2px] px-[10px] font-medium rounded-md select-none font-sans"
           >
@@ -26,14 +26,15 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
         )}
         <div
           style={{
-            backgroundImage: 'url("macDock.png")',
-            backgroundSize: "100%",
+            backgroundImage: 'url("dock.png")',
+            backgroundSize: "90%",
+            backgroundPosition: 'center'
           }}
-          className=" w-[313px] h-[110px] rounded-t-md flex justify-center items-center"
+          className=" w-[50%] h-11 mb-1 mx-1 bg-no-repeat bg-gray-100 opacity-70 rounded-lg flex justify-center items-center"
         >
          { icon.length > 0 && <Avatar
             className="rounded-none pointer-events-none"
-            size={"xl"}
+            size={"md"}
             src={icon}
           />}
         </div>

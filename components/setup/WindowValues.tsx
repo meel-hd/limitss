@@ -22,6 +22,7 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
       <TextInput
         label="Title"
+        spellCheck={false}
         description="This will appear as the title off the app when it loads"
         placeholder="Title of the app"
         value={createAppValues.title}

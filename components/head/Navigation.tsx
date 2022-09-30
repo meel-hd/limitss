@@ -1,22 +1,21 @@
-import { Card, useMantineTheme } from "@mantine/core";
+import { Card } from "@mantine/core";
 import { useState } from "react";
-import { AdjustmentsHorizontal, ChevronsRight, Home, Settings } from "tabler-icons-react";
+import { AdjustmentsHorizontal, ChevronsRight, Home, Propeller, Settings } from "tabler-icons-react";
 import Logo from "./lib/Logo";
 import NavbarLink from "./lib/NavbarLink";
 import ThemeSwitch from "./lib/ThemeSwitch";
 
 function Navigation() {
-  const theme = useMantineTheme();
   const [expanded, setExpanded] = useState(false);
   return (
     <Card
       color="violet"
       shadow={"xl"}
-      className={` px-1 flex z-10 justify-between items-center
-          flex-col fixed top-0 left-0 h-screen  borderf-r-[1px] pt-2 pb-10
-      } ${theme.colorScheme == "dark" && "bordfer-gray-800"} ${
-        expanded ? "min-w-[150px]" : "min-w-[60px]  transition-all duration-500"
-      }`}
+      style={{
+        transition: expanded ? 'none' : 'width 0.4s ease-in',
+        width: expanded ? '150px' : '60px',
+      }}
+      className={` min-h-[380px] px-1 flex z-10 select-none justify-between items-center flex-col fixed top-0 left-0 h-screen  pt-2 pb-10`}
     >
       <div className="justify-start">
         <Logo width={30}  withoutText={!expanded} />
@@ -34,6 +33,8 @@ function Navigation() {
       <div className="h-1/3 w-full flex flex-col items-center">
         <NavbarLink expanded={expanded} Icon={Home} href='/home' label='Home'/>
         <NavbarLink expanded={expanded} Icon={AdjustmentsHorizontal} href='/setup' active={true} label='Setup'/>
+        {/* <NavbarLink expanded={expanded} Icon={BuildingStore} href='/store' label='Store'/> */}
+        <NavbarLink expanded={expanded} Icon={Propeller} href='/account' label='Account'/>
       </div>
 
       <div className={"flex flex-col justify-between items-center h-16"}>

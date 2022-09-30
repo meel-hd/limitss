@@ -2,12 +2,11 @@ import { Button, Card } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import Navigation from "../../components/head/Navigation";
+import Preview from "../../components/setup/preview";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
-import { CreateApp } from "../../lib/gql.client";
 import { CreateAppInput } from "../../generated/graphql";
-import MacOsPrev from "../../components/setup/preview/MacOsPrev";
-import WindowsOsPrev from "../../components/setup/preview/WindowsOsPrev";
+import { CreateApp } from "../../lib/gql.client";
 
 enum CREATE_APP_STEP {
   GENERAL = "GENERAL",
@@ -32,7 +31,6 @@ function Setup() {
     version: "",
     width: 800,
   });
-  const [isMacPrev, setIsMacPrev] = useState(true);
   const { data, mutateAsync } = useMutation({
     mutationKey: ["CreateApp"],
     mutationFn: () =>
@@ -47,7 +45,7 @@ function Setup() {
     <>
       <Navigation />
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
-        <Card radius={0} shadow="md" className="w-3/4 h-3/4">
+        <Card radius={0} my={30} shadow="md" className="w-3/4 h-3/4">
           <Card.Section
             className="flex flex-row justify-between "
             pt={10}
@@ -65,19 +63,7 @@ function Setup() {
                 handleChange={setCreateAppVars}
               />
             )}
-            {isMacPrev ? (
-              <MacOsPrev
-                appName={createAppVars.title}
-                icon={createAppVars.icon}
-                togglePrev={setIsMacPrev}
-              />
-            ) : (
-              <WindowsOsPrev
-                icon={createAppVars.icon}
-                appName={createAppVars.title}
-                togglePrev={setIsMacPrev}
-              />
-            )}
+            <Preview appName={createAppVars.title} icon={createAppVars.icon}/>
           </Card.Section>
           <Card.Section
             p={20}

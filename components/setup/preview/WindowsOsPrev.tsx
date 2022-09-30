@@ -7,10 +7,10 @@ function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
       color={"gray"}
       radius="xl"
       className="select-none   hidden  sm:flex "
-      label="Double click to switch preview"
+      label="Click to preview MacOs"
     >
       <div
-        onDoubleClick={() => togglePrev((old) => !old)}
+        onClick={() => togglePrev((old) => !old)}
         style={{
           backgroundImage: 'url("wallpaper.png")',
           backgroundSize: "100%",

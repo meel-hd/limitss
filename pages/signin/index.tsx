@@ -10,10 +10,10 @@ function SignIn() {
           shadow={"sm"}
           className="h-4/6 w-1/2 min-w-[280px] min-h-[400px] flex flex-col justify-between items-center"
         >
-          <div>
-            <Logo />
-            <h1 className="text-3xl font-bold">Create an Account</h1>
-          </div>
+        <div>
+          <Logo width={50} textSize={30} />
+          <h1 className="text-2xl text-center font-bold">Sing In</h1>
+        </div>
           <div className="w-full p-11 flex flex-col justify-center items-center">
             <TextInput
               type={"email"}

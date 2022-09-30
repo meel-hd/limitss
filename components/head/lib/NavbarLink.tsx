@@ -21,8 +21,8 @@ function NavbarLink({ Icon, href, label, expanded, active }: NavbarLinkProps) {
     <div
         onClick={()=> handleClick()}
       className={`${active && "bg-[#ffffff20]"} 
-      ${expanded ? "rounded-full" : 'rounded-xl'}
-        w-full flex flex-row justify-around items-center m-1 p-2 hover:bg-[#ffffff20] hover:shadow-md hover:cursor-pointer`}
+      ${expanded ? "rounded-full hover:shadow-sm" : 'rounded-xl  hover:shadow-md'}
+        w-full flex flex-row justify-around items-center m-1 p-3 hover:bg-[#ffffff20] hover:cursor-pointer`}
     >
       <Icon
         size={25}

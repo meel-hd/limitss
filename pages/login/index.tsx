@@ -9,8 +9,8 @@ function Login() {
             className="h-4/6 w-1/2 min-w-[280px] min-h-[400px] flex flex-col justify-between items-center"
           >
             <div>
-              <Logo />
-              <h1 className="text-3xl font-bold">Log In</h1>
+              <Logo width={50} textSize={30} />
+              <h1 className="text-3xl text-center font-bold">Log In</h1>
             </div>
             <div className="w-full p-11 flex flex-col justify-center items-center">
               <TextInput
@@ -27,7 +27,7 @@ function Login() {
                 placeholder="Enter your password"
                 className="w-4/6 focus:shadow-md outline-indigo-400 min-w-[230px]"
               />
-              <Button className="bg-violet-500 mt-14 hover:bg-violet-500">
+              <Button className="bg-violet-500 mt-14 w-32 hover:bg-violet-500">
                 Log In
               </Button>
             </div>

@@ -1,7 +1,12 @@
 import { Button, Card, PasswordInput, TextInput } from "@mantine/core";
+import Head from "next/head";
 import Logo from "../../components/head/lib/Logo";
 function Login() {
     return ( <>
+      <Head>
+        <title>DesWapp  Log In to your Account and Manage your Apps</title>
+        <meta name="description" content="Login to DesWapp and Manage your Desktop App From The Dashboard."></meta>
+      </Head>
         <div className="w-full h-screen flex py-9 flex-col justify-center items-center">
           <Card
             pb={20}

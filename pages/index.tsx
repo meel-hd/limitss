@@ -8,8 +8,8 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title> DesWapp | Build Desktops App for Businesses</title>
-        <meta name="description" content="Generate Native Desktop App for your Business Website" />
+        <title> DesWapp  Build Desktop Apps from your Webapp Faster with no Code</title>
+        <meta name="description" content="Build Native Desktop Apps from Webapps without Code." />
       </Head>
       <main className="min-h-screen flex-1 flex flex-col justify-center items-center  p-5 ">
         <h1 className="text-6xl">

@@ -10,18 +10,21 @@ interface NavbarLinkProps {
   active?: boolean;
 }
 
-
 function NavbarLink({ Icon, href, label, expanded, active }: NavbarLinkProps) {
   const theme = useMantineTheme();
   const router = useRouter();
-  function handleClick(){
+  function handleClick() {
     router.push(href);
   }
   return (
     <div
-        onClick={()=> handleClick()}
+      onClick={() => handleClick()}
       className={`${active && "bg-[#ffffff20]"} 
-      ${expanded ? "rounded-full hover:shadow-sm" : 'rounded-xl  hover:shadow-md'}
+      ${
+        expanded
+          ? "rounded-full hover:shadow-sm  "
+          : "rounded-xl  hover:shadow-md"
+      }
         w-full flex flex-row justify-around items-center m-1 p-3 hover:bg-[#ffffff20] hover:cursor-pointer`}
     >
       <Icon

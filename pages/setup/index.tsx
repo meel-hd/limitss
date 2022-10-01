@@ -1,5 +1,6 @@
 import { Button, Card } from "@mantine/core";
 import { useMutation } from "@tanstack/react-query";
+import Head from "next/head";
 import { useState } from "react";
 import Navigation from "../../components/head/Navigation";
 import Preview from "../../components/setup/preview";
@@ -43,9 +44,13 @@ function Setup() {
 
   return (
     <>
+    <Head>
+      <title>DesWapp  Setup your Desktop for The Build and Delevery to Users</title>
+      <meta name="description" content="Start Building a Desktop from your Website without Code or Thinking about Time"></meta>
+    </Head>
       <Navigation />
       <div className="w-full min-h-screen flex flex-col justify-center items-center">
-        <Card radius={0} my={30} shadow="md" className="w-3/4 h-3/4">
+        <Card radius={0} my={30} shadow="sm" className="w-3/4 h-3/4">
           <Card.Section
             className="flex flex-row justify-between "
             pt={10}

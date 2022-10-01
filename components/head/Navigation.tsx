@@ -12,10 +12,10 @@ function Navigation() {
       color="violet"
       shadow={"xl"}
       style={{
-        transition: expanded ? 'none' : 'width 0.4s ease-in',
-        width: expanded ? '150px' : '60px',
+        transition: expanded ? 'width 0.2s ease-in' : 'width 0.4s ease-in',
+        width: expanded ? '170px' : '60px',
       }}
-      className={` min-h-[380px] px-1 flex z-10 select-none justify-between items-center flex-col fixed top-0 left-0 h-screen  pt-2 pb-10`}
+      className={` min-h-[380px] hidden px-1 sm:flex z-10 select-none justify-between items-center flex-col fixed top-0 left-0 h-screen  pt-2 pb-10`}
     >
       <div className="justify-start">
         <Logo width={30}  withoutText={!expanded} />

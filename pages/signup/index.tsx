@@ -1,19 +1,27 @@
 import { Button, Card, PasswordInput, TextInput } from "@mantine/core";
+import Head from "next/head";
 import Logo from "../../components/head/lib/Logo";
 
-function SignIn() {
+function SignUp() {
   return (
     <>
+      <Head>
+        <title>DesWapp Create Account and Build Desktop Apps that Users Care about More</title>
+        <meta
+          name="description"
+          content="Build Desktop App Faster From your Webapp for Windows, MacOs, Linux, and ChoreOs. With Continues Delevery and Updates."
+        ></meta>
+      </Head>
       <div className="w-full h-screen flex py-9 flex-col justify-center items-center">
         <Card
           pb={20}
           shadow={"sm"}
           className="h-4/6 w-1/2 min-w-[280px] min-h-[400px] flex flex-col justify-between items-center"
         >
-        <div>
-          <Logo width={50} textSize={30} />
-          <h1 className="text-2xl text-center font-bold">Sing In</h1>
-        </div>
+          <div>
+            <Logo width={50} textSize={30} />
+            <h1 className="text-2xl text-center font-bold">Sing Up</h1>
+          </div>
           <div className="w-full p-11 flex flex-col justify-center items-center">
             <TextInput
               type={"email"}
@@ -24,7 +32,7 @@ function SignIn() {
             />
             <PasswordInput
               autoComplete="off"
-              styles={{ visibilityToggle:{borderRadius:'50%'}}}
+              styles={{ visibilityToggle: { borderRadius: "50%" } }}
               label="Password"
               placeholder="Choose secure password"
               className="w-4/6 focus:shadow-md outline-indigo-400 min-w-[230px]"
@@ -39,4 +47,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignUp;

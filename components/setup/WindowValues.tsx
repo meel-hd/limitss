@@ -1,12 +1,9 @@
 import {
-  NumberInput,
+  FileInput, NumberInput,
   Switch,
-  Text,
-  FileInput,
-  TextInput,
-  Avatar,
+  Text, TextInput
 } from "@mantine/core";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { Check, X } from "tabler-icons-react";
 import { CreateAppInput } from "../../generated/graphql";
 
@@ -35,6 +32,7 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
       <FileInput
         className="w-full sm:w-1/2 truncate"
         label="Icon"
+        accept="image/png"
         description="This is the icon of the app"
         placeholder="Choose app icon"
         // TODO: Figure out how to implement icons

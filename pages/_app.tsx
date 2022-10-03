@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               },
               Button: {
                 classNames: {
-                  root: "rounded-full",
+                  root: "rounded-full bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]",
                 },
               },
             },

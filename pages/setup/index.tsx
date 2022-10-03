@@ -86,7 +86,6 @@ function Setup() {
             {step == CREATE_APP_STEP.GENERAL && (
               <Button
                 onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
-                className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl"
               >
                 Next Step
               </Button>

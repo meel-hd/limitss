@@ -1,8 +1,7 @@
-import { Button, PasswordInput, Text, TextInput } from "@mantine/core";
+import { Button, Text, TextInput } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import { Key, Mail, User } from "tabler-icons-react";
-import Logo from "../../components/head/lib/Logo";
+import { Building, Mail, Sitemap, User } from "tabler-icons-react";
 
 function SignUp() {
   return (
@@ -49,17 +48,26 @@ function SignUp() {
               icon={<User size={14} />}
             />
           </div>
+          <div className="flex w-[80%] xs:w-full my-4 justify-between">
+            <TextInput
+              className="mr-4 "
+              placeholder="Company name"
+              label="Company"
+              icon={<Building size={14} />}
+            />
+            <TextInput
+            className="w-[70%]"
+              placeholder="Your role"
+              label="Role"
+              icon={<Sitemap size={14} />}
+            />
+          </div>
           <TextInput
             className="w-[80%] mb-4"
             label="Email"
+            type={'email'}
             placeholder="Enter your email"
             icon={<Mail size={14} />}
-          />
-          <PasswordInput
-            className="w-[80%]"
-            label="Password"
-            placeholder="Choose strong password"
-            icon={<Key size={14} />}
           />
 
           <div className="flex  justify-center sm:justify-end items-center mt-8 w-[80%]">

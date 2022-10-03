@@ -1,7 +1,7 @@
-import { Button, PasswordInput, Text, TextInput } from "@mantine/core";
+import { Button, Text, TextInput } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import { Key, Mail } from "tabler-icons-react";
+import { Mail } from "tabler-icons-react";
 function Login() {
   return (
     <>
@@ -22,7 +22,7 @@ function Login() {
             <Text size={"xs"} color={"dimmed"}>
               {"Don't have account?"}
             </Text>{" "}
-            <Link href={"/signup"}>
+            <Link href={"/register"}>
               <Text
                 size={"xs"}
                 className="cursor-pointer hover:underline text-violet-500 ml-1"
@@ -36,12 +36,6 @@ function Login() {
             label="Email"
             placeholder="Enter your email"
             icon={<Mail size={14} />}
-          />
-          <PasswordInput
-            className="w-[80%]"
-            label="Password"
-            placeholder="Enter password"
-            icon={<Key size={14} />}
           />
 
           <div className="flex justify-center sm:justify-end items-center mt-6 w-[80%]">

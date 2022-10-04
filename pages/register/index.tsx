@@ -1,7 +1,7 @@
-import { Button, Text, TextInput } from "@mantine/core";
+import { Button, PasswordInput, Text, TextInput } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import { Building, Mail, Sitemap, User } from "tabler-icons-react";
+import { Building, Key, Mail, Sitemap, User } from "tabler-icons-react";
 
 function SignUp() {
   return (
@@ -35,19 +35,12 @@ function SignUp() {
               </Text>
             </Link>
           </div>
-          <div className="flex w-[80%] xs:w-full my-4 justify-between">
             <TextInput
-              className="mr-4 "
-              placeholder="Jane"
-              label="First name"
+              className="w-[80%] "
+              placeholder="Jane Doe"
+              label="Full name"
               icon={<User size={14} />}
             />
-            <TextInput
-              placeholder="Doe"
-              label="Last name"
-              icon={<User size={14} />}
-            />
-          </div>
           <div className="flex w-[80%] xs:w-full my-4 justify-between">
             <TextInput
               className="mr-4 "
@@ -63,11 +56,18 @@ function SignUp() {
             />
           </div>
           <TextInput
-            className="w-[80%] mb-4"
+            className="w-[50%] mb-4"
             label="Email"
             type={'email'}
             placeholder="Enter your email"
             icon={<Mail size={14} />}
+          />
+          <PasswordInput
+            styles={{visibilityToggle:{borderRadius: '50%'}, input:{borderColor: '#a78bfa',}}}
+            label="Password"
+            placeholder="Enter your password"
+            className="w-[60%]"
+            icon={<Key size={14} />}
           />
 
           <div className="flex  justify-center sm:justify-end items-center mt-8 w-[80%]">

@@ -56,7 +56,7 @@ function SignUp() {
             />
           </div>
           <TextInput
-            className="w-[50%] mb-4"
+            className="w-[57%] mb-4"
             label="Email"
             type={'email'}
             placeholder="Enter your email"

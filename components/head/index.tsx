@@ -1,5 +1,6 @@
 import { Button, Text, useMantineTheme } from "@mantine/core";
 import Link from "next/link";
+import Logo from "./lib/Logo";
 
 function Header() {
   const theme = useMantineTheme();
@@ -11,6 +12,7 @@ function Header() {
       className="fixed z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
     >
       <div className="flex justify-center items-center">
+        <Logo withoutText={true} width={35}/>
         <Text
           color={theme.colorScheme == "dark" ? theme.white : ""}
           className={"font-semibold"}

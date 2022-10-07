@@ -12,7 +12,7 @@ function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
       <div
         onClick={() => togglePrev((old) => !old)}
         style={{
-          backgroundImage: 'url("wallpaper.png")',
+          backgroundImage: 'url("https://picsum.photos/1000")',
           backgroundSize: "100%",
         }}
         className="bg-gradient-to-br from-blue-400  to-sky-300 bg-no-repeat select-none   hidden  sm:flex  shadow-md  flex-col justify-end items-center w-[500px] h-[296px] overflow-hidden rounded-xl "

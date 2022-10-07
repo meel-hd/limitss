@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           withNormalizeCSS
           theme={{
             colorScheme: colorScheme,
+            // fontFamily:"robot",
             components: {
               Input: {
                 defaultProps: {
@@ -47,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               },
               Button: {
                 classNames: {
-                  root: "rounded-full bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]",
+                  root: "rounded-full",
                 },
               },
             },

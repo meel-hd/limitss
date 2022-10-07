@@ -85,6 +85,7 @@ function Setup() {
             {/* <button onClick={() => mutateAsync()}>test</button> */}
             {step == CREATE_APP_STEP.GENERAL && (
               <Button
+                className=" bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
                 onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
               >
                 Next Step

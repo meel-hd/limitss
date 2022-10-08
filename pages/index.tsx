@@ -20,12 +20,17 @@ const Home: NextPage = () => {
         />
       </Head>
       <Header />
-      <div className="flex w-full min-h-[90vh] justify-center items-center">
+      <div className="flex w-full min-h-screen justify-center items-center">
         <HeroSection  >
           {<Link href={'/setup'}>
             <Button className="bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]" >Get Started</Button>
           </Link>}
         </HeroSection>
+      </div>
+      <div className="w-full flex justify-center -mt-7 items-center">
+        <div className="w-3 h-3 rounded-full bg-fuchsia-400 animate-bounce mr-2"></div>
+        <div className="w-4 h-4 rounded-full bg-violet-400 animate-bounce mr-2"></div>
+        <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>
       </div>
       <CustomersApp />
       <Pricing />

@@ -1,7 +1,8 @@
-import { Button, PasswordInput, Text, TextInput } from "@mantine/core";
+import { PasswordInput, Text, TextInput } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
 import { Key, Mail } from "tabler-icons-react";
+import Header from "../../components/head";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
 function Login() {
   return (
@@ -13,6 +14,7 @@ function Login() {
           content="Login to DesWapp and Manage your Desktop App From The Dashboard."
         ></meta>
       </Head>
+      <Header minimal={true} />
       <div className="w-full flex flex-row justify-start items-center">
         <div className="w-full sm:w-1/2 h-screen flex flex-col justify-center items-center sm:items-start px-10 sm:px-20 py-32">
           <p className="text-3xl sm:text-5xl font-bold">

@@ -1,6 +1,7 @@
-import { Button, PasswordInput, Text, TextInput } from "@mantine/core";
+import { PasswordInput, Text, TextInput } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
+import Header from "../../components/head";
 import { Building, Key, Mail, Sitemap, User } from "tabler-icons-react";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
 
@@ -17,6 +18,7 @@ function SignUp() {
           content="Build Desktop App Faster From your Webapp for Windows, MacOs, Linux, and ChoreOs. With Continues Delevery and Updates."
         ></meta>
       </Head>
+      <Header minimal={true} />
       <div className="w-full flex flex-row justify-start items-center">
         <div className="sm:w-1/2 h-screen flex flex-col justify-center  px-10 sm:px-20   py-32">
           <p className="text-3xl sm:text-5xl font-bold">

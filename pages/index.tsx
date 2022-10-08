@@ -3,6 +3,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/head";
+import CustomersApp from "../components/landing/CustomersApp";
 import HeroSection from "../components/landing/Hero";
 import Pricing from "../components/landing/Pricing";
 
@@ -19,13 +20,14 @@ const Home: NextPage = () => {
         />
       </Head>
       <Header />
-      <div className="flex w-full min-h-screen justify-center items-center">
+      <div className="flex w-full min-h-[90vh] justify-center items-center">
         <HeroSection  >
           {<Link href={'/setup'}>
             <Button className="bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]" >Get Started</Button>
           </Link>}
         </HeroSection>
       </div>
+      <CustomersApp />
       <Pricing />
     </>
   );

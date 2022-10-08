@@ -9,10 +9,10 @@ function Header() {
       style={{
         backgroundColor: theme.colorScheme == "light" ? "white" : "#1a1b1e",
       }}
-      className="fixed hover:shadow z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
+      className="fixed hover:shadow-sm z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
     >
+        <Logo  width={35}/>
       <div className="flex justify-center items-center">
-        <Logo withoutText={true} width={35}/>
         <Text
           className="hidden sm:flex"
           color={theme.colorScheme == "dark" ? theme.white : "dimmed"}

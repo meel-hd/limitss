@@ -4,6 +4,7 @@ import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/head";
 import HeroSection from "../components/landing/Hero";
+import Pricing from "../components/landing/Pricing";
 
 const Home: NextPage = () => {
   return (
@@ -25,6 +26,7 @@ const Home: NextPage = () => {
           </Link>}
         </HeroSection>
       </div>
+      <Pricing />
     </>
   );
 };

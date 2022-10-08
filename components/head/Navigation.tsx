@@ -37,7 +37,7 @@ function Navigation() {
         <NavbarLink expanded={expanded} Icon={Propeller} href='/account' label='Account'/>
       </div>
 
-      <div className={"flex flex-col justify-between items-center h-16"}>
+      <div className={"flex flex-col w-full justify-between items-center h-16"}>
         <NavbarLink Icon={Settings} label="Settings" expanded={expanded} href={'/settings'} />
         <ThemeSwitch expanded={expanded} size={25} />
       </div>

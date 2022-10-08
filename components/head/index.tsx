@@ -9,27 +9,30 @@ function Header() {
       style={{
         backgroundColor: theme.colorScheme == "light" ? "white" : "#1a1b1e",
       }}
-      className="fixed z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
+      className="fixed hover:shadow z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
     >
       <div className="flex justify-center items-center">
         <Logo withoutText={true} width={35}/>
         <Text
-          color={theme.colorScheme == "dark" ? theme.white : ""}
-          className={"font-semibold"}
+          className="hidden sm:flex"
+          color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
+          weight={400}
           ml={25}
         >
           Company
         </Text>
         <Text
-          color={theme.colorScheme == "dark" ? theme.white : ""}
-          className={"font-semibold"}
+          className="hidden sm:flex"
+          color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
+          weight={400}
           ml={25}
         >
           Blog
         </Text>
         <Text
-          color={theme.colorScheme == "dark" ? theme.white : ""}
-          className={"font-semibold"}
+          className="hidden sm:flex"
+          color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
+          weight={400}
           ml={25}
         >
           Careers

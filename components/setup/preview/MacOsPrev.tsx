@@ -13,7 +13,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
     <Tooltip  color={'gray'} radius='xl' className="select-none" label="Click to preview Windows">
       <div
         onClick={() => togglePrev((old) => !old)}
-        style={{ backgroundImage: `url("https://picsum.photos/1000")` }}
+        style={{ backgroundImage: `url("https://picsum.photos/1500")`, backgroundSize:"100%" }}
         className="bg-gradient-to-tl from-gray-400  to-sky-200  hidden sm:flex shadow-md  flex-col justify-end items-center select-none w-[500px] h-[296px] overflow-hidden rounded-xl "
       >
         {appName.length > 0 && icon.length > 0 && (

@@ -27,16 +27,16 @@ function ThemeSwitch({
           strokeWidth={1.5}
           className="active:rotate-90 duration-700  transition-all"
           size={size ? size : 18}
-          color={theme.colors.blue[6]}
+          color={theme.colors.violet[4]}
         />
       )}
       {expanded && (
         <Text
-          size={"xs"}
+          size={"sm"}
           color={
             colorScheme == "dark"
               ? theme.colors.yellow[3]
-              : theme.colors.blue[9]
+              : theme.colors.violet[4]
           }
         >
           {colorScheme == "dark" ? "Dark" : "Light"}

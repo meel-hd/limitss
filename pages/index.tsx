@@ -3,32 +3,28 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/head";
+import HeroSection from "../components/landing/Hero";
 
 const Home: NextPage = () => {
-  
   return (
     <>
       <Head>
-        <title> DesWapp  Build Desktop Apps from your Webapp Faster with no Code</title>
-        <meta name="description" content="Build Native Desktop Apps from Webapps without Code." />
+        <title>
+          DesWapp Build Desktop Apps from your Webapp Faster with no Code
+        </title>
+        <meta
+          name="description"
+          content="Build Native Desktop Apps from Webapps without Code."
+        />
       </Head>
       <Header />
-      <main className="min-h-screen flex-1 flex flex-col justify-center items-center  p-5 ">
-        <h1 className="text-6xl">
-          Welcome to{" "}
-          <a className="hover:underline text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-violet-400 font-semibold font-mono  " href="#">
-          DesWapp
-          </a>
-        </h1>
-        <Link href={'/setup'}>
-        <Button
-        className=" bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
-          mt={50}
-        >
-          Get Started
-        </Button>
-        </Link>
-      </main>
+      <div className="flex w-full min-h-screen justify-center items-center">
+        <HeroSection  >
+          {<Link href={'/setup'}>
+            <Button className="bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]" >Get Started</Button>
+          </Link>}
+        </HeroSection>
+      </div>
     </>
   );
 };

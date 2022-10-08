@@ -27,9 +27,10 @@ function Logo({ width, withoutText, withoutIcon, textSize}: LogoProps) {
         <Text
           weight={700}
           size={textSize}
+          color={theme.colorScheme == 'dark' ? 'white' : ''}
           className=" select-none "
         >
-          DesWapp
+          LimitsS
         </Text>
       )}
     </div>

@@ -16,7 +16,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-violet-500 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Up to 10 credit cards</span>
@@ -24,7 +24,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-violet-500 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Up to 1,000 credits</span>
@@ -32,7 +32,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-violet-500 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Tacky wallet</span>
@@ -40,7 +40,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-violet-500 rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-neutral-600">Personal profile only</span>
@@ -65,7 +65,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Up to 10 credit cards</span>
@@ -73,7 +73,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Up to 10,000 credits</span>
@@ -81,7 +81,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Less tacky wallet </span>
@@ -89,7 +89,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Profile and portafolio</span>
@@ -97,7 +97,7 @@ function Pricing() {
                     <li className="flex">
                       <div className="inline-flex items-center w-6 h-6 bg-white rounded-xl">
                         <svg className="flex-shrink-0 w-4 h-4 mx-auto text-neutral-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
                       <span className="ml-3 text-white">Support</span>

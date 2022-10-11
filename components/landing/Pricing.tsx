@@ -1,8 +1,8 @@
 function Pricing() {
     return ( <section>
-        <div className="relative items-center w-full mx-auto md:px-12 lg:px-16 max-w-7xl">
+        <div className="relative items-center  w-full mx-auto md:px-12 lg:px-16 max-w-7xl">
           <div>
-            <div className="relative p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 rounded-xl">
+            <div className="relative sm:w-5/6 p-10 space-y-12 overflow-hidden lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-8 rounded-xl">
               <div className="relative flex flex-col p-8 border-[1px] rounded-2xl shadow-lg bg-white">
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold text-neutral-600">Freelancer</h3>

@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
-  useHotkeys([["mod+a", () => toggleColorScheme()]]);
+  useHotkeys([["mod+b", () => toggleColorScheme()]]);
 
   return (
     <>
@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                   autoComplete: "off",
                 },
                 classNames: {
-                  input: "border-2 focus:border-indigo-400 focus:shadow-md rounded-full",
+                  input: "border-2 focus:border-indigo-400 focus:shadow-sm rounded-full",
                 },
               },
               Button: {

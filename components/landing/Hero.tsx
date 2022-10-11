@@ -24,29 +24,27 @@ function HeroSection({
         <div className="flex flex-wrap items-center mx-auto max-w-7xl">
           <div className="w-full lg:max-w-lg lg:w-1/2 rounded-xl">
             <div>
-              <div className="relative w-full -z-20 hidden sm:flex max-w-lg">
-                <div className="absolute top-0 rounded-full bg-violet-300 -left-4 w-72 h-72  filter  opacity-70 animate-blob"></div>
+              <div className="relative w-full-z-20 hidden sm:flex max-w-lg">
+                <div className="absolute top-0 rounded-full  hover:scale-95 transition-transform duration-500  bg-violet-300 -left-4 w-72 h-72  filter  opacity-70 animate-blob"></div>
 
                 <div className="absolute rounded-full bg-fuchsia-300 -bottom-24 right-20 w-72 h-72  filter  opacity-70 animate-blob animation-delay-4000"></div>
               </div>
             </div>
           </div>
           <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
-            <span className="mb-8 text-xs font-bold tracking-widest text-violet-600 uppercase">
-              Deliever for more
+            <span className="mb-8 text-xs font-bold tracking-widest text-violet-500 uppercase">
+              When there is no limits
             </span>
             <Text
               className={`mb-8 text-4xl font-bold leading-none tracking-tighter -600 md:text-7xl lg:text-5xl 
             ${theme.colorScheme == "dark" ? "text-white" : "text-neutral"}
           `}
             >
-              Your Webapp to native desktop app.
+              Satisfy Users by Desktop App.
             </Text>
             <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
-              {
-                "Free and Premium themes, UI Kit's, templates and landing pages built with Tailwind CSS, HTML &amp; Next.js"
-              }
-              .
+                Build native desktop app from your webapp within minutes, with no developers or code. With LimitsS gain trust
+                in your app more than ever.
             </p>
             <div className="flex flex-wrap w-full mt-2 -mx-4 text-left">
               <div className="w-1/4 p-4 mt-4 sm:w-1/4">

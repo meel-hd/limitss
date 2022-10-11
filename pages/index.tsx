@@ -33,7 +33,7 @@ const Home: NextPage = () => {
         <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>
       </div>
       <CustomersApp />
-      <Pricing />
+      {/* <Pricing /> */}
     </>
   );
 };

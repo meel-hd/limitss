@@ -1,7 +1,7 @@
 import {Image} from '@mantine/core'
 function CustomersApp() {
   return (
-    <section className="w-full flex justify-between items-center">
+    <section className="w-full min-h-screen flex justify-between items-center">
       <div className="flex flex-wrap mx-auto md:flex-nowrap p-12">
           <div className="flex w-full mt-5">
             <div className="relative overflow-hidden flex flex-col items-start m-1 sm:ml-20 transition duration-300 ease-in-out delay-150 transform bg-white shadow-2xl rounded-xl md:w-80 md:-ml-16 md:hover:-translate-x-16 md:hover:-translate-y-8">

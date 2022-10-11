@@ -52,9 +52,9 @@ function Login() {
             <PrimaryBtn onClick={() => alert('loged in')} >Log In</PrimaryBtn>
           </div>
         </div>
-        <div className="hidden  hover:scale-y-90 transition-transform duration-700 sm:flex flex-col justify-center items-center sm:w-1/2 h-[90vh]">
-          <div className="w-4/6 h-7 rotate-45 bg-violet-700 rounded-tr-full shadow-lg rounded-bl-full"></div>
-          <div className="w-60 h-60 bg-violet-400 rounded-tl-full rounded-br-full"></div>
+        <div className="hidden sm:flex flex-col justify-center items-center sm:w-1/2 h-[90vh]">
+          <div className="w-4/6 h-7 rotate-45 bg-violet-200 rounded-tr-full shadow-lg rounded-bl-full"></div>
+          <div className="w-60 h-60 bg-fuchsia-300 rounded-tl-full rounded-br-full"></div>
           <div className="w-3/6 h-7 rotate-45 bg-violet-300 rounded-tr-full rounded-bl-full"></div>
         </div>
       </div>

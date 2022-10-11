@@ -1,10 +1,29 @@
 import { PasswordInput, Text, TextInput } from "@mantine/core";
+import { useMutation } from "@tanstack/react-query";
 import Head from "next/head";
 import Link from "next/link";
+import { useState } from "react";
+import { Login as LoginMutation } from "../../lib/gql.client";
 import { Key, Mail } from "tabler-icons-react";
 import Header from "../../components/head";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
+import { setCookie } from "nookies";
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { data, mutateAsync } = useMutation({
+    mutationKey: ["CreateApp"],
+    mutationFn: () =>
+      LoginMutation({
+        arg: {
+          email,
+          password,
+        },
+      }),
+    onSuccess: (data) => {
+      setCookie(null,'token',data.login.token)
+    },
+  });
   return (
     <>
       <Head>
@@ -39,17 +58,27 @@ function Login() {
             label="Email"
             placeholder="Enter your email"
             icon={<Mail size={14} />}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <PasswordInput
-            styles={{visibilityToggle:{borderRadius: '50%'}}}
+            styles={{ visibilityToggle: { borderRadius: "50%" } }}
             label="Password"
             placeholder="Enter your password"
             className="w-[80%]"
             icon={<Key size={14} />}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <div className="flex justify-center sm:justify-end items-center mt-6 w-[80%]">
-            <PrimaryBtn onClick={() => alert('loged in')} >Log In</PrimaryBtn>
+            <PrimaryBtn
+              onClick={() => {
+                mutateAsync().catch((err) => {
+                  console.log(err);
+                });
+              }}
+            >
+              Log In
+            </PrimaryBtn>
           </div>
         </div>
         <div className="hidden sm:flex flex-col justify-center items-center sm:w-1/2 h-[90vh]">
@@ -58,6 +87,7 @@ function Login() {
           <div className="w-3/6 h-7 rotate-45 bg-violet-300 rounded-tr-full rounded-bl-full"></div>
         </div>
       </div>
+      {data && <p>{JSON.stringify(data)}</p>}
     </>
   );
 }

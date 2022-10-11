@@ -1,11 +1,21 @@
 import { GraphQLClient } from "graphql-request";
 import { QueryClient } from "@tanstack/react-query";
 import { getSdk } from "../generated/graphql";
+import { parseCookies } from "nookies";
 
-const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
+
+const cookies = parseCookies();
+const token = cookies['token'] 
+
+const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string,{
+    headers:{
+        token: token
+    }
+});
 
 export const {
-    CreateApp
+    CreateApp,
+    Login,
 } = getSdk(gqlClient);
 
 export const queryClient = new QueryClient({

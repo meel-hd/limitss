@@ -7,7 +7,6 @@ import { Login as LoginMutation } from "../../lib/gql.client";
 import { Key, Mail } from "tabler-icons-react";
 import Header from "../../components/head";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
-import { setCookie } from "nookies";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +20,7 @@ function Login() {
         },
       }),
     onSuccess: (data) => {
-      setCookie(null,'token',data.login.token)
+      // setCookie(null,'token',data.login.token)
     },
   });
   return (

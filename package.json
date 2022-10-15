@@ -18,7 +18,7 @@
     "@mantine/hooks": "^5.3.3",
     "@mantine/modals": "^5.3.3",
     "@mantine/next": "^5.3.3",
-    "@mantine/notifications": "^5.3.3",
+    "@mantine/notifications": "^5.5.5",
     "@mantine/nprogress": "^5.3.3",
     "@tanstack/react-query": "^4.6.1",
     "graphql": "^16.6.0",

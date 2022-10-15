@@ -1,14 +1,15 @@
-import { Button } from "@mantine/core";
+import { Button, Notification } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/head";
 import CustomersApp from "../components/landing/CustomersApp";
 import HeroSection from "../components/landing/Hero";
-import Pricing from "../components/landing/Pricing";
 
 const Home: NextPage = () => {
+
   return (
+    
     <>
       <Head>
         <title>

@@ -2,6 +2,7 @@ import { QueryClient } from "@tanstack/react-query";
 import { GraphQLClient } from "graphql-request";
 import { getSdk } from "../generated/graphql";
 
+// TODO: Remove the nookies lib
 
 const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
 

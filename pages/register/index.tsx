@@ -11,14 +11,14 @@ import { Register } from "../../lib/gql.client";
 
 function SignUp() {
     const registerSchema = z.object({
-        company: z.string().min(1, "Value can't be empty").max(185,'This is too long'),
-        email: z.string().email({ message: "Invalid email" }).max(185,'Email is too long'),
-        fullName: z.string().min(4, "Name should be atleast 4 letters").max(185,'Name is too long'),
-        role: z.string().min(1, "Value can't be empty").max(185,'role is too long'),
+        company: z.string().min(1, "Value can't be empty").max(185,'This is too long, only 185 characters allowed'),
+        email: z.string().email({ message: "Invalid email" }).max(185,'Email is too long, only 185 characters allowed'),
+        fullName: z.string().min(4, "Name should be atleast 4 letters").max(185,'Name is too long, only 185 characters allowed'),
+        role: z.string().min(1, "Value can't be empty").max(185,'role is too long, only 185 characters allowed'),
         password: z
             .string()
             .min(8, "Password should be atleast 8 characters")
-            .max(185, "Password is too long"),
+            .max(185, "Password is too long, only 185 characters allowed"),
     });
 
     const RegisterForm = useForm({

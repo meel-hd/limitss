@@ -61,12 +61,14 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
       />
       <NumberInput
         min={200}
+        max={2000000000}
         hideControls
         defaultValue={600}
         label="Height"
         value={createAppValues.height}
         onChange={(val) =>
           handleChange((oldValues) => {
+            console.log(val)
             return { ...oldValues, height: val as number };
           })
         }

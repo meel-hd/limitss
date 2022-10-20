@@ -17,8 +17,8 @@ function Login() {
     const router = useRouter();
 
     const loginSchema = z.object({
-        email: z.string().email({ message: "Invalid email" }),
-        password: z.string().min(8, "Password should be atleast 8 characters").max(180,'Password is too long'),
+        email: z.string().email({ message: "Invalid email" }).max(185,"Email is too long"),
+        password: z.string().min(8, "Password should be atleast 8 characters").max(185,'Password is too long'),
     });
     const LoginForm = useForm({
         initialValues: {

@@ -132,7 +132,7 @@ function Setup() {
                         {step == CREATE_APP_STEP.WINDOW && (
                             <Button
                                 className="w-24 bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
-                                onClick={() => mutateAsync()}
+                            onClick={() => mutateAsync().catch((err)=> console.log(err))}
                                 disabled={invalidInput}
                             >
                                 Build

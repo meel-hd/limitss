@@ -20,6 +20,7 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
       <TextInput
         label="Title"
         spellCheck={false}
+        error={createAppValues.title.length > 185 ? 'Title is too long, only 185 characters allowed': false}
         description="This will appear as the title off the app when it loads"
         placeholder="Title of the app"
         value={createAppValues.title}
@@ -47,13 +48,6 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
           });
         }}
       />
-      {/* {createAppValues.icon.length > 0 && (
-        <Avatar
-          className="shadow-sm"
-          radius={"xl"}
-          src={createAppValues.icon}
-        />
-      )} */}
       <NumberInput
         min={200}
         hideControls

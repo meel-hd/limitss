@@ -16,6 +16,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
         description="This will show as the name of the app in the dock and other parts"
         placeholder="The name visible to users"
         value={createAppValues.productName}
+        error={createAppValues.productName.length > 185 ? 'Title is too long, only 185 characters allowed': false}
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, productName: e.target.value };
@@ -31,6 +32,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
             return { ...oldValues, name: e.target.value };
           })
         }
+        error={createAppValues.name.length > 185 ? 'Title is too long, only 185 characters allowed': false}
       />
       <TextInput
         label="Description"
@@ -42,6 +44,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
             return { ...oldValues, description: e.target.value };
           })
         }
+        error={createAppValues.description.length > 185 ? 'Title is too long, only 185 characters allowed': false}
       />
       <Select
         data={LICENSES}
@@ -57,7 +60,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
           })
         }
       />
-      {/* { icon != null && <Avatar src={URL.createObjectURL(icon)} />} */}
+      {/* { icon != null && <Avatar className="rounded-full" src={URL.createObjectURL(icon)} />} */}
       <TextInput
         label="App Id"
         description="This will appears when you hover on the app"
@@ -68,6 +71,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
             return { ...oldValues, appId: e.target.value };
           })
         }
+        error={createAppValues.appId.length > 185 ? 'Title is too long, only 185 characters allowed': false}
       />
       <TextInput
         label="Version"
@@ -79,6 +83,7 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
             return { ...oldValues, version: e.target.value.trim() };
           })
         }
+        error={createAppValues.version.length > 185 ? 'Title is too long, only 185 characters allowed': false}
       />
     </div>
   );

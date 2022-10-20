@@ -18,7 +18,7 @@ function Login() {
 
     // Try to login
     const { isLoading, mutateAsync } = useMutation({
-        mutationKey: ["CreateApp"],
+        mutationKey: ["Login"],
         mutationFn: () =>
             LoginMutation({
                 arg: {

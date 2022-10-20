@@ -17,7 +17,7 @@ interface PrimaryBtnProps {
         | null
         | undefined;
     onClick: () => void;
-    loading: boolean;
+    loading?: boolean;
 }
 
 function PrimaryBtn({ children, onClick, loading }: PrimaryBtnProps) {

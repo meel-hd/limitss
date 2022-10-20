@@ -16,23 +16,23 @@ interface PrimaryBtnProps {
         | ReactPortal
         | null
         | undefined;
-    onClick: () => void;
     loading?: boolean;
+    props?: any;
 }
 
-function PrimaryBtn({ children, onClick, loading }: PrimaryBtnProps) {
+function PrimaryBtn({ children, props, loading }: PrimaryBtnProps) {
     return (
         <Button
             styles={{
                 root: {
                     ":disabled": {
                         backgroundColor: "rgb(99, 102 ,241)",
-                        color:'#fff'
+                        color: "#fff",
                     },
                 },
             }}
             loading={loading}
-            onClick={() => onClick()}
+            {...props}
             className=" bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
         >
             {children}

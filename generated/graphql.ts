@@ -141,6 +141,13 @@ export type LoginMutationVariables = Exact<{
 
 export type LoginMutation = { __typename?: 'Mutation', login: { __typename?: 'LoginOutput', token: string, user: { __typename?: 'User', fullName: string, email: string, company: string, role: string } } };
 
+export type RegisterMutationVariables = Exact<{
+  arg: RegisterInput;
+}>;
+
+
+export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'RegisterOutput', token: string, user: { __typename?: 'User', fullName: string, email: string, company: string, role: string } } };
+
 
 export const CreateAppDocument = gql`
     mutation CreateApp($arg: CreateAppInput!) {
@@ -175,6 +182,19 @@ export const LoginDocument = gql`
   }
 }
     `;
+export const RegisterDocument = gql`
+    mutation Register($arg: RegisterInput!) {
+  register(arg: $arg) {
+    user {
+      fullName
+      email
+      company
+      role
+    }
+    token
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -188,6 +208,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     Login(variables: LoginMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<LoginMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<LoginMutation>(LoginDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Login', 'mutation');
+    },
+    Register(variables: RegisterMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<RegisterMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<RegisterMutation>(RegisterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Register', 'mutation');
     }
   };
 }

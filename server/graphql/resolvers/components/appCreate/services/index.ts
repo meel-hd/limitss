@@ -1,16 +1,18 @@
 // import { PrismaClient } from "@prisma/client";
 // import { decode, JwtPayload } from "jsonwebtoken";
 // import { Context } from "../../auth/types/context";
+import { ApolloError } from "apollo-server-micro";
+import prisma from "lib/prisma";
 import { CreateAppInput, createAppOutput } from "../types/CreateApp";
 
 // const prisma = new PrismaClient();
 
 export class GeneratorService {
   // Create Add the app of the user
-//   context: Context;
-//   constructor (context: Context) {
-//     this.context = context 
-//   }
+  //   context: Context;
+  //   constructor (context: Context) {
+  //     this.context = context
+  //   }
 
   async createApp(args: CreateAppInput): Promise<createAppOutput> {
     // // Extract the user email from the payload
@@ -24,7 +26,7 @@ export class GeneratorService {
     // if (!user) {
     //   throw `User with email ${CreatorEmail} doesn't have an account`
     // }
-    
+
     // // Create the app in the database
     // const app = await prisma.app.create({
     //   data: {
@@ -60,6 +62,27 @@ export class GeneratorService {
     //   version: app.version,
     //   width: app.width,
     // };
-    return {...args, id:'jesa'}
+    const app = await prisma.app.create({
+      data: {
+        appId: args.appId,
+        description: args.description,
+        fullscreen: args.fullscreen,
+        height: args.height,
+        icon: args.icon,
+        license: args.license,
+        name: args.name,
+        productName: args.productName,
+        title: args.title,
+        titleChange: args.titleChange,
+        topMenu: args.topMenu,
+        version: args.version,
+        width: args.width,
+      },
+    });
+    if(!app){
+      throw new ApolloError('Failed to create app')
+    }
+    console.log(app)
+    return { ...args, id: "jesa" };
   }
 }

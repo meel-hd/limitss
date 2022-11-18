@@ -12,56 +12,55 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-
 model User {
   id            String    @id @default(cuid())
   name          String?
   email         String?   @unique
+  company       String?
+  role          String?
   emailVerified DateTime?
   image         String?
   accounts      Account[]
-  apps App[]
+  apps          App[]
 }
 
 model App {
-  id Int @id @default(autoincrement())
-  owner   User   @relation(fields: [ownerId], references: [id])
-  ownerId String
-  title   String
+  id          Int     @id @default(autoincrement())
+  owner       User    @relation(fields: [ownerId], references: [id])
+  ownerId     String
+  title       String
   productName String
-  name String
+  name        String
   description String
-  license String
-  icon String
-  appId String
-  version String
-  width Int
-  height Int
-  fullscreen Boolean
+  license     String
+  icon        String
+  appId       String
+  version     String
+  width       Int
+  height      Int
+  fullscreen  Boolean
   titleChange Boolean
-  topMenu Boolean
-
+  topMenu     Boolean
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
-
 
 model VerificationToken {
   identifier String

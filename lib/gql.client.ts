@@ -8,8 +8,7 @@ const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
 
 export const {
     CreateApp,
-    Login,
-    Register
+    
 } = getSdk(gqlClient);
 
 export const queryClient = new QueryClient({

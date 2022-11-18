@@ -10,7 +10,7 @@
     "db:connect": "pscale connect deswapp-db main",
     "db:push": "npx prisma db push",
     "db:studio": "npx prisma studio",
-    "generate": "graphql-codegen --config codegen.yml"
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-0",

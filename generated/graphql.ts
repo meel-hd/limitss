@@ -52,11 +52,17 @@ export type CreateAppOutput = {
 export type Mutation = {
   __typename?: 'Mutation';
   createApp: CreateAppOutput;
+  updateUser: User;
 };
 
 
 export type MutationCreateAppArgs = {
   arg: CreateAppInput;
+};
+
+
+export type MutationUpdateUserArgs = {
+  args: UserArgs;
 };
 
 export type Query = {
@@ -67,11 +73,19 @@ export type Query = {
 
 export type User = {
   __typename?: 'User';
-  company: Scalars['String'];
+  company?: Maybe<Scalars['String']>;
   email: Scalars['String'];
   image: Scalars['String'];
   name: Scalars['String'];
-  role: Scalars['String'];
+  role?: Maybe<Scalars['String']>;
+};
+
+export type UserArgs = {
+  company?: InputMaybe<Scalars['String']>;
+  email: Scalars['String'];
+  image: Scalars['String'];
+  name: Scalars['String'];
+  role?: InputMaybe<Scalars['String']>;
 };
 
 export type CreateAppMutationVariables = Exact<{
@@ -84,7 +98,14 @@ export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typena
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = { __typename?: 'Query', me: { __typename?: 'User', name: string, email: string, company: string, role: string, image: string } };
+export type MeQuery = { __typename?: 'Query', me: { __typename?: 'User', name: string, email: string, company?: string | null, role?: string | null, image: string } };
+
+export type UpdateUserMutationVariables = Exact<{
+  args: UserArgs;
+}>;
+
+
+export type UpdateUserMutation = { __typename?: 'Mutation', updateUser: { __typename?: 'User', name: string, email: string, company?: string | null, role?: string | null, image: string } };
 
 
 export const CreateAppDocument = gql`
@@ -118,6 +139,17 @@ export const MeDocument = gql`
   }
 }
     `;
+export const UpdateUserDocument = gql`
+    mutation UpdateUser($args: UserArgs!) {
+  updateUser(args: $args) {
+    name
+    email
+    company
+    role
+    image
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -131,6 +163,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     Me(variables?: MeQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<MeQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<MeQuery>(MeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Me', 'query');
+    },
+    UpdateUser(variables: UpdateUserMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<UpdateUserMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<UpdateUserMutation>(UpdateUserDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'UpdateUser', 'mutation');
     }
   };
 }

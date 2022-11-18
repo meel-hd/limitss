@@ -7,7 +7,7 @@ import { getSdk } from "../generated/graphql";
 const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
 
 export const {
-    CreateApp,Me
+    CreateApp,Me,UpdateUser
     
 } = getSdk(gqlClient);
 

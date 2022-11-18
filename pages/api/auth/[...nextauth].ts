@@ -18,7 +18,7 @@ export const authOptions:NextAuthOptions = {
     strategy:"jwt"
   },
 
-  debug:true,
+  // debug:true,
 }
 
 export default NextAuth(authOptions)

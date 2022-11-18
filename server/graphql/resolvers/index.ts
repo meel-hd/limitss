@@ -1,4 +1,4 @@
-import { AppCreateResolver } from "./components/appCreate/resolver"
+import { AppCreateResolver } from "./appCreate/resolver"
 
 const resolvers: [Function, ...Function[]] = [
     AppCreateResolver

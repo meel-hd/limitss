@@ -9,8 +9,9 @@ import {
 import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../lib/gql.client";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
     key: "mantine-color-scheme",
     defaultValue: "light",
@@ -43,7 +44,8 @@ function MyApp({ Component, pageProps }: AppProps) {
                   autoComplete: "off",
                 },
                 classNames: {
-                  input: "border-2 focus:border-indigo-400 focus:shadow-sm rounded-full",
+                  input:
+                    "border-2 focus:border-indigo-400 focus:shadow-sm rounded-full",
                 },
               },
               Button: {
@@ -52,12 +54,13 @@ function MyApp({ Component, pageProps }: AppProps) {
                 },
               },
             },
-            loader: 'bars' 
+            loader: "bars",
           }}
         >
           <QueryClientProvider client={queryClient}>
-            
-          <Component {...pageProps} />
+            <SessionProvider session={session}>
+              <Component {...pageProps} />
+            </SessionProvider>
           </QueryClientProvider>
         </MantineProvider>
       </ColorSchemeProvider>

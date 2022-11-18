@@ -61,11 +61,11 @@ function Login() {
         <>
             <Head>
                 <title>
-                    DesWapp Log In to your Account and Manage your Apps
+                    Limitss Log In to your Account and Manage your Apps
                 </title>
                 <meta
                     name="description"
-                    content="Login to DesWapp and Manage your Desktop App From The Dashboard."
+                    content="Login to Limitss and Manage your Desktop App From The Dashboard."
                 ></meta>
             </Head>
             <Header minimal={true} />

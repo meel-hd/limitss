@@ -1,9 +1,12 @@
 import { Button, Text, useMantineTheme } from "@mantine/core";
+import LoggedInUser from "components/auth/LoggedInUser";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Logo from "./lib/Logo";
 
 function Header({ minimal }: { minimal?: boolean }) {
   const theme = useMantineTheme();
+  const { status } = useSession();
   return (
     <header
       style={{
@@ -11,8 +14,12 @@ function Header({ minimal }: { minimal?: boolean }) {
       }}
       className="fixed hover:shadow-sm z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
     >
-      <Logo width={35} />
-      { !minimal &&
+      <Link href={"/"}>
+        <a>
+          <Logo width={35} />
+        </a>
+      </Link>
+      {!minimal && (
         <>
           <div className="flex justify-center items-center">
             <Text
@@ -41,19 +48,18 @@ function Header({ minimal }: { minimal?: boolean }) {
             </Text>
           </div>
           <div className="flex justify-center items-center">
-            <Link href={"/login"}>
-              <Button mr={10} color={"violet"} variant="white">
-                Log in
-              </Button>
-            </Link>
-            <Link href={"/register"}>
-              <Button className="bg-gradient-to-r from-indigo-500 to-violet-400 hover:opacity-70">
-                Register
-              </Button>
-            </Link>
+            {status == "authenticated" ? (
+              <LoggedInUser link="/home" />
+            ) : (
+              <Link href={"/signin"}>
+                <Button className="bg-gradient-to-r from-indigo-500 px-4 to-violet-400 hover:opacity-70">
+                  Sign In
+                </Button>
+              </Link>
+            )}
           </div>
         </>
-      }
+      )}
     </header>
   );
 }

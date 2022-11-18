@@ -19,7 +19,7 @@ function Logo({ width, withoutText, withoutIcon, textSize}: LogoProps) {
         <Image
           className="select-none pointer-events-none"
           width={width ? width : 20}
-          alt="DesWapp logo"
+          alt="Limitss logo"
           src={`./logo-${theme.colorScheme}.png`}
         />
       )}

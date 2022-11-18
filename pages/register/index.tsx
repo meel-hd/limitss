@@ -50,7 +50,7 @@ function SignUp() {
         <>
             <Head>
                 <title>
-                    DesWapp Create Account and Build Desktop Apps that Users
+                    Limitss Create Account and Build Desktop Apps that Users
                     Care about More
                 </title>
                 <meta

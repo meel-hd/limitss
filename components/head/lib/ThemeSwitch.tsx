@@ -13,7 +13,7 @@ function ThemeSwitch({
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   return (
     <div
-      className="flex flex-row justify-around p-1 w-full items-center"
+      className="flex flex-row cursor-pointer justify-around p-1 w-full items-center"
       onClick={() => toggleColorScheme()}
     >
       {colorScheme === "dark" ? (

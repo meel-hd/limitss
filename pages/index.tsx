@@ -1,5 +1,4 @@
-import { Button, Notification } from "@mantine/core";
-import LoginBtn from "components/loginBtn";
+import { Button } from "@mantine/core";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -14,7 +13,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>
-          DesWapp Build Desktop Apps from your Webapp Faster with no Code
+          Limitss Build Desktop Apps from your Webapp Faster with no Code
         </title>
         <meta
           name="description"
@@ -29,7 +28,6 @@ const Home: NextPage = () => {
           </Link>}
         </HeroSection>
       </div>
-      <LoginBtn />
       <div className="w-full flex justify-center -mt-7 items-center">
         <div className="w-3 h-3 rounded-full bg-fuchsia-400 animate-bounce mr-2"></div>
         <div className="w-4 h-4 rounded-full bg-violet-400 animate-bounce mr-2"></div>

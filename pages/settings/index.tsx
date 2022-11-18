@@ -1,12 +1,19 @@
 import { Avatar, Button, Text } from "@mantine/core";
+import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import ThemeSwitch from "components/head/lib/ThemeSwitch";
 import Navigation from "components/head/Navigation";
+import { Me } from "lib/gql.client";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 
 function Settings() {
   const { data: session } = useSession();
+  const {refetch} = useQuery({
+    queryKey:['me'],
+    queryFn:() => Me(),
+    onSuccess:(data) => console.log(data)
+  })
   return (
     <>
       <Head>
@@ -22,18 +29,18 @@ function Settings() {
             <ThemeSwitch size={20} expanded={true} />
           </div></section>
           <div className="max-w-3xl mt-5 w-3/5 flex ">
-            <Avatar radius={"xl"} size={150} src={session.user.image} />
+            <Avatar radius={"xl"} size={150} src={session?.user?.image} />
             <div className="px-4 py-2">
-              <h2 className="font-semibold">{session.user.name}</h2>
+              <h2 className="font-semibold">{session?.user?.name}</h2>
               <Text ml={4} color={"dimmed"} size={"sm"}>
-                {session.user.email}
+                {session?.user?.email}
               </Text>
               <div className="mt-2 pl-2">
                 <p className="uppercase">Company</p>
                 <p>Role</p>
               </div>
           <section className="w-full flex items-center justify-end">
-                <Button size="sm" className="bg-violet-400 hover:bg-violet-400">Edit</Button>
+                <Button onClick={() =>refetch} size="sm" className="bg-violet-400 hover:bg-violet-400">Edit</Button>
               </section>
             </div>
           </div>

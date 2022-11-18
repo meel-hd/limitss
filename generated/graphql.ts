@@ -62,6 +62,16 @@ export type MutationCreateAppArgs = {
 export type Query = {
   __typename?: 'Query';
   hello: Scalars['String'];
+  me: User;
+};
+
+export type User = {
+  __typename?: 'User';
+  company: Scalars['String'];
+  email: Scalars['String'];
+  image: Scalars['String'];
+  name: Scalars['String'];
+  role: Scalars['String'];
 };
 
 export type CreateAppMutationVariables = Exact<{
@@ -70,6 +80,11 @@ export type CreateAppMutationVariables = Exact<{
 
 
 export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', productName: string, name: string, description: string, license: string, icon: string, appId: string, version: string, title: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: string } };
+
+export type MeQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type MeQuery = { __typename?: 'Query', me: { __typename?: 'User', name: string, email: string, company: string, role: string, image: string } };
 
 
 export const CreateAppDocument = gql`
@@ -92,6 +107,17 @@ export const CreateAppDocument = gql`
   }
 }
     `;
+export const MeDocument = gql`
+    query Me {
+  me {
+    name
+    email
+    company
+    role
+    image
+  }
+}
+    `;
 
 export type SdkFunctionWrapper = <T>(action: (requestHeaders?:Record<string, string>) => Promise<T>, operationName: string, operationType?: string) => Promise<T>;
 
@@ -102,6 +128,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     CreateApp(variables: CreateAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateAppMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateAppMutation>(CreateAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateApp', 'mutation');
+    },
+    Me(variables?: MeQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<MeQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<MeQuery>(MeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Me', 'query');
     }
   };
 }

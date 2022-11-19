@@ -38,7 +38,7 @@ export type CreateAppOutput = {
   fullscreen: Scalars['Boolean'];
   height: Scalars['Float'];
   icon: Scalars['String'];
-  id: Scalars['String'];
+  id: Scalars['Float'];
   license: Scalars['String'];
   name: Scalars['String'];
   productName: Scalars['String'];
@@ -67,7 +67,7 @@ export type MutationUpdateUserArgs = {
 
 export type Query = {
   __typename?: 'Query';
-  hello: Scalars['String'];
+  getMyApps: Array<CreateAppOutput>;
   me: User;
 };
 
@@ -93,7 +93,12 @@ export type CreateAppMutationVariables = Exact<{
 }>;
 
 
-export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', productName: string, name: string, description: string, license: string, icon: string, appId: string, version: string, title: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: string } };
+export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', productName: string, name: string, description: string, license: string, icon: string, appId: string, version: string, title: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: number } };
+
+export type GetMyAppsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', productName: string, name: string, description: string, license: string, icon: string, appId: string, version: string, title: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: number }> };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -111,6 +116,26 @@ export type UpdateUserMutation = { __typename?: 'Mutation', updateUser: { __type
 export const CreateAppDocument = gql`
     mutation CreateApp($arg: CreateAppInput!) {
   createApp(arg: $arg) {
+    productName
+    name
+    description
+    license
+    icon
+    appId
+    version
+    title
+    width
+    height
+    fullscreen
+    titleChange
+    topMenu
+    id
+  }
+}
+    `;
+export const GetMyAppsDocument = gql`
+    query GetMyApps {
+  getMyApps {
     productName
     name
     description
@@ -160,6 +185,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     CreateApp(variables: CreateAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateAppMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateAppMutation>(CreateAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateApp', 'mutation');
+    },
+    GetMyApps(variables?: GetMyAppsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMyAppsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<GetMyAppsQuery>(GetMyAppsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMyApps', 'query');
     },
     Me(variables?: MeQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<MeQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<MeQuery>(MeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Me', 'query');

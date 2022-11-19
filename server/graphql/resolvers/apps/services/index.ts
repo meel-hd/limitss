@@ -1,15 +1,15 @@
 import { ApolloError } from "apollo-server-micro";
+import { CreateAppOutput } from "generated/graphql";
 import prisma from "lib/prisma";
 import { Context } from "server/types/Context";
 import { UnauthorizedError } from "type-graphql";
-import { CreateAppInput, createAppOutput } from "../types/CreateApp";
-
+import { AppType, CreateAppInput, createAppOutput } from "../types/CreateApp";
 
 export class GeneratorService {
-    context: Context;
-    constructor (context: Context) {
-      this.context = context
-    }
+  context: Context;
+  constructor(context: Context) {
+    this.context = context;
+  }
 
   async createApp(args: CreateAppInput): Promise<createAppOutput> {
     const CreatorEmail = this.context.user.email;
@@ -38,12 +38,34 @@ export class GeneratorService {
         topMenu: args.topMenu,
         version: args.version,
         width: args.width,
-      }
+      },
     });
-    
-    if(!app){
-      throw new ApolloError('Failed to create app')
+
+    if (!app) {
+      throw new ApolloError("Failed to create app");
     }
     return app;
   }
+
+  async getMyApps(): Promise<createAppOutput[]> {
+    const userEmail = this.context.user.email;
+
+    const user = await prisma.user.findUnique({
+      where: {
+        email: userEmail,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedError();
+    }
+
+    const apps = await prisma.app.findMany({
+      where: { ownerId: user.id },
+      take: 10,
+    });
+
+    return apps;
+  }
+
+  // Class close Bracket
 }

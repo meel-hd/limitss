@@ -106,6 +106,6 @@ export class CreateAppInput {
 
 @ObjectType()
 export class createAppOutput extends AppType {
-    @Field(() => String)
-    id: string
+    @Field(() => Number)
+    id: number
 }

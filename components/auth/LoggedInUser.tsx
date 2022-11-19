@@ -1,11 +1,12 @@
-import { Avatar, Button, Text } from "@mantine/core";
+import { Avatar, Button, MantineNumberSize, Text } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 type Props = {
   expanded?: boolean;
   link?: string;
+  size?:MantineNumberSize
 };
-function LoggedInUser({ expanded, link }: Props) {
+function LoggedInUser({ expanded, link,size }: Props) {
   const { data: session, status } = useSession();
   return (
     <div>
@@ -14,7 +15,7 @@ function LoggedInUser({ expanded, link }: Props) {
           <div className="flex justify-around max-w-[110px] cursor-pointer truncate items-center">
             <Avatar
               alt={session.user.name}
-              size={35}
+              size={size || 35}
               radius={"lg"}
               src={session.user.image}
             />

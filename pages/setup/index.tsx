@@ -1,8 +1,11 @@
-import { Button, Card } from "@mantine/core";
+import { Button, Card, LoadingOverlay } from "@mantine/core";
+import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { useState } from "react";
+import { Check, ExclamationMark } from "tabler-icons-react";
 import Navigation from "../../components/head/Navigation";
 import Preview from "../../components/setup/preview";
 import PrimaryInputs from "../../components/setup/PrimaryInputs";
@@ -18,6 +21,7 @@ enum CREATE_APP_STEP {
 
 function Setup() {
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
+  const router = useRouter();
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
     appId: "",
     description: "",
@@ -33,7 +37,7 @@ function Setup() {
     version: "",
     width: 800,
   });
-  const { mutateAsync } = useMutation({
+  const { mutateAsync, isLoading, isError } = useMutation({
     mutationKey: ["CreateApp"],
     mutationFn: () =>
       CreateApp({
@@ -41,6 +45,23 @@ function Setup() {
           ...createAppVars,
         },
       }),
+    onSuccess: () => {
+      showNotification({
+        title: "Done",
+        color: "green", 
+        message: "The app "+ createAppVars.name + " is created.",
+        icon: <Check color="white" />,
+      });
+      router.replace("/home");
+    },
+    onError: () => {
+      showNotification({
+        title: "Error",
+        color: "red", 
+        message: "Something went wrong! Please try again.",
+        icon: <ExclamationMark color="white" />,
+      });
+    },
   });
   // Check the user input in the second part of the setup
   const invalidInput =
@@ -59,15 +80,13 @@ function Setup() {
   return (
     <>
       <Head>
-        <title>
-          Limitss | Setup
-        </title>
+        <title>Limitss | Setup</title>
         <meta
           name="description"
           content="Start Building a Desktop from your Website without Code or Thinking about Time"
         ></meta>
       </Head>
-      <Navigation activeTab="setup"/>
+      <Navigation activeTab="setup" />
       <AuthorizedOnly>
         <div className="w-full min-h-screen flex flex-col justify-center items-center">
           <Card radius={0} my={30} shadow="sm" className="w-3/4 h-3/4">
@@ -132,13 +151,14 @@ function Setup() {
               {step == CREATE_APP_STEP.WINDOW && (
                 <Button
                   className="w-24 bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
-                  onClick={() => mutateAsync().catch((err) => console.log(err))}
+                  onClick={() => mutateAsync().catch((err) => null)}
                   disabled={invalidInput}
                 >
                   Build
                 </Button>
               )}
             </Card.Section>
+            <LoadingOverlay overlayBlur={2} visible={isLoading} />
           </Card>
 
           {/* {data && <code>{JSON.stringify(data)}</code>} */}

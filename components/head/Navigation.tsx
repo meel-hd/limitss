@@ -85,7 +85,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       >
         {/* <NavbarLink Icon={Settings} label="Settings" expanded={expanded} href={'/settings'} /> */}
         <ThemeSwitch expanded={expanded} size={25} />
-        <LoggedInUser expanded={expanded} />
+        <LoggedInUser expanded={expanded} size={30}/>
       </div>
     </Card>
   );

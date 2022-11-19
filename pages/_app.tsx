@@ -10,6 +10,7 @@ import { useHotkeys, useLocalStorage } from "@mantine/hooks";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../lib/gql.client";
 import { SessionProvider } from "next-auth/react";
+import { NotificationsProvider } from "@mantine/notifications";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -57,11 +58,13 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             loader: "bars",
           }}
         >
-          <QueryClientProvider client={queryClient}>
-            <SessionProvider session={session}>
-              <Component {...pageProps} />
-            </SessionProvider>
-          </QueryClientProvider>
+          <NotificationsProvider>
+            <QueryClientProvider client={queryClient}>
+              <SessionProvider session={session}>
+                <Component {...pageProps} />
+              </SessionProvider>
+            </QueryClientProvider>
+          </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

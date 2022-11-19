@@ -5,7 +5,7 @@ import { GeneratorService } from "./services";
 import { CreateAppInput, createAppOutput } from "./types/CreateApp";
 
 @Resolver(() => createAppOutput)
-export class AppCreateResolver {
+export class AppsResolver {
   @Mutation(() => createAppOutput)
   async createApp(@Arg("arg") arg: CreateAppInput, @Ctx() context:Context): Promise<createAppOutput> {
     return new GeneratorService(context).createApp(arg);

@@ -21,3 +21,16 @@ export const queryClient = new QueryClient({
         }
     }
 })
+// const result = await prisma.post.findMany({
+//     where: {
+//       published: false,
+//       User: {
+//         email: {
+//           contains: 'prisma.io',
+//         },
+//       },
+//     },
+//     select: {
+//       title: true,
+//     },
+//   })

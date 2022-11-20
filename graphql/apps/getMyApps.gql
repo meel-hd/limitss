@@ -1,18 +1,17 @@
 query GetMyApps {
   getMyApps {
-    productName
     name
     description
     license
     icon
     appId
     version
-    title
     width
     height
     fullscreen
     titleChange
     topMenu
     id
+    link
   }
 }

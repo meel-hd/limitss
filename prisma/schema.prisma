@@ -28,9 +28,8 @@ model App {
   id          Int     @id @default(autoincrement())
   owner       User    @relation(fields: [ownerId], references: [id])
   ownerId     String
-  title       String
-  productName String
   name        String
+  link        String
   description String
   license     String
   icon        String

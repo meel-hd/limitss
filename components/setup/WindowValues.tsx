@@ -18,15 +18,26 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
   return (
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
       <TextInput
-        label="Title"
-        spellCheck={false}
-        error={createAppValues.title.length > 185 ? 'Title is too long, only 185 characters allowed': false}
-        description="This will appear as the title off the app when it loads"
-        placeholder="Title of the app"
-        value={createAppValues.title}
+        label="Name"
+        description="This will show as the name of the app in the dock and other parts"
+        placeholder="The name visible to users"
+        value={createAppValues.name}
+        error={createAppValues.name.length > 185 ? 'Name is too long, only 185 characters allowed, it will look bad : )': false}
         onChange={(e) =>
           handleChange((oldValues) => {
-            return { ...oldValues, title: e.target.value };
+            return { ...oldValues, name: e.target.value };
+          })
+        }
+      />
+      <TextInput
+        label="Link"
+        description="The screen the app will open on it every time"
+        placeholder="Two sentences describing the app..."
+        error={createAppValues.link.length > 185 ? 'Link is too long, only 185 characters allowed.': false}
+        value={createAppValues.link}
+        onChange={(e) => 
+          handleChange((oldValues) => {
+            return { ...oldValues, link: e.target.value };
           })
         }
       />
@@ -47,31 +58,6 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
             }
           });
         }}
-      />
-      <NumberInput
-        min={200}
-        hideControls
-        label="Width"
-        value={createAppValues.width}
-        onChange={(val) =>
-          handleChange((oldValues) => {
-            return { ...oldValues, width: val as number };
-          })
-        }
-      />
-      <NumberInput
-        min={200}
-        max={2000000000}
-        hideControls
-        defaultValue={600}
-        label="Height"
-        value={createAppValues.height}
-        onChange={(val) =>
-          handleChange((oldValues) => {
-            console.log(val)
-            return { ...oldValues, height: val as number };
-          })
-        }
       />
       <Text mt={25} size={"xs"} color="dimmed">
         Show the app in fullscreen when it loads

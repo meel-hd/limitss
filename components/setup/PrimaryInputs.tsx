@@ -1,4 +1,4 @@
-import { Select, TextInput } from "@mantine/core";
+import { Select, TextInput, NumberInput } from "@mantine/core";
 import { Dispatch, SetStateAction } from "react";
 import { CreateAppInput } from "../../generated/graphql";
 
@@ -11,41 +11,42 @@ interface PrimaryInputsProps {
 function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
   return (
     <div className="flex flex-col w-full sm:w-1/3">
-      <TextInput
-        label="Product name"
-        description="This will show as the name of the app in the dock and other parts"
-        placeholder="The name visible to users"
-        value={createAppValues.productName}
-        error={createAppValues.productName.length > 185 ? 'Title is too long, only 185 characters allowed': false}
-        onChange={(e) =>
-          handleChange((oldValues) => {
-            return { ...oldValues, productName: e.target.value };
-          })
-        }
-      />
-      <TextInput
-        label="Name"
-        placeholder="Example: myapp"
-        value={createAppValues.name}
-        onChange={(e) =>
-          handleChange((oldValues) => {
-            return { ...oldValues, name: e.target.value };
-          })
-        }
-        error={createAppValues.name.length > 185 ? 'Title is too long, only 185 characters allowed': false}
-      />
-      <TextInput
-        label="Description"
-        description="This will show in some parts of the OS about the app"
-        placeholder="Two sentences describing the app..."
-        value={createAppValues.description}
-        onChange={(e) =>
-          handleChange((oldValues) => {
-            return { ...oldValues, description: e.target.value };
-          })
-        }
-        error={createAppValues.description.length > 185 ? 'Title is too long, only 185 characters allowed': false}
-      />
+    <NumberInput
+      min={200}
+      hideControls
+      label="Width"
+      value={createAppValues.width}
+      onChange={(val) =>
+        handleChange((oldValues) => {
+          return { ...oldValues, width: val as number };
+        })
+      }
+    />
+    <NumberInput
+      min={200}
+      hideControls
+      defaultValue={600}
+      label="Height"
+      value={createAppValues.height}
+      onChange={(val) =>
+        handleChange((oldValues) => {
+          return { ...oldValues, height: val as number };
+        })
+      }
+    />
+    <TextInput
+      label="Description"
+      description="This will show in some parts of the OS about the app"
+      placeholder="Two sentences describing the app..."
+      value={createAppValues.description}
+      // todo: add error message
+      onChange={(e) =>
+        handleChange((oldValues) => {
+          return { ...oldValues, description: e.target.value };
+        })
+      }
+      error={createAppValues.description.length > 185 ? 'Description is too long, only 185 characters allowed': false}
+    />
       <Select
         data={LICENSES}
         searchable
@@ -66,24 +67,26 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
         description="This will appears when you hover on the app"
         placeholder="Example: My app Desktop"
         value={createAppValues.appId}
+        // todo: add error message
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, appId: e.target.value };
           })
         }
-        error={createAppValues.appId.length > 185 ? 'Title is too long, only 185 characters allowed': false}
+        error={createAppValues.appId.length > 185 ? 'Id is too long, only 185 characters allowed': false}
       />
       <TextInput
         label="Version"
         description="For the users to know which version of the app they are using"
         placeholder="Example: 1.0.0"
         value={createAppValues.version}
+        // todo check if it's a valid version
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, version: e.target.value.trim() };
           })
         }
-        error={createAppValues.version.length > 185 ? 'Title is too long, only 185 characters allowed': false}
+        error={createAppValues.version.length > 185 ? 'Version is too long, only 185 characters allowed': false}
       />
     </div>
   );

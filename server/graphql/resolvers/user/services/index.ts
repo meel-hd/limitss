@@ -31,12 +31,5 @@ export class UserService {
       }
     });
     return updatedUser
-    return {
-        company:'',
-        name:'',
-        email:'',
-         image:'',
-        role:''
-    }
   }
 }

@@ -26,20 +26,27 @@ function EditUserInfo({ opened, setOpened, data, updateData }) {
           image,
         },
       }),
-      onSuccess:()=>{
-        updateData((oldData) => {
-          return { ...oldData, name, company, role, image };
-        });
-        setOpened(false)
-      }
+    onSuccess: () => {
+      updateData((oldData) => {
+        return { ...oldData, name, company, role, image };
+      });
+      setOpened(false);
+    },
   });
   return (
     <Modal
       title="Edit Account"
       onClose={() => setOpened(false)}
       opened={opened}
+      radius={"lg"}
+      padding={"lg"}
     >
-      {isError && <Text size={'xs'} color={'red'}>Something went wrong! <br/>Please refrech the page</Text>}
+      {isError && (
+        <Text size={"xs"} color={"red"}>
+          Something went wrong! <br />
+          Please refrech the page
+        </Text>
+      )}
       <TextInput
         label="Name"
         placeholder="Enter your name"
@@ -77,14 +84,14 @@ function EditUserInfo({ opened, setOpened, data, updateData }) {
         </Button>
         <Button
           className="bg-violet-500 hover:bg-violet-500"
-          onClick={async() => {
-            await mutateAsync()
+          onClick={ () => {
+             mutateAsync().catch(() => {});
           }}
         >
           Update
         </Button>
       </div>
-      
+
       <LoadingOverlay overlayBlur={2} visible={isLoading} />
     </Modal>
   );

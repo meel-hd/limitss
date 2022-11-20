@@ -25,19 +25,18 @@ function Setup() {
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
     appId: "",
     description: "",
+    link: "",
     fullscreen: true,
     height: 600,
     icon: "",
     license: "",
     name: "",
-    productName: "",
-    title: "",
     titleChange: false,
     topMenu: false,
     version: "",
     width: 800,
   });
-  const { mutateAsync, isLoading, isError } = useMutation({
+  const { mutateAsync, isLoading } = useMutation({
     mutationKey: ["CreateApp"],
     mutationFn: () =>
       CreateApp({
@@ -65,10 +64,10 @@ function Setup() {
   });
   // Check the user input in the second part of the setup
   const invalidInput =
-    createAppVars.productName.length == 0 ||
-    createAppVars.productName.length > 185 ||
     createAppVars.name.length == 0 ||
     createAppVars.name.length > 185 ||
+    createAppVars.link.length == 0 ||
+    createAppVars.link.length > 185 ||
     createAppVars.description.length == 0 ||
     createAppVars.description.length > 185 ||
     createAppVars.appId.length == 0 ||
@@ -108,7 +107,7 @@ function Setup() {
                 />
               )}
               <Preview
-                appName={createAppVars.title}
+                appName={createAppVars.name}
                 icon={createAppVars.icon}
               />
             </Card.Section>
@@ -141,7 +140,8 @@ function Setup() {
                   className=" bg-indigo-500 hover:bg-indigo-500"
                   onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
                   disabled={
-                    createAppVars.title.length == 0 ||
+                    createAppVars.name.length == 0 ||
+                    createAppVars.link.length == 0 ||
                     createAppVars.icon.length == 0
                   }
                 >

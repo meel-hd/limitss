@@ -3,13 +3,14 @@ import { Field, InputType, ObjectType } from "type-graphql"
 
 @ObjectType()
 export class AppType {
-    @Length(1,185)
-    @Field(() => String)
-    productName: string
     
     @Length(1,185)
     @Field(() => String)
-    name: string
+    name: string 
+
+    @Length(1,185)
+    @Field(() => String)
+    link: string
 
     @Length(1,185)
     @Field(() => String)
@@ -31,10 +32,6 @@ export class AppType {
     @Length(1,185)
     @Field(() => String)
     version: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    title: string
 
     @Field(() => Number)
     width: number
@@ -53,14 +50,14 @@ export class AppType {
 }
 
 @InputType()
-export class CreateAppInput {
-    @Field(() => String)
-    @Length(1,185)
-    productName: string
-    
+export class CreateAppInput {    
     @Length(1,185)
     @Field(() => String)
-    name: string
+    name: string 
+
+    @Length(1,185)
+    @Field(() => String)
+    link: string
 
     @Length(1,185)
     @Field(() => String)
@@ -82,10 +79,6 @@ export class CreateAppInput {
     @Length(1,185)
     @Field(() => String)
     version: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    title: string
 
     @Field(() => Number)
     width: number

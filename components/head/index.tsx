@@ -49,7 +49,7 @@ function Header({ minimal }: { minimal?: boolean }) {
           </div>
           <div className="flex justify-center items-center">
             {status == "authenticated" ? (
-              <LoggedInUser link="/home" />
+              <LoggedInUser size={32} link="/home" />
             ) : (
               <Link href={"/signin"}>
                 <Button className="bg-gradient-to-r from-indigo-500 px-4 to-violet-400 hover:opacity-70">

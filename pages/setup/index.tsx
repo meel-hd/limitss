@@ -116,9 +116,10 @@ function Setup() {
               className="flex flex-row justify-between items-center"
             >
               <Button
+              disabled={CREATE_APP_STEP.GENERAL == step}
                 className={
                   step == CREATE_APP_STEP.GENERAL
-                    ? "opacity-0 cursor-default"
+                    ? "opacity-0  cursor-default"
                     : ""
                 }
                 onClick={() => setStep(CREATE_APP_STEP.GENERAL)}

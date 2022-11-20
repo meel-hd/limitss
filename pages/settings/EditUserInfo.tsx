@@ -73,7 +73,7 @@ function EditUserInfo({ opened, setOpened, data, updateData }) {
       />
       <div className="w-full mt-5 flex justify-between items-center">
         <Button
-          variant="outline"
+          variant="white"
           color={"violet"}
           onClick={() => {
             clearState();

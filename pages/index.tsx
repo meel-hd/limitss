@@ -7,9 +7,7 @@ import CustomersApp from "../components/landing/CustomersApp";
 import HeroSection from "../components/landing/Hero";
 
 const Home: NextPage = () => {
-
   return (
-    
     <>
       <Head>
         <title>
@@ -21,11 +19,15 @@ const Home: NextPage = () => {
         />
       </Head>
       <Header />
-      <div className="flex w-full min-h-screen justify-center items-center">
-        <HeroSection  >
-          {<Link href={'/setup'}>
-            <Button className="bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]" >Get Started</Button>
-          </Link>}
+      <div className="flex w-full min-h-[90vh] sm:min-h-screen justify-center items-center">
+        <HeroSection>
+          {
+            <Link href={"/setup"}>
+              <Button className="bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]">
+                Get Started
+              </Button>
+            </Link>
+          }
         </HeroSection>
       </div>
       <div className="w-full flex justify-center -mt-7 items-center">

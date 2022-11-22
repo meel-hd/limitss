@@ -21,7 +21,6 @@ enum CREATE_APP_STEP {
 }
 
 function Setup() {
-  const [url, setUrl] = useState("");
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
   const router = useRouter();
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
@@ -96,7 +95,6 @@ function Setup() {
               pt={10}
               px={20}
             >
-              {url.length > 0 && url}
               {step == CREATE_APP_STEP.WINDOW && (
                 <PrimaryInputs
                   createAppValues={createAppVars}
@@ -131,7 +129,6 @@ function Setup() {
               >
                 Go Back
               </Button>
-                <Uploader setUrl={setUrl}/>
               {step == CREATE_APP_STEP.GENERAL && (
                 <Button
                   styles={{
@@ -165,9 +162,6 @@ function Setup() {
             </Card.Section>
             <LoadingOverlay overlayBlur={2} visible={isLoading} />
           </Card>
-
-          {/* {data && <code>{JSON.stringify(data)}</code>} */}
-          {/* <p >{JSON.stringify(createAppVars)}</p> */}
         </div>
       </AuthorizedOnly>
     </>

@@ -36,7 +36,7 @@ function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
           {icon.length > 0 && (
             <Avatar
               className="ml-28 rounded-none pointer-events-none"
-              size={"sm"}
+              size={20}
               src={icon}
             />
           )}

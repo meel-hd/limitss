@@ -18,7 +18,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
       >
         {appName.length > 0 && icon.length > 0 && (
           <div
-            className="text-black bg-[#ffffff60] mb-4
+            className="text-black bg-[#ffffff90] mb-4
         max-w-[300px] overflow-hidden text-ellipsis whitespace-nowrap
         py-[2px] px-[10px] font-medium rounded-md select-none font-sans"
           >

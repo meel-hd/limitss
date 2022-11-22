@@ -1,16 +1,14 @@
 import {
-  FileInput, NumberInput,
-  Switch,
+  FileInput, Switch,
   Text, TextInput
 } from "@mantine/core";
-import { Dispatch, SetStateAction } from "react";
+import Uploader from "components/upload";
+import { Dispatch, SetStateAction, useState } from "react";
 import { Check, X } from "tabler-icons-react";
 import { CreateAppInput } from "../../generated/graphql";
 
 interface WindowValuesProps {
   createAppValues: CreateAppInput;
-  // handleChange: (a: CreateAppInput) => CreateAppInput;
-  //
   handleChange: Dispatch<SetStateAction<CreateAppInput>>;
 }
 
@@ -41,7 +39,8 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
           })
         }
       />
-      <FileInput
+      <Uploader handleChange={handleChange}  />
+      {/* <FileInput
         className="w-full sm:w-1/2 truncate"
         label="Icon"
         accept="image/png"
@@ -58,7 +57,7 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
             }
           });
         }}
-      />
+      /> */}
       <Text mt={25} size={"xs"} color="dimmed">
         Show the app in fullscreen when it loads
       </Text>

@@ -2,6 +2,7 @@ import { Button, Card, LoadingOverlay } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
+import Uploader from "components/upload";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -20,6 +21,7 @@ enum CREATE_APP_STEP {
 }
 
 function Setup() {
+  const [url, setUrl] = useState("");
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
   const router = useRouter();
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
@@ -94,6 +96,7 @@ function Setup() {
               pt={10}
               px={20}
             >
+              {url.length > 0 && url}
               {step == CREATE_APP_STEP.WINDOW && (
                 <PrimaryInputs
                   createAppValues={createAppVars}
@@ -119,8 +122,8 @@ function Setup() {
               disabled={CREATE_APP_STEP.GENERAL == step}
                 className={
                   step == CREATE_APP_STEP.GENERAL
-                    ? "opacity-0  cursor-default"
-                    : ""
+                  ? "opacity-0  cursor-default"
+                  : ""
                 }
                 onClick={() => setStep(CREATE_APP_STEP.GENERAL)}
                 variant="white"
@@ -128,6 +131,7 @@ function Setup() {
               >
                 Go Back
               </Button>
+                <Uploader setUrl={setUrl}/>
               {step == CREATE_APP_STEP.GENERAL && (
                 <Button
                   styles={{

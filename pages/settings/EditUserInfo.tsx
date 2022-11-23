@@ -4,15 +4,15 @@ import { UpdateUser } from "lib/gql.client";
 import { useState } from "react";
 
 function EditUserInfo({ opened, setOpened, data, updateData }) {
-  const [name, setName] = useState<string>(data.name);
-  const [company, setCompany] = useState<string>(data.company);
-  const [role, setRole] = useState<string>(data.role);
-  const [image, setImage] = useState<string>(data.image);
+  const [name, setName] = useState<string>(data?.name);
+  const [company, setCompany] = useState<string>(data?.company);
+  const [role, setRole] = useState<string>(data?.role);
+  const [image, setImage] = useState<string>(data?.image);
   function clearState() {
-    setName(data.name);
-    setCompany(data.company);
-    setRole(data.role);
-    setImage(data.image);
+    setName(data?.name);
+    setCompany(data?.company);
+    setRole(data?.role);
+    setImage(data?.image);
   }
   const { mutateAsync, isLoading, isError } = useMutation({
     mutationKey: ["UpdateUser"],
@@ -50,25 +50,25 @@ function EditUserInfo({ opened, setOpened, data, updateData }) {
       <TextInput
         label="Name"
         placeholder="Enter your name"
-        value={name}
+        value={name || ""} 
         onChange={(e) => setName(e.target.value)}
       />
       <TextInput
         label="Company"
         placeholder="Company"
-        value={company}
+        value={company || ''}
         onChange={(e) => setCompany(e.target.value)}
       />
       <TextInput
         label="Role"
         placeholder="Role at company"
-        value={role}
+        value={role || ''}
         onChange={(e) => setRole(e.target.value)}
       />
       <TextInput
         label="Profile Image"
         placeholder="Image Link"
-        value={image}
+        value={image || ''}
         onChange={(e) => setImage(e.target.value)}
       />
       <div className="w-full mt-5 flex justify-between items-center">

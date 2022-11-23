@@ -1,61 +1,61 @@
-import { PasswordInput, Text, TextInput } from "@mantine/core";
-import { useMutation } from "@tanstack/react-query";
+// import { PasswordInput, Text, TextInput } from "@mantine/core";
+// import { useMutation } from "@tanstack/react-query";
 import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { Key, Mail } from "tabler-icons-react";
+// import Link from "next/link";
+// import { useRouter } from "next/router";
+// import { useEffect, useState } from "react";
+// import { Key, Mail } from "tabler-icons-react";
 import Header from "../../components/head";
-import PrimaryBtn from "../../components/lib/PrimaryBtn";
-import { Login as LoginMutation } from "../../lib/gql.client";
-import Notification from "../../components/lib/notifications";
-import z from "zod";
-import { useForm, zodResolver } from "@mantine/form";
+// import PrimaryBtn from "../../components/lib/PrimaryBtn";
+// import { Login as LoginMutation } from "../../lib/gql.client";
+// import Notification from "../../components/lib/notifications";
+// import z from "zod";
+// import { useForm, zodResolver } from "@mantine/form";
 
 function Login() {
-    const [error, setError] = useState(false);
-    const router = useRouter();
+    // const [error, setError] = useState(false);
+    // const router = useRouter();
 
-    const loginSchema = z.object({
-        email: z.string().email({ message: "Invalid email" }).max(185,"Email is too long, only 185 characters allowed"),
-        password: z.string().min(8, "Password should be atleast 8 characters").max(185,'Password is too long, only 185 characters allowed'),
-    });
-    const LoginForm = useForm({
-        initialValues: {
-            email: "",
-            password: "",
-        },
-        validate: zodResolver(loginSchema),
-    });
+    // const loginSchema = z.object({
+    //     email: z.string().email({ message: "Invalid email" }).max(185,"Email is too long, only 185 characters allowed"),
+    //     password: z.string().min(8, "Password should be atleast 8 characters").max(185,'Password is too long, only 185 characters allowed'),
+    // });
+    // const LoginForm = useForm({
+    //     initialValues: {
+    //         email: "",
+    //         password: "",
+    //     },
+    //     validate: zodResolver(loginSchema),
+    // });
 
-    // Try to login
-    const { isLoading, mutateAsync } = useMutation({
-        mutationKey: ["Login"],
-        mutationFn: () =>
-            LoginMutation({
-                arg: {
-                    email: LoginForm.values.email,
-                    password: LoginForm.values.password,
-                },
-            }),
-        onSuccess: () => {
-            // Redirect to main page
-            router.replace("/setup");
-        },
-        onError: () => {
-            // Show the Error notificatin
-            setError(true);
-        },
-    });
+    // // Try to login
+    // const { isLoading, mutateAsync } = useMutation({
+    //     mutationKey: ["Login"],
+    //     mutationFn: () =>
+    //         LoginMutation({
+    //             arg: {
+    //                 email: LoginForm.values.email,
+    //                 password: LoginForm.values.password,
+    //             },
+    //         }),
+    //     onSuccess: () => {
+    //         // Redirect to main page
+    //         router.replace("/setup");
+    //     },
+    //     onError: () => {
+    //         // Show the Error notificatin
+    //         setError(true);
+    //     },
+    // });
 
-    // Hide the error notifaction after 4 seconds
-    useEffect(() => {
-        if (error) {
-            setTimeout(() => {
-                setError(false);
-            }, 4000);
-        }
-    }, [error]);
+    // // Hide the error notifaction after 4 seconds
+    // useEffect(() => {
+    //     if (error) {
+    //         setTimeout(() => {
+    //             setError(false);
+    //         }, 4000);
+    //     }
+    // }, [error]);
 
     return (
         <>
@@ -69,7 +69,7 @@ function Login() {
                 ></meta>
             </Head>
             <Header minimal={true} />
-            <div className="w-full flex flex-row justify-start items-center">
+            {/* <div className="w-full flex flex-row justify-start items-center">
                 <form
                     onSubmit={LoginForm.onSubmit(() => {
                         mutateAsync().catch((err) => {});
@@ -128,6 +128,7 @@ function Login() {
                     color="red"
                 />
             )}
+        </> */}
         </>
     );
 }

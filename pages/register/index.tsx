@@ -7,7 +7,7 @@ import { Building, Key, Mail, Sitemap, User } from "tabler-icons-react";
 import { z } from "zod";
 import Header from "../../components/head";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
-import { Register } from "../../lib/gql.client";
+// import { Register } from "../../lib/gql.client";
 
 function SignUp() {
     const registerSchema = z.object({
@@ -32,20 +32,20 @@ function SignUp() {
         validate: zodResolver(registerSchema),
     });
 
-    const { mutateAsync } = useMutation({
-        mutationKey: ["Register"],
-        mutationFn: () =>
-            Register({
-                arg: {
-                    company: RegisterForm.values.company,
-                    email: RegisterForm.values.email,
-                    fullName: RegisterForm.values.fullName,
-                    role: RegisterForm.values.role,
-                    password: RegisterForm.values.password,
-                },
-            }),
-        onSuccess: () => alert("success"),
-    });
+    // const { mutateAsync } = useMutation({
+    //     mutationKey: ["Register"],
+    //     mutationFn: () =>
+    //         Register({
+    //             arg: {
+    //                 company: RegisterForm.values.company,
+    //                 email: RegisterForm.values.email,
+    //                 fullName: RegisterForm.values.fullName,
+    //                 role: RegisterForm.values.role,
+    //                 password: RegisterForm.values.password,
+    //             },
+    //         }),
+    //     onSuccess: () => alert("success"),
+    // });
     return (
         <>
             <Head>
@@ -61,9 +61,9 @@ function SignUp() {
             <Header minimal={true} />
             <div className="w-full flex flex-row justify-start items-center">
                 <form
-                    onSubmit={RegisterForm.onSubmit(() => {
-                        mutateAsync().catch((err) => {});
-                    })}
+                    // onSubmit={RegisterForm.onSubmit(() => {
+                    //     mutateAsync().catch((err) => {});
+                    // })}
                     className="sm:w-1/2 h-screen flex flex-col justify-center  px-10 sm:px-20   py-32"
                 >
                     <p className="text-3xl sm:text-5xl font-bold">

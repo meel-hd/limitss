@@ -1,3 +1,4 @@
+import { Skeleton, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Navigation from "components/head/Navigation";
@@ -24,8 +25,11 @@ function Home() {
       <AuthorizedOnly>
         <div className="w-full mt-4 pl-4 sm:pl-32">
           <h1 className="font-semibold mt-5">Your Apps</h1>
-          {isLoading && "lodaing"}
-          {isError && "error"}
+          {isLoading && <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
+            <Skeleton  m={20} w={200} h={320} />
+            <Skeleton  m={20} w={200} h={320} />
+            </div>}
+          {isError && <Text size='xs' ml={20} color='red'>Something went wrong! Please Refrech the page</Text>}
           {data && (
             <div 
             className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden "

@@ -19,7 +19,7 @@ function AppCard({
   return (
     <Card className="relative" m={margin || 20} w={200} h={320} shadow={"sm"}>
       <div className="flex items-center ">
-        <Avatar src={appIcon} radius={999} size={"lg"} />
+        <Avatar className="pointer-events-none select-none" src={appIcon} radius={999} size={"lg"} />
         <p className="truncate ml-4 font-semibold text-lg">{appName}</p>
       </div>
       <Tooltip position="right" radius={"lg"} label="License">

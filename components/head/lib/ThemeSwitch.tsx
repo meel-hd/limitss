@@ -32,7 +32,7 @@ function ThemeSwitch({
       )}
       {expanded && (
         <Text
-          size={"sm"}
+          size={"xs"}
           color={
             colorScheme == "dark"
               ? theme.colors.yellow[3]

@@ -78,7 +78,7 @@ export default function Uploader({ setUrl, handleChange }: Props) {
           <div className="flex flex-col gap-2 items-center">
             <button
               onClick={uploadFile}
-              className=" btn flex text-sm flex-row items-center cursor-pointer justify-center gap-2"
+              className=" btn flex text-xs flex-row items-center max-w-[140px] truncate  cursor-pointer  gap-2"
             >
               <Upload size={15} />
               Upload {file.name}
@@ -97,7 +97,7 @@ export default function Uploader({ setUrl, handleChange }: Props) {
   const theme = useMantineTheme();
   return (
     <>
-      <div className={`flex justify-between items-center w-60 mt-3 rounded-full bg-white/5 px-2 py-2 ${theme.colorScheme == 'light' && 'bg-slate-200/20'}`}>
+      <div className={`flex justify-between max-h-9 items-center w-60 mt-3 rounded-full bg-white/5 px-2 py-2 ${theme.colorScheme == 'light' && 'bg-slate-200/20'}`}>
         {uploaded ? (
           <>
             <UploadUi uploaded={true} />

@@ -48,7 +48,7 @@ function Setup() {
     onSuccess: () => {
       showNotification({
         title: "Done",
-        color: "green", 
+        color: "lime", 
         message: "The app "+ createAppVars.name + " is created.",
         icon: <Check color="white" />,
       });

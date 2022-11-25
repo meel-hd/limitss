@@ -4,6 +4,7 @@ import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Navigation from "components/head/Navigation";
 import { GetMyApps } from "lib/gql.client";
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect } from "react";
 import AppCard from "./utils/AppCard";
 
@@ -23,17 +24,23 @@ function Home() {
       </Head>
       <Navigation activeTab="home" />
       <AuthorizedOnly>
-        <div className="w-full mt-4 pl-4 sm:pl-32">
+        <div className="w-full py-5 mt-4 pl-4 sm:pl-32">
           <h1 className="font-semibold mt-5">Your Apps</h1>
-          {isLoading && <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
-            <Skeleton  m={20} w={200} h={320} />
-            <Skeleton  m={20} w={200} h={320} />
-            </div>}
-          {isError && <Text size='xs' ml={20} color='red'>Something went wrong! Please Refrech the page</Text>}
+          {isLoading && (
+            <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
+              <Skeleton radius={"lg"} m={20} w={200} h={320} />
+              <Skeleton radius={"lg"} m={20} w={200} h={320} />
+            </div>
+          )}
+          {isError && (
+            <Text size="xs" ml={20} color="red">
+              Something went wrong! Please Refrech the page
+            </Text>
+          )}
           {data && (
-            <div 
-            className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden "
-            // className="flex flex-col justify-center items-center sm:grid overflow-hidden sm:grid-cols-4 md:grid-csols-3 grid-rows-3 gap-2"
+            <div
+              className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden "
+              // className="flex flex-col justify-center items-center sm:grid overflow-hidden sm:grid-cols-4 md:grid-csols-3 grid-rows-3 gap-2"
             >
               {data.getMyApps.map((app) => {
                 return (
@@ -46,6 +53,13 @@ function Home() {
                   ></AppCard>
                 );
               })}
+              {data.getMyApps.length == 0 && (
+                <div className="w-96 bg-violet-300/20  max-w-full rounded-xl  h-52 flex justify-center items-center flex-col">
+                  <Text mb={30} size="lg" ml={20} >
+                    You have no apps yet
+                  </Text>
+                </div>
+              )}
             </div>
           )}
         </div>

@@ -19,6 +19,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const session = await unstable_getServerSession(req, res, authOptions)
+    console.log('session',session)
     const user = session?.user?.email
         ? await prisma.user.findUnique({where: {email: session.user.email}})
         : null
@@ -38,17 +39,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             Expires: 600,
             ContentType: type,
         }
-        console.log('fileParams', fileParams)
 
         const url = await s3.getSignedUrlPromise('putObject', fileParams)
-        console.log('url', url)
-        console.log("-------------------------")
         const fileUrl = `https://${process.env.BUCKET_NAME}.s3.amazonaws.com/${fileParams.Key}`
-        console.log('fileUrl', fileUrl)
 
         res.status(200).json({ url, fileUrl })
     } catch (err) {
-        console.log(err)
         res.status(400).json({ message: err })
     }
 }

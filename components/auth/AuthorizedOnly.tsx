@@ -4,10 +4,10 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 function AuthorizedOnly({ children }) {
-  const { status } = useSession();
+  const { status ,data:session} = useSession();
   return (
     <>
-      {status == "authenticated" ? (
+      {status == "authenticated" && session.user.email? (
         children
       ) : (
         <div className="w-full h-screen flex justify-center items-center flex-col">

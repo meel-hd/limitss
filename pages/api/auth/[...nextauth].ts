@@ -25,6 +25,23 @@ export const authOptions:NextAuthOptions = {
     strategy:"jwt"
   },
 
+  callbacks: {
+    // Add acess token to jwt token to add it to session  
+    async jwt({token,account}){
+      if(!token.accessToken){
+        token.accessToken = account?.access_token;
+      }
+      // console.log('token',token)
+      return token
+    },
+
+    async session({session,token}){
+      //@ts-ignore
+      session.accessToken = token?.accessToken;
+      // console.log('session',session)
+      return session
+    }
+  }
   // debug:true,
 }
 

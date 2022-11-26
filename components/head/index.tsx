@@ -15,9 +15,7 @@ function Header({ minimal }: { minimal?: boolean }) {
       className="fixed hover:shadow-sm z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
     >
       <Link href={"/"}>
-        <a>
           <Logo width={35} />
-        </a>
       </Link>
       {!minimal && (
         <>

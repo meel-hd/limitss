@@ -28,9 +28,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
     >
       <div className="justify-start">
         <Link href={"/home"}>
-          <a>
             <Logo width={30} withoutText={!expanded} />
-          </a>
         </Link>
         <div
           className={`${

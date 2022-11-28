@@ -12,7 +12,7 @@ import Logo from "./lib/Logo";
 import NavbarLink from "./lib/NavbarLink";
 import ThemeSwitch from "./lib/ThemeSwitch";
 
-export type Tabs = "home" | "settings" | "setup";
+export type Tabs = "home" | "settings" | "setup" | "resources";
 
 function Navigation({ activeTab }: { activeTab: Tabs }) {
   const [expanded, setExpanded] = useState(false);
@@ -63,6 +63,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
         <NavbarLink
           expanded={expanded}
           Icon={ChartTreemap}
+          active={activeTab == "resources"}
           href="/resources"
           label="Resources"
         />

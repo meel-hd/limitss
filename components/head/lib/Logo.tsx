@@ -23,7 +23,7 @@ function Logo({ width, withoutText, withoutIcon, textSize}: LogoProps) {
           color={theme.colorScheme == 'dark' ? 'white' : ''}
           className=" select-none "
         >
-          LimitsS
+          Limitss
         </Text>
       )}
     </div>

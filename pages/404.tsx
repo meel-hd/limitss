@@ -22,7 +22,7 @@ function NotFound() {
         <Text mb={80} size={"lg"} weight={400}>
           It looks like the page you are looking for does not exist.
         </Text>
-        <Link href={"/"}>
+        <Link href={"/home"}>
           <Button variant="outline" color={"violet"}>
             Get Back to Home Sweet Home
           </Button>

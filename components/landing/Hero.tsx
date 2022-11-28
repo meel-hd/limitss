@@ -39,7 +39,7 @@ function HeroSection({
           </Text>
           <p className="mb-8 text-base leading-relaxed text-left text-gray-400">
             Build native desktop app from your webapp within minutes, with no
-            developers or code. With LimitsS gain trust in your app more than
+            developers or code. With Limitss gain trust in your app more than
             ever.
           </p>
           <div className="flex flex-wrap w-full mt-2 -mx-4 text-left">

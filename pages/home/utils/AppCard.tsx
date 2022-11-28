@@ -1,4 +1,6 @@
 import { Avatar, Badge, Card, Text, Tooltip } from "@mantine/core";
+import { CreateAppOutput } from "generated/graphql";
+import { Dispatch, SetStateAction } from "react";
 import { ArrowRight } from "tabler-icons-react";
 
 export type AppCardProps = {
@@ -7,6 +9,7 @@ export type AppCardProps = {
   appCompany: string;
   description: string;
   margin?: string | number;
+  selectApp: () => void;
 };
 
 function AppCard({
@@ -15,6 +18,7 @@ function AppCard({
   description,
   margin,
   appIcon,
+  selectApp
 }: AppCardProps) {
   return (
     <Card radius={'lg'} className="relative hover:scale-105 transition-transform duration-300 hover:shadow-md" m={margin || 20} w={200} h={320} shadow={"sm"}>
@@ -40,6 +44,9 @@ function AppCard({
       {/* </div> */}
       <div className="w-full absolute bottom-0 right-0 left-0 flex p-2 justify-end items-center">
         <button
+        onClick={() =>{
+          selectApp()
+        }}
           className="inline-flex w-10 h-10 justify-center items-center  hover:bg-violet-400 text-violet-400 hover:text-white rounded-full transition duration-150"
         >
           <ArrowRight />

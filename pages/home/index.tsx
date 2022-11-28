@@ -1,12 +1,14 @@
-import { Skeleton, Text } from "@mantine/core";
+import { Modal, Skeleton, Text, Transition } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Navigation from "components/head/Navigation";
+import { CreateAppOutput } from "generated/graphql";
 import { GetMyApps } from "lib/gql.client";
 import Head from "next/head";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AppCard from "./utils/AppCard";
+import AppDetails from "./utils/AppDetails";
 
 function Home() {
   const { data, isLoading, isError, refetch } = useQuery({
@@ -16,6 +18,8 @@ function Home() {
   useEffect(() => {
     refetch().catch((err) => 0);
   }, [refetch]);
+
+  const [selectedApp, setSelectedApp] = useState<CreateAppOutput>();
   return (
     <>
       <Head>
@@ -45,22 +49,44 @@ function Home() {
               {data.getMyApps.map((app) => {
                 return (
                   <AppCard
+                    selectApp={() => {
+                      setSelectedApp(app);
+                    }}
                     key={app.id}
                     appIcon={app.icon}
                     appCompany={app.license}
                     appName={app.name}
                     description={app.description}
-                  ></AppCard>
+                  />
                 );
               })}
               {data.getMyApps.length == 0 && (
                 <div className="w-96 bg-violet-300/20  max-w-full rounded-xl  h-52 flex justify-center items-center flex-col">
-                  <Text mb={30} size="lg" ml={20} >
+                  <Text mb={30} size="lg" ml={20}>
                     You have no apps yet
                   </Text>
                 </div>
               )}
             </div>
+          )}
+          {selectedApp && (
+            <Modal
+              closeButtonLabel="Back"
+              styles={{
+                title: {
+                  marginLeft: 60,
+                  fontSize: 20,
+                  fontWeight: 600,
+                },
+              }}
+              title={"App Details"}
+              exitTransitionDuration={40000}
+              fullScreen={true}
+              onClose={() => setSelectedApp(null)}
+              opened={selectedApp?.name?.length !== 0}
+            >
+              <AppDetails {...selectedApp} />
+            </Modal>
           )}
         </div>
       </AuthorizedOnly>

@@ -30,7 +30,7 @@ const Home: NextPage = () => {
           }
         </HeroSection>
       </div>
-      <div className="w-full flex justify-center -mt-4 sm:-mt-7 items-center">
+      <div className="w-full flex justify-center mt-0 sm:-mt-7 items-center">
         <div className="w-3 h-3 rounded-full bg-fuchsia-400 animate-bounce mr-2"></div>
         <div className="w-4 h-4 rounded-full bg-violet-400 animate-bounce mr-2"></div>
         <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>

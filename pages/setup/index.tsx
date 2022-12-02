@@ -80,7 +80,7 @@ function Setup() {
     createAppVars.license.length == 0;
 
   const createRepo = async () => {
-    axios.post("/api/github/create", {
+    axios.post("/api/github/repos/create", {
       name: createAppVars.name,
       description: createAppVars.description,
     });

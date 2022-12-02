@@ -50,12 +50,19 @@ export type CreateAppOutput = {
 export type Mutation = {
   __typename?: 'Mutation';
   createApp: CreateAppOutput;
+  deleteApp: CreateAppOutput;
+  githubMutation: Scalars['String'];
   updateUser: User;
 };
 
 
 export type MutationCreateAppArgs = {
   arg: CreateAppInput;
+};
+
+
+export type MutationDeleteAppArgs = {
+  appId: Scalars['Float'];
 };
 
 
@@ -66,6 +73,7 @@ export type MutationUpdateUserArgs = {
 export type Query = {
   __typename?: 'Query';
   getMyApps: Array<CreateAppOutput>;
+  github: Scalars['String'];
   me: User;
 };
 
@@ -92,6 +100,13 @@ export type CreateAppMutationVariables = Exact<{
 
 
 export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: number, link: string } };
+
+export type DeleteAppMutationVariables = Exact<{
+  appId: Scalars['Float'];
+}>;
+
+
+export type DeleteAppMutation = { __typename?: 'Mutation', deleteApp: { __typename?: 'createAppOutput', name: string } };
 
 export type GetMyAppsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -127,6 +142,13 @@ export const CreateAppDocument = gql`
     topMenu
     id
     link
+  }
+}
+    `;
+export const DeleteAppDocument = gql`
+    mutation DeleteApp($appId: Float!) {
+  deleteApp(appId: $appId) {
+    name
   }
 }
     `;
@@ -181,6 +203,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     CreateApp(variables: CreateAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateAppMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateAppMutation>(CreateAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateApp', 'mutation');
+    },
+    DeleteApp(variables: DeleteAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<DeleteAppMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<DeleteAppMutation>(DeleteAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'DeleteApp', 'mutation');
     },
     GetMyApps(variables?: GetMyAppsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMyAppsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetMyAppsQuery>(GetMyAppsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMyApps', 'query');

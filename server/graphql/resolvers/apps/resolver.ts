@@ -17,4 +17,10 @@ export class AppsResolver {
   async getMyApps( @Ctx() context:Context):Promise<createAppOutput[]>{
     return new GeneratorService(context).getMyApps();
   }
+
+  @Authorized()
+  @Mutation(() => createAppOutput)
+  async deleteApp(@Arg("appId") appId: number, @Ctx() context:Context): Promise<createAppOutput> {
+    return new GeneratorService(context).deleteApp(appId);
+  }
 }

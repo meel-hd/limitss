@@ -1,0 +1,5 @@
+mutation DeleteApp($appId: Float!) {
+  deleteApp(appId: $appId) {
+    name
+  }
+}

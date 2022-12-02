@@ -1,14 +1,13 @@
-import { Modal, Skeleton, Text, Transition } from "@mantine/core";
+import { Modal, Skeleton, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Navigation from "components/head/Navigation";
+import AppCard from "components/pages/home/AppCard";
+import AppDetails from "components/pages/home/AppDetails";
 import { CreateAppOutput } from "generated/graphql";
 import { GetMyApps } from "lib/gql.client";
 import Head from "next/head";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import AppCard from "./utils/AppCard";
-import AppDetails from "./utils/AppDetails";
 
 function Home() {
   const { data, isLoading, isError, refetch } = useQuery({
@@ -85,7 +84,13 @@ function Home() {
               onClose={() => setSelectedApp(null)}
               opened={selectedApp?.name?.length !== 0}
             >
-              <AppDetails {...selectedApp} />
+              <AppDetails
+                handleRefetch={() => {
+                  refetch().catch((err) => console.log(err));
+                  setSelectedApp(null);
+                }}
+                appDetails={selectedApp}
+              />
             </Modal>
           )}
         </div>

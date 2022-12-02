@@ -6,9 +6,9 @@ import { authOptions } from "pages/api/auth/[...nextauth]";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-//   if (req.method !== "POST") {
-//     return res.status(405).json({ message: "Method not allowed" });
-//   }
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
 
   const session = await unstable_getServerSession(req, res, authOptions);
 

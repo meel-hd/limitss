@@ -1,4 +1,5 @@
 import { ApolloError } from "apollo-server-micro";
+import { CreateAppOutput } from "generated/graphql";
 import prisma from "lib/prisma";
 import { Context } from "server/types/Context";
 import { UnauthorizedError } from "type-graphql";
@@ -64,6 +65,28 @@ export class GeneratorService {
 
     return apps;
   }
+  async deleteApp(appId: number): Promise<CreateAppOutput> {
+    const userEmail = this.context.user.email;
 
+    const user = await prisma.user.findUnique({
+      where: {
+        email: userEmail,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedError();
+    }
+    const app = await prisma.app.delete({
+      where: {
+        id: appId ,
+      },
+    });
+    if (!app) {
+      throw new ApolloError("Failed to delete app");
+    }
+
+
+    return app
+  }
   // Class close Bracket
 }

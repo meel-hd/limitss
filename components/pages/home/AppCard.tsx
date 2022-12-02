@@ -1,6 +1,4 @@
 import { Avatar, Badge, Card, Text, Tooltip } from "@mantine/core";
-import { CreateAppOutput } from "generated/graphql";
-import { Dispatch, SetStateAction } from "react";
 import { ArrowRight } from "tabler-icons-react";
 
 export type AppCardProps = {

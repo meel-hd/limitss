@@ -11,6 +11,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "../lib/gql.client";
 import { SessionProvider } from "next-auth/react";
 import { NotificationsProvider } from "@mantine/notifications";
+import { ModalsProvider } from "@mantine/modals";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -57,7 +58,8 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             },
             loader: "bars",
           }}
-        >
+          >
+          <ModalsProvider>
           <NotificationsProvider>
             <QueryClientProvider client={queryClient}>
               <SessionProvider session={session}>
@@ -65,6 +67,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
               </SessionProvider>
             </QueryClientProvider>
           </NotificationsProvider>
+      </ModalsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
     </>

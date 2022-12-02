@@ -31,14 +31,12 @@ export const authOptions:NextAuthOptions = {
       if(!token.accessToken){
         token.accessToken = account?.access_token;
       }
-      // console.log('token',token)
       return token
     },
 
     async session({session,token}){
       //@ts-ignore
       session.user.accessToken = token?.accessToken;
-      // console.log('session',session)
       return session
     }
   }

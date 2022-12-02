@@ -33,9 +33,6 @@ export default cors(async (req:NextApiRequest, res:NextApiResponse) => {
         schema: graphqlSchema,
         cache:'bounded',
         context:async ({ req}) => {
-            // console.log(req)
-            // console.log("(((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((")
-            // console.log(res)
             const context:Context = {
               req,
               user: user ? await UserContext.userFromId(user?.id) : null

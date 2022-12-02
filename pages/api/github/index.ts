@@ -10,7 +10,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(405).json({ message: "Method not allowed" });
   }
   const session = await unstable_getServerSession(req, res, authOptions);
-  console.log("session", session);
   const user = session?.user?.email
     ? await prisma.user.findUnique({ where: { email: session.user.email } })
     : null;
@@ -18,7 +17,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
-  console.log("user", user);
 
   const octokit = new Octokit({
     auth:

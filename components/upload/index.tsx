@@ -46,7 +46,6 @@ export default function Uploader({ setUrl, handleChange }: Props) {
 
     setUploadingStatus("Uploaded!");
     setFile(null);
-    console.log(fileUrl);
   };
   const uploading = uploadingStatus === "Uploading...";
   const uploaded = uploadingStatus === "Uploaded!";

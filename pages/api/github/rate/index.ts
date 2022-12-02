@@ -2,7 +2,7 @@ import prisma from "lib/prisma";
 import { NextApiRequest, NextApiResponse } from "next";
 import { unstable_getServerSession } from "next-auth";
 import { Octokit } from "octokit";
-import { authOptions } from "../auth/[...nextauth]";
+import { authOptions } from "pages/api/auth/[...nextauth]";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method !== "GET") {

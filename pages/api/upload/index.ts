@@ -19,7 +19,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const session = await unstable_getServerSession(req, res, authOptions)
-    console.log('session',session)
     const user = session?.user?.email
         ? await prisma.user.findUnique({where: {email: session.user.email}})
         : null
@@ -29,7 +28,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
 
 
-        console.log('user', user)
     try {
         let { name, type } = req.body
 

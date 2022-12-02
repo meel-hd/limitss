@@ -1,6 +1,7 @@
 import { Button, Card, LoadingOverlay } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Uploader from "components/upload";
 import Head from "next/head";
@@ -48,8 +49,8 @@ function Setup() {
     onSuccess: () => {
       showNotification({
         title: "Done",
-        color: "lime", 
-        message: "The app "+ createAppVars.name + " is created.",
+        color: "lime",
+        message: "The app " + createAppVars.name + " is created.",
         icon: <Check color="white" />,
       });
       router.replace("/home");
@@ -57,7 +58,7 @@ function Setup() {
     onError: () => {
       showNotification({
         title: "Error",
-        color: "red", 
+        color: "red",
         message: "Something went wrong! Please try again.",
         icon: <ExclamationMark color="white" />,
       });
@@ -77,6 +78,13 @@ function Setup() {
     createAppVars.version.length > 185 ||
     createAppVars.license == null ||
     createAppVars.license.length == 0;
+
+  const createRepo = async () => {
+    axios.post("/api/github/create", {
+      name: createAppVars.name,
+      description: createAppVars.description,
+    });
+  };
   return (
     <>
       <Head>
@@ -107,21 +115,18 @@ function Setup() {
                   handleChange={setCreateAppVars}
                 />
               )}
-              <Preview
-                appName={createAppVars.name}
-                icon={createAppVars.icon}
-              />
+              <Preview appName={createAppVars.name} icon={createAppVars.icon} />
             </Card.Section>
             <Card.Section
               p={20}
               className="flex flex-row justify-between items-center"
             >
               <Button
-              disabled={CREATE_APP_STEP.GENERAL == step}
+                disabled={CREATE_APP_STEP.GENERAL == step}
                 className={
                   step == CREATE_APP_STEP.GENERAL
-                  ? "opacity-0  cursor-default"
-                  : ""
+                    ? "opacity-0  cursor-default"
+                    : ""
                 }
                 onClick={() => setStep(CREATE_APP_STEP.GENERAL)}
                 variant="white"
@@ -151,13 +156,19 @@ function Setup() {
                 </Button>
               )}
               {step == CREATE_APP_STEP.WINDOW && (
-                <Button
-                  className="w-24 bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
-                  onClick={() => mutateAsync().catch((err) => null)}
-                  disabled={invalidInput}
-                >
-                  Build
-                </Button>
+                <>
+                  <Button
+                    className="w-24 bg-gradient-to-r from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
+                    onClick={() => {
+                      mutateAsync()
+                        .then(() => createRepo())
+                        .catch((err) => null);
+                    }}
+                    disabled={invalidInput}
+                  >
+                    Build
+                  </Button>
+                </>
               )}
             </Card.Section>
             <LoadingOverlay overlayBlur={2} visible={isLoading} />

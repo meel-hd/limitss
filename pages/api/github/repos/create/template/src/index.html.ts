@@ -3,7 +3,7 @@ const indexHtmlTemplate = `
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <script type="module" src="/main.js" ></script>
+    <script type="module" src="./main.js" ></script>
   </head>
   <body>
   </body>

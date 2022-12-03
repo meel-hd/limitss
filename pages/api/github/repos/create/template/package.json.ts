@@ -6,7 +6,8 @@ const packageJsonTemplate = {
     license:'MIT',
     description:'This is a template for a new project',
     scripts: {
-      tauri: "tauri"
+      tauri: "tauri",
+      build: "tauri build",
     },
     devDependencies: {
       '@tauri-apps/cli': "^1.1.0"

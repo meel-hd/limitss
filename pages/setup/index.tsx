@@ -81,7 +81,7 @@ function Setup() {
 
   const createRepo = async () => {
     axios.post("/api/github/repos/create", {
-      name: createAppVars.name,
+      name: createAppVars.name.split(" ").join("-"),
       description: createAppVars.description,
     });
   };
@@ -162,7 +162,7 @@ function Setup() {
                     onClick={() => {
                       mutateAsync()
                         .then(() => createRepo())
-                        .catch((err) => null);
+                        .catch((err) => null)
                     }}
                     disabled={invalidInput}
                   >

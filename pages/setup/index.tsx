@@ -85,6 +85,7 @@ function Setup() {
       description: createAppVars.description,
       version: createAppVars.version,
       license: createAppVars.license,
+      link: createAppVars.link,
     });
   };
   return (

@@ -8,6 +8,7 @@ import addGitignore from "./utils/addGitignore";
 import addIndexHtml from "./utils/addIndexHtml";
 import addPackageJsonToRepo from "./utils/addPackageJson";
 import addMainJs from "./utils/addMainJs";
+import AddTauriConfigJson from "./utils/addTauriConfigJson";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -49,7 +50,23 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
   await addGitignore(octokit, response.data.owner.login, response.data.name);
   await addIndexHtml(octokit, response.data.owner.login, response.data.name);
-  await addMainJs(octokit, response.data.owner.login, response.data.name, req.body.link);
+  await addMainJs(
+    octokit,
+    response.data.owner.login,
+    response.data.name,
+    req.body.link
+  );
+  await AddTauriConfigJson(
+    octokit,
+    response.data.owner.login,
+    response.data.name,
+    req.body.name,
+    req.body.fullscreen,
+    req.body.width,
+    req.body.height,
+    req.body.description,
+    req.body.version
+  );
 
   res.status(200).json({ message: "Success" });
 };

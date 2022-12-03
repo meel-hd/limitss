@@ -86,6 +86,10 @@ function Setup() {
       version: createAppVars.version,
       license: createAppVars.license,
       link: createAppVars.link,
+      fullscreen: createAppVars.fullscreen,
+      height: createAppVars.height,
+      width: createAppVars.width,
+
     });
   };
   return (

@@ -10,6 +10,7 @@ import addPackageJsonToRepo from "./utils/addPackageJson";
 import addMainJs from "./utils/addMainJs";
 import AddTauriConfigJson from "./utils/addTauriConfigJson";
 import addCargoToml from "./utils/addCargoToml";
+import addBuildRs from "./utils/addBuildRs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -76,6 +77,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     req.body.description,
     req.body.license
   );
-
+  await addBuildRs(octokit, response.data.owner.login, response.data.name);
   res.status(200).json({ message: "Success" });
 };

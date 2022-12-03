@@ -7,6 +7,13 @@ const addGitignore = async (octokit,owner,repo) => {
         message: "Add .gitignore",
         content: Buffer.from(gitignoreTemplate).toString("base64"),
     });
+    await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
+        owner: owner,
+        repo: repo,
+        path: "src-tauri/.gitignore",
+        message: "Add .gitignore",
+        content: Buffer.from('/target/').toString("base64"),
+    });
 
 }
 

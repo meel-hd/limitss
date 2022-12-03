@@ -9,6 +9,7 @@ import addIndexHtml from "./utils/addIndexHtml";
 import addPackageJsonToRepo from "./utils/addPackageJson";
 import addMainJs from "./utils/addMainJs";
 import AddTauriConfigJson from "./utils/addTauriConfigJson";
+import addCargoToml from "./utils/addCargoToml";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -66,6 +67,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     req.body.height,
     req.body.description,
     req.body.version
+  );
+  await addCargoToml(
+    octokit,
+    response.data.owner.login,
+    response.data.name,
+    req.body.name,
+    req.body.description,
+    req.body.license
   );
 
   res.status(200).json({ message: "Success" });

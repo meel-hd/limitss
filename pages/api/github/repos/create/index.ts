@@ -11,6 +11,7 @@ import addMainJs from "./utils/addMainJs";
 import AddTauriConfigJson from "./utils/addTauriConfigJson";
 import addCargoToml from "./utils/addCargoToml";
 import addBuildRs from "./utils/addBuildRs";
+import addAppIcon from "./utils/addAppIcon";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -78,5 +79,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     req.body.license
   );
   await addBuildRs(octokit, response.data.owner.login, response.data.name);
+  await addAppIcon(octokit, response.data.owner.login, response.data.name, req.body.iconUrl);
   res.status(200).json({ message: "Success" });
 };

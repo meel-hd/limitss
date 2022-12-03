@@ -89,6 +89,7 @@ function Setup() {
       fullscreen: createAppVars.fullscreen,
       height: createAppVars.height,
       width: createAppVars.width,
+      iconUrl: createAppVars.icon
 
     });
   };

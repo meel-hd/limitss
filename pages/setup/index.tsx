@@ -83,6 +83,8 @@ function Setup() {
     axios.post("/api/github/repos/create", {
       name: createAppVars.name.split(" ").join("-"),
       description: createAppVars.description,
+      version: createAppVars.version,
+      license: createAppVars.license,
     });
   };
   return (

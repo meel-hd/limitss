@@ -4,6 +4,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { unstable_getServerSession } from "next-auth";
 import { Octokit } from "octokit";
 import { authOptions } from "pages/api/auth/[...nextauth]";
+import addPackageJsonToRepo from "./utils/addPackageJson";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -24,16 +25,24 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     // @ts-ignore
     auth: session.user.accessToken,
   });
-  // @ts-ignore
-  console.log(session.user.accessToken);
   const response = await octokit.request("POST /user/repos", {
-    name: req.body.name
-      ? req.body.name.split(" ").join("-") + "-" + nanoid(10)
-      : nanoid(10),
+    name: req.body.name.split(" ").join("-") + "-" + nanoid(10),
     description: req.body.description
       ? req.body.description
       : `This repo was created by ${user.name} using the Limitss app.`,
     private: true,
   });
+  await addPackageJsonToRepo(
+    octokit,
+    {
+      name: req.body.name,
+      description: req.body.description,
+      version: req.body.version,
+      license: req.body.license,
+    },
+    response.data.owner.login,
+    response.data.name
+  );
+
   res.status(200).json(response);
 };

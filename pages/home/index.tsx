@@ -2,11 +2,13 @@ import { Modal, Skeleton, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import Navigation from "components/head/Navigation";
+import PrimaryBtn from "components/lib/PrimaryBtn";
 import AppCard from "components/pages/home/AppCard";
 import AppDetails from "components/pages/home/AppDetails";
 import { CreateAppOutput } from "generated/graphql";
 import { GetMyApps } from "lib/gql.client";
 import Head from "next/head";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 function Home() {
@@ -60,10 +62,15 @@ function Home() {
                 );
               })}
               {data.getMyApps.length == 0 && (
-                <div className="w-96 bg-violet-300/20  max-w-full rounded-xl  h-52 flex justify-center items-center flex-col">
+                <div className="w-96 bg-violet-300/10  max-w-full rounded-xl  h-52 flex justify-center items-center flex-col">
                   <Text mb={30} size="lg" ml={20}>
                     You have no apps yet
                   </Text>
+                  <Link href={'/setup'}>
+                    <PrimaryBtn>
+                      Create App
+                    </PrimaryBtn>
+                  </Link>
                 </div>
               )}
             </div>

@@ -15,7 +15,7 @@ const AddTauriConfigJson = async (octokit,owner,repo,name,fullscreen,width,heigh
     owner: owner,
     repo: repo,
     path: "src-tauri/tauri.config.json",
-    message: "Add tauri.config.json",
+    message: "Add tauri.conf.json",
     content: Buffer.from(JSON.stringify(tauriConfigJsonTemplate)).toString(
       "base64"
     ),

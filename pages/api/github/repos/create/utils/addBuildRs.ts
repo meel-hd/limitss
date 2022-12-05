@@ -7,7 +7,7 @@ const addBuildRs = async (octokit, owner: string, repo: string) => {
     await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
     owner: owner,
     repo: repo,
-    path: "src-tauri/build.txt",
+    path: "src-tauri/build.rs",
     message: "Add build.rs",
     content: Buffer.from(buildRs).toString("base64"),
   });

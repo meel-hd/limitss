@@ -1,9 +1,7 @@
 const publishYmlTemaplate = `
 name: 'publish'
 on:
-  repository_dispatch:
-  schedule:
-    - cron: '5 12 * * 0'
+  repository_dispatch
 
 jobs:
   publish-tauri:

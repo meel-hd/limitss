@@ -53,6 +53,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     response.data.name
   );
   await addGitignore(octokit, response.data.owner.login, response.data.name);
+  await addPublishYml(octokit, response.data.owner.login, response.data.name);
   await addIndexHtml(octokit, response.data.owner.login, response.data.name);
   await addMainJs(
     octokit,
@@ -81,6 +82,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
   await addBuildRs(octokit, response.data.owner.login, response.data.name);
   await addAppIcon(octokit, response.data.owner.login, response.data.name, req.body.iconUrl);
-  await addPublishYml(octokit, response.data.owner.login, response.data.name);
+  // Trigger the build workflow
+  await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
+    owner: response.data.owner.login,
+    repo: response.data.name,
+    event_type: "publish",
+  });
   res.status(200).json({ message: "Success" });
 };

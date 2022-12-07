@@ -1,9 +1,8 @@
 const addBuildRs = async (octokit, owner: string, repo: string) => {
-  const buildRs = `
-    fn main() {
-        tauri_build::bundle();
-    }
-    `;
+  const buildRs = `fn main() {
+    tauri_build::build()
+  }
+  `;
     await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
     owner: owner,
     repo: repo,

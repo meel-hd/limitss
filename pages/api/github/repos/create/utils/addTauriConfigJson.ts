@@ -14,7 +14,7 @@ const AddTauriConfigJson = async (octokit,owner,repo,name,fullscreen,width,heigh
   await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
     owner: owner,
     repo: repo,
-    path: "src-tauri/tauri.config.json",
+    path: "src-tauri/tauri.conf.json",
     message: "Add tauri.conf.json",
     content: Buffer.from(JSON.stringify(tauriConfigJsonTemplate)).toString(
       "base64"

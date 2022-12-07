@@ -3,7 +3,7 @@ import tauriConfigJsonTemplate from '../template/src-tauri/taur.config.json'
 
 const AddTauriConfigJson = async (octokit,owner,repo,name,fullscreen,width,height,description,version) => {
   // Populate the template with the necessary data
-  tauriConfigJsonTemplate.package.productName = name;
+  tauriConfigJsonTemplate.package.productName = name.split(" ").join("_").toLowerCase();
   tauriConfigJsonTemplate.tauri.windows[0].title = name;
   tauriConfigJsonTemplate.tauri.windows[0].fullscreen = fullscreen;
   tauriConfigJsonTemplate.tauri.windows[0].width = width;

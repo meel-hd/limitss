@@ -12,7 +12,7 @@ const addPackageJsonToRepo = async (
   repo: string
 ) => {
   // Populate the package.json template with the necessary data
-  packageJsonTemplate.name = name;
+  packageJsonTemplate.name = name.split(" ").join("_").toLowerCase();
   packageJsonTemplate.description = description;
   packageJsonTemplate.version = version;
   packageJsonTemplate.license = license;

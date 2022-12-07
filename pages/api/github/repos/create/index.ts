@@ -12,6 +12,7 @@ import AddTauriConfigJson from "./utils/addTauriConfigJson";
 import addCargoToml from "./utils/addCargoToml";
 import addBuildRs from "./utils/addBuildRs";
 import addAppIcon from "./utils/addAppIcon";
+import addPublishYml from "./utils/addPublishYml";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -80,5 +81,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   );
   await addBuildRs(octokit, response.data.owner.login, response.data.name);
   await addAppIcon(octokit, response.data.owner.login, response.data.name, req.body.iconUrl);
+  await addPublishYml(octokit, response.data.owner.login, response.data.name);
   res.status(200).json({ message: "Success" });
 };

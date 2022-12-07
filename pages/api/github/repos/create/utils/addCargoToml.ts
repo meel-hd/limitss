@@ -1,7 +1,7 @@
 const addCargoToml = async (octokit,owner,repo,name,description,license) => {
     const cargoToml = `
     [package]
-    name = "${name}"
+    name = "${name.split(" ").join("_").toLowerCase()}"
     version = "1.0.0"
     description = "${description}"
     authors = ["${owner}"]

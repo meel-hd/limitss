@@ -38,14 +38,14 @@ function AppDetails({
           {license}
         </Badge>
         <Text ml={15} size={"xs"} color="dimmed">
-          {version}\ {id}
+          {version}
         </Text>
       </div>
       <div className="pl-2 sm:pl-10 mt-4">
         <Text className="sm:max-w-2xl" size="sm" color="gray">
           {description}
         </Text>
-        <Demensions width={width} height={height} />
+        {/* <Demensions width={width} height={height} /> */}
       </div>
       <DeleteApp id={id} handleRefetch={handleRefetch} />
     </div>

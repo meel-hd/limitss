@@ -37,7 +37,7 @@ function AppCard({
         mt={35}
         size={"sm"}
       >
-        {description} {description}
+        {description}
       </Text>
       {/* </div> */}
       <div className="w-full absolute bottom-0 right-0 left-0 flex p-2 justify-end items-center">

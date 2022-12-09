@@ -3,6 +3,7 @@ import axios from "axios";
 import { CreateAppOutput } from "generated/graphql";
 import { useEffect, useState } from "react";
 import DeleteApp from "./DeleteApp";
+import Status from "./Status";
 import { WorkflowUsage } from "./WorkflowUsage";
 
 function AppDetails({
@@ -58,17 +59,13 @@ function AppDetails({
           {description}
         </Text>
       </div>
-      <Accordion variant="filled" radius="xl" defaultValue="status" mt={20}>
+      <Accordion variant="separated" radius="xl" defaultValue="status" mt={20}>
         <Accordion.Item value="status">
           <Accordion.Control>
             <Text weight={600}>Status</Text>
           </Accordion.Control>
           <Accordion.Panel>
-            <div className="flex items-center">
-              <Badge size="xs" color={"yellow"}>
-                Building
-              </Badge>
-            </div>
+            {workflow ? <Status jobs={workflow.firstRunJobs.jobs}/> : <Loader color={'violet' } /> }
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item value="usage">
@@ -76,7 +73,7 @@ function AppDetails({
             <Text weight={600}>Build Time Usage</Text>
           </Accordion.Control>
           <Accordion.Panel>
-            {workflow ? <WorkflowUsage usage={workflow.usage} />: <Loader color={'violet' } />}
+            {workflow?.usage ? <WorkflowUsage usage={workflow.usage} />: <Loader color={'violet' } />}
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item value="settings">

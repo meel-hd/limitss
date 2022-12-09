@@ -21,7 +21,7 @@ interface StatsRingProps {
 }
 export function WorkflowUsage(usage) {
   const theme = useMantineTheme();
-  const statsData: StatsRingProps[] = [
+  const statsData: StatsRingProps[] = usage?.usage?.billable?.UBUNTU !== undefined ? [
     {
       label: "Ubuntu",
       ms: usage.usage.billable.UBUNTU.total_ms,
@@ -37,7 +37,7 @@ export function WorkflowUsage(usage) {
       ms: usage.usage.billable.WINDOWS.total_ms,
       color: theme.colors.blue[5],
     },
-  ];
+  ] : [];
   const brandIcons = {
     ubuntu: BrandUbuntu,
     windows: BrandWindows,
@@ -69,6 +69,7 @@ export function WorkflowUsage(usage) {
     
       <SimpleGrid cols={3} breakpoints={[{ maxWidth: "xs", cols: 1 }]}>
         {stats}
+        {stats.length === 0 && <Text size={'sm'} color={'dimmed'}>No usage data available</Text>}
       </SimpleGrid>
     
   );

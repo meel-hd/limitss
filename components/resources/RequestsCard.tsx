@@ -69,7 +69,7 @@ export function RequestsCard() {
               Consumed
             </Text>
             <Text size="sm" color="dimmed">
-              {(data.resources.core.used / data.resources.core.limit) * 100}%
+              {Math.round((data.resources.core.used / data.resources.core.limit) * 100)}%
             </Text>
           </Group>
           <Progress

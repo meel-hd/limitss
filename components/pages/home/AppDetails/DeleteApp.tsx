@@ -71,7 +71,7 @@ function DeleteApp({
     });
   };
   return (
-    <Tooltip label="Delete" radius={999} position="top">
+    <Tooltip label="Delete" radius={999} position="right">
       <ActionIcon
         onClick={() => {
           deleteConfirm();

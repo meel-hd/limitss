@@ -11,7 +11,7 @@ function Status(jobs) {
         </tr>
       </thead>
       <tbody>
-        {jobs.jobs.map((job) => {
+        {jobs?.jobs?.map((job) => {
           let color = "yellow";
           if (job.conclusion === "success") {
             color = "green";

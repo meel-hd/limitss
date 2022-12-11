@@ -13,7 +13,7 @@ export const authOptions:NextAuthOptions = {
         params:{
           // Access to read user profile data and email, full access to public and private repos,
           // add workfows, and manage codespaces
-          scope: "read:user user:email repo workflow codespace",
+          scope: "read:user user:email repo workflow ",
 
         }}
     }),

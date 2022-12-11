@@ -78,6 +78,7 @@ function Home() {
           {selectedApp && (
             <Modal
               closeButtonLabel="Back"
+              zIndex={150}
               styles={{
                 title: {
                   marginLeft: 60,

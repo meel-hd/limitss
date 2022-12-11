@@ -47,7 +47,7 @@ function AppDetails({
         <Avatar radius={999} size="lg" src={icon} />
         <h1 className="ml-5">{name}</h1>
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center shadow-sm">
         <Badge ml={30} size="xs" variant="dot" color={"gray"}>
           {license}
         </Badge>
@@ -60,16 +60,26 @@ function AppDetails({
           {description}
         </Text>
       </div>
-      <Accordion pb={30} variant="separated" radius="xl" defaultValue="status" mt={20}>
+      <Accordion
+        pb={30}
+        variant="separated"
+        radius="lg"
+        defaultValue="status"
+        mt={20}
+      >
         <Accordion.Item value="status">
           <Accordion.Control>
             <Text weight={600}>Status</Text>
           </Accordion.Control>
           <Accordion.Panel>
-            {workflow ? <Status jobs={workflow.firstRunJobs.jobs}/> : <Loader color={'violet' } /> }
+            {workflow ? (
+              <Status jobs={workflow.firstRunJobs.jobs} />
+            ) : (
+              <Loader color={"violet"} />
+            )}
           </Accordion.Panel>
         </Accordion.Item>
-        <Accordion.Item value='releases'>
+        <Accordion.Item value="releases">
           <Accordion.Control>
             <Text weight={600}>Releases</Text>
           </Accordion.Control>
@@ -82,7 +92,11 @@ function AppDetails({
             <Text weight={600}>Build Time Usage</Text>
           </Accordion.Control>
           <Accordion.Panel>
-            {workflow?.usage ? <WorkflowUsage usage={workflow.usage} />: <Loader color={'violet' } />}
+            {workflow?.usage ? (
+              <WorkflowUsage usage={workflow.usage} />
+            ) : (
+              <Loader color={"violet"} />
+            )}
           </Accordion.Panel>
         </Accordion.Item>
         <Accordion.Item value="settings">

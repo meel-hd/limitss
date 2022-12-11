@@ -50,12 +50,10 @@ function DeleteApp({
         body: "rounded-lg",
         title:'font-semibold ',
       },
-      overlayOpacity: 0,
-      overlayBlur:1,
       centered: true,
       children: (
         <Text size="sm">
-          Are you sure you want to delete this tournament? everything will be
+          Are you sure you want to delete this app? <br/> everything will be
           lost.
         </Text>
       ),

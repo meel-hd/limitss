@@ -12,7 +12,7 @@ function Header({ minimal }: { minimal?: boolean }) {
       style={{
         backgroundColor: theme.colorScheme == "light" ? "white" : "#1a1b1e",
       }}
-      className="fixed hover:shadow-sm z-[300] w-full flex justify-between h-14 border-b-[1px]d shadohw-lg px-5 items-center"
+      className="fixed z-[300] w-full flex justify-between h-14  px-5 items-center"
     >
       <Link href={"/"}>
           <Logo width={35} />
@@ -20,7 +20,7 @@ function Header({ minimal }: { minimal?: boolean }) {
       {!minimal && (
         <>
           <div className="flex justify-center items-center">
-            <Text
+            {/* <Text
               className="hidden sm:flex"
               color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
               weight={400}
@@ -43,7 +43,7 @@ function Header({ minimal }: { minimal?: boolean }) {
               ml={25}
             >
               Careers
-            </Text>
+            </Text> */}
           </div>
           <div className="flex justify-center items-center">
             {status == "authenticated" ? (

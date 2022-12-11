@@ -47,7 +47,7 @@ function AppDetails({
         <Avatar radius={999} size="lg" src={icon} />
         <h1 className="ml-5">{name}</h1>
       </div>
-      <div className="flex items-center shadow-sm">
+      <div className="flex items-center">
         <Badge ml={30} size="xs" variant="dot" color={"gray"}>
           {license}
         </Badge>
@@ -63,7 +63,7 @@ function AppDetails({
       <Accordion
         pb={30}
         variant="separated"
-        radius="lg"
+        radius="xl"
         defaultValue="status"
         mt={20}
       >

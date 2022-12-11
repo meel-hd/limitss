@@ -3,7 +3,6 @@ import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import Uploader from "components/upload";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -89,8 +88,7 @@ function Setup() {
       fullscreen: createAppVars.fullscreen,
       height: createAppVars.height,
       width: createAppVars.width,
-      iconUrl: createAppVars.icon
-
+      iconUrl: createAppVars.icon,
     });
   };
   return (
@@ -170,7 +168,7 @@ function Setup() {
                     onClick={() => {
                       mutateAsync()
                         .then(() => createRepo())
-                        .catch((err) => null)
+                        .catch((err) => null);
                     }}
                     disabled={invalidInput}
                   >

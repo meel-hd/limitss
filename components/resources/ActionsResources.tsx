@@ -58,7 +58,7 @@ function ActionsResources() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <Card withBorder radius="md" p="xl" className="bg-violet-400">
+    <Card withBorder radius="md" p="xl" className="bg-violet-400 mx-2 sm:mx-0">
       {data ? (
         <>
           <Text
@@ -67,7 +67,7 @@ function ActionsResources() {
             weight={700}
             className={classes.title}
           >
-            Actions Resources per Week
+            Build Resources per Week
           </Text>
           <Text size="lg" weight={500} className={classes.stats}>
             {data?.total_minutes_used} <span className="text-xs">used </span>/{" "}

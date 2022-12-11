@@ -13,7 +13,7 @@ function Resources() {
       </Head>
       <Navigation activeTab="resources" />
       <AuthorizedOnly>
-        <div className="w-full py-5 mt-4 pl-4 sm:pl-32 flex flex-wrap">
+        <div className="w-full py-5 mt-4 pl-0 sm:pl-32 flex flex-wrap">
           <div className="w-full sm:w-1/3 min-w-[180px] sm:mr-20">
             <RequestsCard />
           </div>

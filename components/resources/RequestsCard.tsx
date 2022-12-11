@@ -48,7 +48,7 @@ export function RequestsCard() {
     <Paper
       radius="md"
       shadow={"xs"}
-      className={classes.card}
+      className={classes.card + ' mx-2 sm:mx-0'}
       mt={ICON_SIZE / 3}
     >
       {data ? (

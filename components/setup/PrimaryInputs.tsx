@@ -90,8 +90,9 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
         description="For the users to know which version of the app they are using"
         placeholder="Example: 1.0.0"
         value={createAppValues.version}
-        // check if it's a valid version
+        // check if the length is valid and it's a valid version
         error={
+          createAppValues.version.length > 185 ? 'Version is too long, only 185 characters allowed':
           createAppValues.version.length > 0 &&
           !semverRegex.test(createAppValues.version)
             ? "Version is not valid"
@@ -102,7 +103,6 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
             return { ...oldValues, version: e.target.value.trim() };
           })
         }
-        // error={createAppValues.version.length > 185 ? 'Version is too long, only 185 characters allowed': false}
       />
     </div>
   );

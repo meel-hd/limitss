@@ -157,7 +157,7 @@ function Setup() {
                   disabled={
                     createAppVars.name.length == 0 ||
                     createAppVars.link.length == 0 ||
-                    urlRegex.test(createAppVars.link) ||
+                    !urlRegex.test(createAppVars.link) ||
                     createAppVars.icon.length == 0
                   }
                 >

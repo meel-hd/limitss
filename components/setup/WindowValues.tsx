@@ -1,7 +1,4 @@
-import {
-  FileInput, Switch,
-  Text, TextInput
-} from "@mantine/core";
+import { FileInput, Switch, Text, TextInput } from "@mantine/core";
 import Uploader from "components/upload";
 import { Dispatch, SetStateAction, useState } from "react";
 import { Check, X } from "tabler-icons-react";
@@ -12,6 +9,9 @@ interface WindowValuesProps {
   handleChange: Dispatch<SetStateAction<CreateAppInput>>;
 }
 
+export const urlRegex =
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/;
+
 function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
   return (
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
@@ -20,7 +20,11 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         description="This will show as the name of the app to users"
         placeholder="The name "
         value={createAppValues.name}
-        error={createAppValues.name.length > 185 ? 'Name is too long, only 185 characters allowed, it will look bad : )': false}
+        error={
+          createAppValues.name.length > 185
+            ? "Name is too long, only 185 characters allowed, it will look bad : )"
+            : false
+        }
         onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, name: e.target.value };
@@ -31,15 +35,22 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         label="Link"
         description="The screen the app will open on it every time"
         placeholder="https://example.com"
-        error={createAppValues.link.length > 185 ? 'Link is too long, only 185 characters allowed.': false}
+        error={
+          createAppValues.link.length > 185
+            ? "Link is too long, only 185 characters allowed."
+            : createAppValues.link.length > 0 &&
+              !urlRegex.test(createAppValues.link)
+            ? "Not a valid URL"
+            : false
+        }
         value={createAppValues.link}
-        onChange={(e) => 
+        onChange={(e) =>
           handleChange((oldValues) => {
             return { ...oldValues, link: e.target.value };
           })
         }
       />
-      <Uploader handleChange={handleChange}  />
+      <Uploader handleChange={handleChange} />
       {/* <FileInput
         className="w-full sm:w-1/2 truncate"
         label="Icon"

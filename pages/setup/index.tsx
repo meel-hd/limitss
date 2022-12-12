@@ -10,7 +10,7 @@ import { Check, ExclamationMark } from "tabler-icons-react";
 import Navigation from "../../components/head/Navigation";
 import Preview from "../../components/setup/preview";
 import PrimaryInputs, { semverRegex } from "../../components/setup/PrimaryInputs";
-import WindowValues from "../../components/setup/WindowValues";
+import WindowValues, { urlRegex } from "../../components/setup/WindowValues";
 import { CreateAppInput } from "../../generated/graphql";
 import { CreateApp } from "../../lib/gql.client";
 
@@ -69,6 +69,7 @@ function Setup() {
     createAppVars.name.length > 185 ||
     createAppVars.link.length == 0 ||
     createAppVars.link.length > 185 ||
+    !urlRegex.test(createAppVars.link) ||
     createAppVars.description.length == 0 ||
     createAppVars.description.length > 185 ||
     createAppVars.appId.length == 0 ||
@@ -156,6 +157,7 @@ function Setup() {
                   disabled={
                     createAppVars.name.length == 0 ||
                     createAppVars.link.length == 0 ||
+                    urlRegex.test(createAppVars.link) ||
                     createAppVars.icon.length == 0
                   }
                 >

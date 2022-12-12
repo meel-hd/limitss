@@ -32,6 +32,9 @@ function SignInPage() {
             <Logo width={80} withoutText={true} />
           </div>
           <Logo withoutIcon={true} />
+          {/* <Text size={10} className="mt-7" color="dimmed">
+            Works only with personal accounts not organization accounts for now.
+          </Text> */}
           <Button
             onClick={() => signIn("github", { callbackUrl: "/home" })}
             styles={{
@@ -44,7 +47,7 @@ function SignInPage() {
             }}
             leftIcon={<BrandGithub color="#fff" />}
             loading={status == "loading"}
-            className="bg-violet-500 mt-10 hover:bg-violet-400 min-w-[120px]  shadow-lg h-[40px]"
+            className="bg-violet-500 mt-5 hover:bg-violet-400 min-w-[120px]  shadow-lg h-[40px]"
           >
             Sign in with Github
           </Button>
@@ -53,11 +56,14 @@ function SignInPage() {
               className="flex flex-col justify-center items-center"
               href={"/home"}
             >
-              <span className="font-semibold mt-3">Or</span>  <Text size={'xs'} className="text-violet-500 ">continue as {session.user.name.split(' ')[0]}</Text>
+              <span className="font-semibold mt-3">Or</span>{" "}
+              <Text size={"xs"} className="text-violet-500 ">
+                continue as {session.user.name.split(" ")[0]}
+              </Text>
             </Link>
           )}
           <Text size={"xs"} className="mt-5" color="dimmed">
-            By continuing you agree to our{" "}
+            By continuing you agree to{" "}
             <Link href="/terms" className="text-violet-500">
               Terms of Service
             </Link>{" "}

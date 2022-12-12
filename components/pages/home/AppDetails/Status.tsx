@@ -1,12 +1,11 @@
 import { Badge, Card, Group, Table, Text } from "@mantine/core";
 
 function Status(jobs) {
-  console.log(jobs);
   return (
     <Table>
       <thead>
         <tr>
-          <th>Job</th>
+          <th>Build Platform</th>
           <th>Status</th>
         </tr>
       </thead>
@@ -20,7 +19,7 @@ function Status(jobs) {
           }
           return (
             <tr key={job.id}>
-              <td>{job.labels[0]}</td>
+              <td>{job.labels[0].split('-')[0].toUpperCase()}</td>
               <td>
                 <Badge color={color}>{job.conclusion || 'Starting'}</Badge>
               </td>

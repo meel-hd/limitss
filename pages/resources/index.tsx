@@ -8,8 +8,8 @@ function Resources() {
   return (
     <>
       <Head>
-        <title>Limitss | Home</title>
-        <meta name="description" content="Home page"></meta>
+        <title>Limitss | Resources</title>
+        <meta name="description" content="Resources page"></meta>
       </Head>
       <Navigation activeTab="resources" />
       <AuthorizedOnly>

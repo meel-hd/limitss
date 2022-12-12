@@ -60,6 +60,9 @@ function AppDetails({
           {description}
         </Text>
       </div>
+      <section className="flex justify-end">
+        
+      <div className="w-full sm:w-2/3 lg:w-1/3">
       <Accordion
         pb={30}
         variant="separated"
@@ -108,6 +111,8 @@ function AppDetails({
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
+      </div>
+      </section>
     </div>
   );
 }

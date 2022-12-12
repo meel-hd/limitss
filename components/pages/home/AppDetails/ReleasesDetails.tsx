@@ -17,30 +17,25 @@ function ReleasesDetails({ name }: { name: string }) {
 
   return (
     <>
-    {!releases && (
-       <Loader color={'violet'} />
-    )
-    }
-    {
-      releases && releases.length === 0 && (
+      {!releases && <Loader color={"violet"} />}
+      {releases && releases.length === 0 && (
         <Text size={"sm"} color="dimmed">
           No releases found, please check the status above for more information.
         </Text>
-      )
-      
-    }
+      )}
       {releases &&
-        releases?.map((release,index) => {
+        releases?.map((release, index) => {
           return (
             <div key={release.id}>
-              <h1>Release {index+1}: <small>{release.name}</small></h1>
-                <h3 className="ml-5 font-semibold">Assets</h3>
-                {release.assets.length === 0 && (
-                  <Text ml={20} size={"sm"} color="dimmed">
-                    No assets, please check the status above for more
-                    information.
-                  </Text>
-                )}
+              <h1>
+                Release {index + 1}: <small>{release.name}</small>
+              </h1>
+              <h3 className="ml-5 font-semibold">Assets</h3>
+              {release.assets.length === 0 && (
+                <Text ml={20} size={"sm"} color="dimmed">
+                  No assets, please check the status above for more information.
+                </Text>
+              )}
               <div className="pl-5 flex flex-wrap">
                 {release.assets.map((asset) => {
                   return (
@@ -49,8 +44,8 @@ function ReleasesDetails({ name }: { name: string }) {
                       key={asset.id}
                     >
                       <div className="flex flex-wrap relative">
-                        <p>{asset.name}</p>
-                        <Text size={"xs"} color="dimmed" className="mr-6 ml-1 absolute top-0 right-0">
+                        <Text size={"sm"}>{asset.name}</Text>
+                        <Text size={8} color="dimmed" className="mr-6 ml-1 ">
                           {formatBytes(asset.size, 2)}
                         </Text>
                       </div>

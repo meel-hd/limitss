@@ -1,8 +1,9 @@
 import axios from "axios";
-import { Upload } from "tabler-icons-react";
+import { AlertTriangle, Upload } from "tabler-icons-react";
 import { SetStateAction, useState } from "react";
 import { FileInput, Loader, Text, useMantineTheme } from "@mantine/core";
 import { CreateAppInput } from "generated/graphql";
+import { showNotification } from "@mantine/notifications";
 
 const BUCKET_URL = "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/";
 type Props = {
@@ -60,8 +61,50 @@ export default function Uploader({ setUrl, handleChange }: Props) {
           <FileInput
             id="upload"
             accept="image/png"
-            onChange={(e) => {
-              selectFile(e);
+            onChange={(file) => {
+              // check if the file is a png
+              if (file.type !== "image/png") {
+                setFile(null);
+                showNotification({
+                  title: "Error",
+                  message: "Only PNG files are allowed",
+                  color: "red",
+                  icon:<AlertTriangle size={20} />,
+                })
+                return;
+              }
+              // check if the image is square
+              const img = new Image();
+              img.src = URL.createObjectURL(file);
+              img.onload = () => {
+                const width = img.naturalWidth,
+                  height = img.naturalHeight;
+                URL.revokeObjectURL(img.src);
+                if (width !== height) {
+                  setFile(null);
+                  showNotification({
+                    title: "Error",
+                    message: "Image must be square",
+                    color: "red",
+                    icon:<AlertTriangle size={20} />,
+                  })
+                  return;
+                }
+              };
+              // check if the image is less than 1mb
+              if (file.size > 1000000) {
+                setFile(null);
+                showNotification({
+                  title: "Error",
+                  message: "Image must be less than 1mb",
+                  color: "red",
+                  icon:<AlertTriangle size={20} />,
+                })
+                return;
+              }
+              
+              
+              selectFile(file);
               setUploadingStatus("");
             }}
             hidden

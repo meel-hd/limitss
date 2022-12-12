@@ -9,7 +9,7 @@ import { useState } from "react";
 import { Check, ExclamationMark } from "tabler-icons-react";
 import Navigation from "../../components/head/Navigation";
 import Preview from "../../components/setup/preview";
-import PrimaryInputs from "../../components/setup/PrimaryInputs";
+import PrimaryInputs, { semverRegex } from "../../components/setup/PrimaryInputs";
 import WindowValues from "../../components/setup/WindowValues";
 import { CreateAppInput } from "../../generated/graphql";
 import { CreateApp } from "../../lib/gql.client";
@@ -75,6 +75,7 @@ function Setup() {
     createAppVars.appId.length > 185 ||
     createAppVars.version.length == 0 ||
     createAppVars.version.length > 185 ||
+    !semverRegex.test(createAppVars.version) ||
     createAppVars.license == null ||
     createAppVars.license.length == 0;
 

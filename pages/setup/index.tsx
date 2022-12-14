@@ -32,8 +32,8 @@ function Setup() {
     icon: "",
     license: "",
     name: "",
-    maximized: true,
-    focus: false,
+    maximized: false,
+    focus: true,
     version: "",
     width: 800,
   });

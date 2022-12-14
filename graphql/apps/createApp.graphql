@@ -8,9 +8,9 @@ mutation CreateApp($arg: CreateAppInput!) {
     version
     width
     height
-    fullscreen
-    titleChange
-    topMenu
+    maximized
+    alwaysOnTop
+    focus
     id
     link
   }

@@ -55,7 +55,9 @@ const tauriConfigJsonTemplate = {
       },
       windows: [
         {
-          fullscreen: false,
+          maximized: false,
+          alwaysOnTop:false,
+          focus:true,
           height: 600,
           resizable: true,
           title: "Limitss",

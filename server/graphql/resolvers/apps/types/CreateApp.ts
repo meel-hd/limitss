@@ -40,13 +40,13 @@ export class AppType {
     height: number
 
     @Field(() => Boolean)
-    fullscreen: boolean
+    maximized: boolean
 
     @Field(() => Boolean)
-    titleChange: boolean
+    alwaysOnTop: boolean
 
     @Field(() => Boolean)
-    topMenu: boolean
+    focus: boolean
 }
 
 @InputType()
@@ -87,13 +87,13 @@ export class CreateAppInput {
     height: number
 
     @Field(() => Boolean)
-    fullscreen: boolean
+    maximized: boolean
 
     @Field(() => Boolean)
-    titleChange: boolean
+    alwaysOnTop: boolean
 
     @Field(() => Boolean)
-    topMenu: boolean
+    focus: boolean
 }
 
 

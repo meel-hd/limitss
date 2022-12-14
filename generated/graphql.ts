@@ -16,33 +16,33 @@ export type Scalars = {
 };
 
 export type CreateAppInput = {
+  alwaysOnTop: Scalars['Boolean'];
   appId: Scalars['String'];
   description: Scalars['String'];
-  fullscreen: Scalars['Boolean'];
+  focus: Scalars['Boolean'];
   height: Scalars['Float'];
   icon: Scalars['String'];
   license: Scalars['String'];
   link: Scalars['String'];
+  maximized: Scalars['Boolean'];
   name: Scalars['String'];
-  titleChange: Scalars['Boolean'];
-  topMenu: Scalars['Boolean'];
   version: Scalars['String'];
   width: Scalars['Float'];
 };
 
 export type CreateAppOutput = {
   __typename?: 'createAppOutput';
+  alwaysOnTop: Scalars['Boolean'];
   appId: Scalars['String'];
   description: Scalars['String'];
-  fullscreen: Scalars['Boolean'];
+  focus: Scalars['Boolean'];
   height: Scalars['Float'];
   icon: Scalars['String'];
   id: Scalars['Float'];
   license: Scalars['String'];
   link: Scalars['String'];
+  maximized: Scalars['Boolean'];
   name: Scalars['String'];
-  titleChange: Scalars['Boolean'];
-  topMenu: Scalars['Boolean'];
   version: Scalars['String'];
   width: Scalars['Float'];
 };
@@ -99,7 +99,7 @@ export type CreateAppMutationVariables = Exact<{
 }>;
 
 
-export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: number, link: string } };
+export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, link: string } };
 
 export type DeleteAppMutationVariables = Exact<{
   appId: Scalars['Float'];
@@ -111,7 +111,7 @@ export type DeleteAppMutation = { __typename?: 'Mutation', deleteApp: { __typena
 export type GetMyAppsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, fullscreen: boolean, titleChange: boolean, topMenu: boolean, id: number, link: string }> };
+export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, link: string }> };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -137,9 +137,9 @@ export const CreateAppDocument = gql`
     version
     width
     height
-    fullscreen
-    titleChange
-    topMenu
+    maximized
+    alwaysOnTop
+    focus
     id
     link
   }
@@ -163,9 +163,9 @@ export const GetMyAppsDocument = gql`
     version
     width
     height
-    fullscreen
-    titleChange
-    topMenu
+    maximized
+    alwaysOnTop
+    focus
     id
     link
   }

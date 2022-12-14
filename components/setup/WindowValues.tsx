@@ -70,50 +70,50 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         }}
       /> */}
       <Text mt={25} size={"xs"} color="dimmed">
-        Show the app in fullscreen when it loads
+        Whether the window is maximized or not.
       </Text>
       <Switch
         color={"violet"}
         size="sm"
-        label="Fullscreen"
-        checked={createAppValues.fullscreen}
+        label="Maximized"
+        checked={createAppValues.maximized}
         offLabel={<X size={15} />}
         onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
-            return { ...oldValues, fullscreen: e.target.checked };
+            return { ...oldValues, maximized: e.target.checked };
           })
         }
       />
       <Text mt={15} size="xs" color={"dimmed"}>
-        When visiting different URLs if the title should change
+        Whether the window should always be on top of other windows.
       </Text>
       <Switch
         color={"violet"}
         size="sm"
-        label="Title Change"
-        checked={createAppValues.titleChange}
+        label="Always On Top"
+        checked={createAppValues.alwaysOnTop}
         offLabel={<X size={15} />}
         onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
-            return { ...oldValues, titleChange: e.target.checked };
+            return { ...oldValues, alwaysOnTop: e.target.checked };
           })
         }
       />
       <Text mt={15} size="xs" color={"dimmed"}>
-        A menu with some options Like refrech and force reload
+        Whether the window will be initially focused or not.
       </Text>
       <Switch
         color={"violet"}
         size="sm"
-        label="Top Menu"
-        checked={createAppValues.topMenu}
+        label="Focused"
+        checked={createAppValues.focus}
         offLabel={<X size={15} />}
         onLabel={<Check size={15} />}
         onChange={(e) =>
           handleChange((oldValues) => {
-            return { ...oldValues, topMenu: e.target.checked };
+            return { ...oldValues, focus: e.target.checked };
           })
         }
       />

@@ -1,11 +1,13 @@
 import tauriConfigJsonTemplate from '../template/src-tauri/taur.config.json'
 
 
-const AddTauriConfigJson = async (octokit,owner,repo,name,fullscreen,width,height,description,version) => {
+const AddTauriConfigJson = async (octokit,owner,repo,name,maximized,width,height,description,version, focus, alwaysOnTop) => {
   // Populate the template with the necessary data
   tauriConfigJsonTemplate.package.productName = name.split(" ").join("_").toLowerCase();
   tauriConfigJsonTemplate.tauri.windows[0].title = name;
-  tauriConfigJsonTemplate.tauri.windows[0].fullscreen = fullscreen;
+  tauriConfigJsonTemplate.tauri.windows[0].maximized = maximized;
+  tauriConfigJsonTemplate.tauri.windows[0].focus = focus;
+  tauriConfigJsonTemplate.tauri.windows[0].alwaysOnTop = alwaysOnTop;
   tauriConfigJsonTemplate.tauri.windows[0].width = width;
   tauriConfigJsonTemplate.tauri.windows[0].height = height ;
   tauriConfigJsonTemplate.tauri.bundle.shortDescription = description;

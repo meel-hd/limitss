@@ -1,5 +1,4 @@
 import { ApolloError } from "apollo-server-micro";
-import { CreateAppOutput } from "generated/graphql";
 import prisma from "lib/prisma";
 import { Context } from "server/types/Context";
 import { UnauthorizedError } from "type-graphql";
@@ -26,13 +25,13 @@ export class GeneratorService {
       data: {
         appId: args.appId,
         description: args.description,
-        fullscreen: args.fullscreen,
+        maximized: args.maximized,
         height: args.height,
         icon: args.icon,
         license: args.license,
         name: args.name,
-        titleChange: args.titleChange,
-        topMenu: args.topMenu,
+        alwaysOnTop: args.alwaysOnTop,
+        focus: args.focus,
         version: args.version,
         width: args.width,
         ownerId: user.id,
@@ -65,7 +64,7 @@ export class GeneratorService {
 
     return apps;
   }
-  async deleteApp(appId: number): Promise<CreateAppOutput> {
+  async deleteApp(appId: number): Promise<createAppOutput> {
     const userEmail = this.context.user.email;
 
     const user = await prisma.user.findUnique({

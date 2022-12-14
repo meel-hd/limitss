@@ -61,19 +61,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     response.data.name,
     req.body.link
   );
-  await AddTauriConfigJson(
-    octokit,
-    response.data.owner.login,
-    response.data.name,
-    req.body.name,
-    req.body.fullscreen,
-    req.body.width,
-    req.body.height,
-    req.body.description,
-    req.body.version,
-    req.body.focus,
-    req.body.alwaysOnTop
-  );
+  await AddTauriConfigJson({
+    alwaysOnTop: req.body.alwaysOnTop,
+    description: req.body.description,
+    focus: req.body.focus,
+    height: req.body.height,
+    maximized: req.body.maximized,
+    name: req.body.name,
+    version: req.body.version,
+    width: req.body.width,
+    octokit: octokit,
+    owner: response.data.owner.login,
+    repo: response.data.name
+  });
   await addCargoToml(
     octokit,
     response.data.owner.login,
@@ -83,7 +83,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     req.body.license
   );
   await addBuildRs(octokit, response.data.owner.login, response.data.name);
-  await addAppIcon(octokit, response.data.owner.login, response.data.name, req.body.iconUrl);
+  await addAppIcon(
+    octokit,
+    response.data.owner.login,
+    response.data.name,
+    req.body.iconUrl
+  );
   // Trigger the build workflow
   // await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
   //   owner: response.data.owner.login,

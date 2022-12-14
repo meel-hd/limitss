@@ -1,7 +1,7 @@
 import tauriConfigJsonTemplate from '../template/src-tauri/taur.config.json'
 
 
-const AddTauriConfigJson = async (octokit,owner,repo,name,maximized,width,height,description,version, focus, alwaysOnTop) => {
+const AddTauriConfigJson = async ({octokit,owner,repo,name,width,height,description,version, focus, alwaysOnTop, maximized}) => {
   // Populate the template with the necessary data
   tauriConfigJsonTemplate.package.productName = name.split(" ").join("_").toLowerCase();
   tauriConfigJsonTemplate.tauri.windows[0].title = name;
@@ -13,6 +13,18 @@ const AddTauriConfigJson = async (octokit,owner,repo,name,maximized,width,height
   tauriConfigJsonTemplate.tauri.bundle.shortDescription = description;
   tauriConfigJsonTemplate.tauri.bundle.longDescription = description;
   tauriConfigJsonTemplate.package.version = version;
+  console.log({
+    productName:name.split(' ').join('_').toLowerCase(),
+    title: name,
+    maximized:maximized,
+    focus: focus,
+    alwaysOnTop: alwaysOnTop, 
+    width: width,
+    height,
+    shortDescription: description,
+    longDescription: description,
+    version
+  })
   await octokit.request("PUT /repos/{owner}/{repo}/contents/{path}", {
     owner: owner,
     repo: repo,

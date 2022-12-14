@@ -59,7 +59,6 @@ const tauriConfigJsonTemplate = {
           alwaysOnTop:false,
           focus:true,
           height: 600,
-          resizable: true,
           title: "Limitss",
           width: 800
         }

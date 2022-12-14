@@ -3,6 +3,7 @@ import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
+import AdvancedSetup from "components/setup/AdvancedSetup";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -190,27 +191,9 @@ function Setup() {
         </div>
         <>
         {
-          step == CREATE_APP_STEP.WINDOW && showAdvanced && <>
-          
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          <Notification title="Default notification">
-            This is default notification with title and body
-          </Notification>
-          </>
+          step == CREATE_APP_STEP.WINDOW && showAdvanced && 
+          <AdvancedSetup hideAdvanced={() => setShowAdvanced(false)} />
+         
         }
         </>
       </AuthorizedOnly>

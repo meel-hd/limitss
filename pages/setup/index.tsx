@@ -1,4 +1,4 @@
-import { Button, Card, LoadingOverlay } from "@mantine/core";
+import { Button, Card, LoadingOverlay, Notification } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -9,7 +9,9 @@ import { useState } from "react";
 import { Check, ExclamationMark } from "tabler-icons-react";
 import Navigation from "../../components/head/Navigation";
 import Preview from "../../components/setup/preview";
-import PrimaryInputs, { semverRegex } from "../../components/setup/PrimaryInputs";
+import PrimaryInputs, {
+  semverRegex,
+} from "../../components/setup/PrimaryInputs";
 import WindowValues, { urlRegex } from "../../components/setup/WindowValues";
 import { CreateAppInput } from "../../generated/graphql";
 import { CreateApp } from "../../lib/gql.client";
@@ -17,11 +19,11 @@ import { CreateApp } from "../../lib/gql.client";
 enum CREATE_APP_STEP {
   GENERAL = "GENERAL",
   WINDOW = "WINDOW",
-  SUCCESS = "SUCCESS",
 }
 
 function Setup() {
   const [step, setStep] = useState(CREATE_APP_STEP.GENERAL);
+  const [showAdvanced, setShowAdvanced] = useState(false);
   const router = useRouter();
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
     appId: "",
@@ -117,6 +119,7 @@ function Setup() {
                 <PrimaryInputs
                   createAppValues={createAppVars}
                   handleChange={setCreateAppVars}
+                  showAdvanced={() => setShowAdvanced(true)}
                 />
               )}
               {step == CREATE_APP_STEP.GENERAL && (
@@ -156,12 +159,12 @@ function Setup() {
                   }}
                   className=" bg-indigo-500 hover:bg-indigo-500"
                   onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
-                  disabled={
-                    createAppVars.name.length == 0 ||
-                    createAppVars.link.length == 0 ||
-                    !urlRegex.test(createAppVars.link) ||
-                    createAppVars.icon.length == 0
-                  }
+                  // disabled={
+                  //   createAppVars.name.length == 0 ||
+                  //   createAppVars.link.length == 0 ||
+                  //   !urlRegex.test(createAppVars.link) ||
+                  //   createAppVars.icon.length == 0
+                  // }
                 >
                   Next Step
                 </Button>
@@ -185,6 +188,31 @@ function Setup() {
             <LoadingOverlay overlayBlur={2} visible={isLoading} />
           </Card>
         </div>
+        <>
+        {
+          step == CREATE_APP_STEP.WINDOW && showAdvanced && <>
+          
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          <Notification title="Default notification">
+            This is default notification with title and body
+          </Notification>
+          </>
+        }
+        </>
       </AuthorizedOnly>
     </>
   );

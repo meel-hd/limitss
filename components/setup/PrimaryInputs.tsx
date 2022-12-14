@@ -1,16 +1,22 @@
-import { Select, TextInput, NumberInput } from "@mantine/core";
+import { Select, TextInput, NumberInput, Button } from "@mantine/core";
+import { useWindowScroll } from "@mantine/hooks";
+import PrimaryBtn from "components/lib/PrimaryBtn";
+import useWindowDimensions from "hooks/useWindowDemensions";
 import { Dispatch, SetStateAction } from "react";
+import { ChevronsDown } from "tabler-icons-react";
 import { CreateAppInput } from "../../generated/graphql";
 
 export const LICENSES = ["MIT", "Apache", "BSD", "GPL"];
 interface PrimaryInputsProps {
   createAppValues: CreateAppInput;
   handleChange: Dispatch<SetStateAction<CreateAppInput>>;
+  showAdvanced: () => void
 }
 export const semverRegex =
-/^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/;
+  /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$/;
 
-function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
+function PrimaryInputs({ createAppValues, handleChange, showAdvanced }: PrimaryInputsProps) {
+  const [scroll, scrollTo] = useWindowScroll();
   return (
     <div className="flex flex-col w-full sm:w-1/3">
       <NumberInput
@@ -67,24 +73,6 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
           })
         }
       />
-      {/* { icon != null && <Avatar className="rounded-full" src={URL.createObjectURL(icon)} />} */}
-      <TextInput
-        label="App Id"
-        description="This will appears when you hover on the app"
-        placeholder="Example: My app Desktop"
-        value={createAppValues.appId}
-        // todo: add error message
-        onChange={(e) =>
-          handleChange((oldValues) => {
-            return { ...oldValues, appId: e.target.value };
-          })
-        }
-        error={
-          createAppValues.appId.length > 185
-            ? "Id is too long, only 185 characters allowed"
-            : false
-        }
-      />
       <TextInput
         label="Version"
         description="For the users to know which version of the app they are using"
@@ -92,9 +80,10 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
         value={createAppValues.version}
         // check if the length is valid and it's a valid version
         error={
-          createAppValues.version.length > 185 ? 'Version is too long, only 185 characters allowed':
-          createAppValues.version.length > 0 &&
-          !semverRegex.test(createAppValues.version)
+          createAppValues.version.length > 185
+            ? "Version is too long, only 185 characters allowed"
+            : createAppValues.version.length > 0 &&
+              !semverRegex.test(createAppValues.version)
             ? "Version is not valid"
             : false
         }
@@ -104,6 +93,23 @@ function PrimaryInputs({ createAppValues, handleChange }: PrimaryInputsProps) {
           })
         }
       />
+      <Button
+        onClick={() => {
+          showAdvanced()
+          // delauy scroll for 400ms
+          setTimeout(() => {
+            scrollTo({ y: 1000000});
+          }, 100);
+
+
+        }}
+        className="mt-4"
+        color={"violet"}
+        variant="subtle"
+        rightIcon={<ChevronsDown />}
+      >
+        Advanced
+      </Button>
     </div>
   );
 }

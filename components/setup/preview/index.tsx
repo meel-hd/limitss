@@ -5,7 +5,7 @@ import WindowsOsPrev from "./WindowsOsPrev";
 function Preview({ appName, icon }: { appName: string; icon: string }) {
   const [isMacPrev, setIsMacPrev] = useState(true);
   return (
-    <div className="max-w-[60%]">
+    <div className="">
       {isMacPrev ? (
         <MacOsPrev appName={appName} icon={icon} togglePrev={setIsMacPrev} />
       ) : (

@@ -14,7 +14,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
       <div
         onClick={() => togglePrev((old) => !old)}
         style={{ backgroundImage: `url("https://picsum.photos/1500")`, backgroundSize:"100%" }}
-        className="bg-gradient-to-tl from-gray-400  to-sky-200  hidden sm:flex shadow-md  flex-col justify-end items-center select-none w-[500px] h-[296px] overflow-hidden rounded-xl "
+        className="bg-gradient-to-tl from-gray-400  to-sky-200  hidden sm:flex shadow-md  flex-col justify-end items-center select-none w-[370px] h-[200px] lg:w-[500px] lg:h-[296px] ml-5 overflow-hidden rounded-xl "
       >
         {appName.length > 0 && icon.length > 0 && (
           <div

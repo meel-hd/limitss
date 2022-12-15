@@ -160,12 +160,12 @@ function Setup() {
                   }}
                   className=" bg-indigo-500 hover:bg-indigo-500"
                   onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
-                  // disabled={
-                  //   createAppVars.name.length == 0 ||
-                  //   createAppVars.link.length == 0 ||
-                  //   !urlRegex.test(createAppVars.link) ||
-                  //   createAppVars.icon.length == 0
-                  // }
+                  disabled={
+                    createAppVars.name.length == 0 ||
+                    createAppVars.link.length == 0 ||
+                    !urlRegex.test(createAppVars.link) ||
+                    createAppVars.icon.length == 0
+                  }
                 >
                   Next Step
                 </Button>

@@ -101,7 +101,7 @@ function AdvancedSetup({ hideAdvanced }) {
               Window bounds
             </Text>
 
-            <SimpleGrid cols={2} >
+            <SimpleGrid cols={2} miw={150}>
               <NumberInput min={200} hideControls label="Min Width" value={300}/>
               <NumberInput min={200} hideControls label="Min Height" value={300}/>
               <NumberInput min={200} hideControls label="Max Width" value={300}/>
@@ -120,7 +120,7 @@ function AdvancedSetup({ hideAdvanced }) {
                 hideAdvanced();
               }, 400);
             }}
-            className=" bg-indigo-500 hover:bg-indigo-500"
+            className=" bg-indigo-500 min-w-[130px] hover:bg-indigo-500"
           >
             Done
           </Button>

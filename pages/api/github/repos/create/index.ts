@@ -102,10 +102,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     req.body.iconUrl
   );
   // Trigger the build workflow
-  // await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
-  //   owner: response.data.owner.login,
-  //   repo: response.data.name,
-  //   event_type: "publish",
-  // });
+  await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
+    owner: response.data.owner.login,
+    repo: response.data.name,
+    event_type: "publish",
+  });
   res.status(200).json({ message: "Success" });
 };

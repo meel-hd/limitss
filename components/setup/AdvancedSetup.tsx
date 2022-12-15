@@ -10,8 +10,19 @@ import {
 } from "@mantine/core";
 import { useWindowScroll } from "@mantine/hooks";
 import { Check, X } from "tabler-icons-react";
+import { advancedConfigValues } from "./types";
 
-function AdvancedSetup({ hideAdvanced }) {
+type props = {
+  hideAdvanced: () => void;
+  advancedOptions: advancedConfigValues;
+  setAdvancedOptions: (options: advancedConfigValues) => void;
+};
+
+function AdvancedSetup({
+  hideAdvanced,
+  advancedOptions,
+  setAdvancedOptions,
+}: props) {
   const [scroll, scrollTo] = useWindowScroll();
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center">
@@ -25,9 +36,15 @@ function AdvancedSetup({ hideAdvanced }) {
               color={"violet"}
               size="sm"
               label="Center"
-              // checked={createAppValues.maximized}
+              checked={advancedOptions.center}
               offLabel={<X size={15} />}
               onLabel={<Check size={15} />}
+              onChange={(e) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  center: e.target.checked,
+                });
+              }}
             />
             <Text mt={25} size={"xs"} color="dimmed">
               Whether the window is resizable or not.
@@ -36,9 +53,15 @@ function AdvancedSetup({ hideAdvanced }) {
               color={"violet"}
               size="sm"
               label="Resizable"
-              // checked={createAppValues.maximized}
+              checked={advancedOptions.resizable}
               offLabel={<X size={15} />}
               onLabel={<Check size={15} />}
+              onChange={(e) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  resizable: e.target.checked,
+                });
+              }}
             />
             <Text mt={25} size={"xs"} color="dimmed">
               Whether the window is visible initially or not.
@@ -47,9 +70,15 @@ function AdvancedSetup({ hideAdvanced }) {
               color={"violet"}
               size="sm"
               label="Visible"
-              // checked={createAppValues.maximized}
+              checked={advancedOptions.visible}
               offLabel={<X size={15} />}
               onLabel={<Check size={15} />}
+              onChange={(e) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  visible: e.target.checked,
+                });
+              }}
             />
 
             <div>
@@ -64,22 +93,37 @@ function AdvancedSetup({ hideAdvanced }) {
               color={"violet"}
               size="sm"
               label="Title hidden"
-              // checked={createAppValues.maximized}
+              checked={advancedOptions.hiddenTitle}
               offLabel={<X size={15} />}
               onLabel={<Check size={15} />}
+              onChange={(e) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  hiddenTitle: e.target.checked,
+                });
+              }}
             />
             <Select
               mt={25}
+              value={advancedOptions.theme}
               className="lg:w-1/2"
               label="Theme"
               description="The initial window theme. Defaults to the system theme."
               placeholder="Default system theme"
               clearable
               data={["Light", "Dark"]}
+              onChange={(value) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  // @ts-ignore
+                  theme: value,
+                });
+              }}
             />
             <Select
               mt={25}
               className="lg:w-1/2"
+              value={advancedOptions.titleBarStyle}
               label="Title bar style"
               description={
                 <div className="flex justify-between items-center">
@@ -94,20 +138,93 @@ function AdvancedSetup({ hideAdvanced }) {
               placeholder="Visible: A normal title bar."
               clearable
               data={["Visible", "Transparent"]}
+              onChange={(value) => {
+                setAdvancedOptions({
+                  ...advancedOptions,
+                  // @ts-ignore
+                  titleBarStyle: value,
+                });
+              }}
             />
           </div>
           <div className="h-full w-full sm:w-1/3 mt-10 sm:mt-0">
-            <Text size='lg' my={10} weight={600}>
+            <Text size="lg" my={10} weight={600}>
               Window bounds
             </Text>
 
             <SimpleGrid cols={2} miw={150}>
-              <NumberInput min={200} hideControls label="Min Width" value={300}/>
-              <NumberInput min={200} hideControls label="Min Height" value={300}/>
-              <NumberInput min={200} hideControls label="Max Width" value={300}/>
-              <NumberInput min={200} hideControls label="Max Height" value={300}/>
-              <NumberInput min={200} hideControls label="Initial Y" value={300}/>
-              <NumberInput min={200} hideControls label="Initial X" value={300}/>
+              <NumberInput
+                min={200}
+                hideControls
+                label="Min Width"
+                value={advancedOptions.minWidth}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    minWidth: value,
+                  });
+                }}
+              />
+              <NumberInput
+                min={200}
+                hideControls
+                label="Min Height"
+                value={advancedOptions.minHeight}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    minHeight: value,
+                  });
+                }}
+              />
+              <NumberInput
+                min={200}
+                hideControls
+                label="Max Width"
+                value={advancedOptions.maxWidth}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    maxWidth: value,
+                  });
+                }}
+              />
+              <NumberInput
+                min={200}
+                hideControls
+                label="Max Height"
+                value={advancedOptions.maxHeight}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    maxHeight: value,
+                  });
+                }}
+              />
+              <NumberInput
+                min={200}
+                hideControls
+                label="Initial Y"
+                value={advancedOptions.y}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    y: value,
+                  });
+                }}
+              />
+              <NumberInput
+                min={200}
+                hideControls
+                label="Initial X"
+                value={advancedOptions.x}
+                onChange={(value) => {
+                  setAdvancedOptions({
+                    ...advancedOptions,
+                    x: value,
+                  });
+                }}
+              />
             </SimpleGrid>
           </div>
         </Card.Section>

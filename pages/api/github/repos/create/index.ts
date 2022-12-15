@@ -72,7 +72,19 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     width: req.body.width,
     octokit: octokit,
     owner: response.data.owner.login,
-    repo: response.data.name
+    repo: response.data.name,
+    center: req.body.center,
+    resizable: req.body.resizable,
+    hiddenTitle: req.body.hiddenTitle,
+    maxHeight: req.body.maxHeight,
+    maxWidth: req.body.maxWidth,
+    minHeight: req.body.minHeight,
+    minWidth: req.body.minWidth,
+    theme: req.body.theme,
+    titleBarStyle: req.body.titleBarStyle,
+    visible: req.body.visible,
+    x: req.body.x,
+    y: req.body.y,
   });
   await addCargoToml(
     octokit,

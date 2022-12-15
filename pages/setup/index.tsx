@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import AdvancedSetup from "components/setup/AdvancedSetup";
+import { advancedConfigValues } from "components/setup/types";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -27,7 +28,7 @@ function Setup() {
   const [showAdvanced, setShowAdvanced] = useState(false);
   const router = useRouter();
   const [createAppVars, setCreateAppVars] = useState<CreateAppInput>({
-    appId: "",
+    appId: "deprecated",
     description: "",
     link: "",
     alwaysOnTop: false,
@@ -39,6 +40,23 @@ function Setup() {
     focus: true,
     version: "",
     width: 800,
+  });
+  const [advancedOptions, setAdvancedOptions] = useState<advancedConfigValues>({
+    alwaysOnTop: false,
+    maximized: false,
+    focus: true,
+    center: false,
+    hiddenTitle: false,
+    visible: true,
+    resizable: true,
+    maxHeight: null,
+    maxWidth: null,
+    minHeight: null,
+    minWidth: null,
+    theme: null,
+    titleBarStyle: null,
+    x: null,
+    y: null,
   });
   const { mutateAsync, isLoading } = useMutation({
     mutationKey: ["CreateApp"],
@@ -96,6 +114,19 @@ function Setup() {
       height: createAppVars.height,
       width: createAppVars.width,
       iconUrl: createAppVars.icon,
+      // Advanced Options
+      center: advancedOptions.center,
+      hiddenTitle: advancedOptions.hiddenTitle,
+      visible: advancedOptions.visible,
+      resizable: advancedOptions.resizable,
+      maxHeight: advancedOptions.maxHeight,
+      maxWidth: advancedOptions.maxWidth,
+      minHeight: advancedOptions.minHeight,
+      minWidth: advancedOptions.minWidth,
+      theme: advancedOptions.theme,
+      titleBarStyle: advancedOptions.titleBarStyle,
+      x: advancedOptions.x,
+      y: advancedOptions.y,
     });
   };
   return (
@@ -160,12 +191,12 @@ function Setup() {
                   }}
                   className=" bg-indigo-500 hover:bg-indigo-500"
                   onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
-                  disabled={
-                    createAppVars.name.length == 0 ||
-                    createAppVars.link.length == 0 ||
-                    !urlRegex.test(createAppVars.link) ||
-                    createAppVars.icon.length == 0
-                  }
+                  // disabled={
+                  //   createAppVars.name.length == 0 ||
+                  //   createAppVars.link.length == 0 ||
+                  //   !urlRegex.test(createAppVars.link) ||
+                  //   createAppVars.icon.length == 0
+                  // }
                 >
                   Next Step
                 </Button>
@@ -190,11 +221,13 @@ function Setup() {
           </Card>
         </div>
         <>
-        {
-          step == CREATE_APP_STEP.WINDOW && showAdvanced && 
-          <AdvancedSetup hideAdvanced={() => setShowAdvanced(false)} />
-         
-        }
+          {step == CREATE_APP_STEP.WINDOW && showAdvanced && (
+            <AdvancedSetup
+              setAdvancedOptions={setAdvancedOptions}
+              advancedOptions={advancedOptions}
+              hideAdvanced={() => setShowAdvanced(false)}
+            />
+          )}
         </>
       </AuthorizedOnly>
     </>

@@ -18,7 +18,7 @@ import tauriConfigJsonTemplate from "../template/src-tauri/taur.config.json";
   visible: boolean;
   hiddenTitle: boolean;
   theme: null |  "Dark" | "Light";
-  titleBarStyle: null | 'Visible' | 'Transparent';
+  titleBarStyle: undefined | 'Visible' | 'Transparent';
   minWidth: null | number;
   minHeight: null | number;
   maxWidth: null | number;

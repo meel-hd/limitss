@@ -54,7 +54,7 @@ function Setup() {
     minHeight: null,
     minWidth: null,
     theme: null,
-    titleBarStyle: null,
+    titleBarStyle: "Visible",
     x: null,
     y: null,
   });
@@ -191,12 +191,12 @@ function Setup() {
                   }}
                   className=" bg-indigo-500 hover:bg-indigo-500"
                   onClick={() => setStep(CREATE_APP_STEP.WINDOW)}
-                  disabled={
-                    createAppVars.name.length == 0 ||
-                    createAppVars.link.length == 0 ||
-                    !urlRegex.test(createAppVars.link) ||
-                    createAppVars.icon.length == 0
-                  }
+                  // disabled={
+                  //   createAppVars.name.length == 0 ||
+                  //   createAppVars.link.length == 0 ||
+                  //   !urlRegex.test(createAppVars.link) ||
+                  //   createAppVars.icon.length == 0
+                  // }
                 >
                   Next Step
                 </Button>
@@ -221,13 +221,13 @@ function Setup() {
           </Card>
         </div>
         <>
-          {step == CREATE_APP_STEP.WINDOW && showAdvanced && (
+          {/* {step == CREATE_APP_STEP.WINDOW && showAdvanced && ( */}
             <AdvancedSetup
               setAdvancedOptions={setAdvancedOptions}
               advancedOptions={advancedOptions}
               hideAdvanced={() => setShowAdvanced(false)}
             />
-          )}
+          {/* )} */}
         </>
       </AuthorizedOnly>
     </>

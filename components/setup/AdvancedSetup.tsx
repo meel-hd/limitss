@@ -142,7 +142,7 @@ function AdvancedSetup({
                 setAdvancedOptions({
                   ...advancedOptions,
                   // @ts-ignore
-                  titleBarStyle: value,
+                  titleBarStyle: value ? value : "Visible",
                 });
               }}
             />

@@ -7,7 +7,7 @@ export type advancedConfigValues = {
   visible: boolean;
   hiddenTitle: boolean;
   theme: null |  "Dark" | "Light";
-  titleBarStyle: null | 'Visible' | 'Transparent';
+  titleBarStyle: undefined | 'Visible' | 'Transparent';
   minWidth: null | number;
   minHeight: null | number;
   maxWidth: null | number;

@@ -7,8 +7,8 @@ import prisma from 'lib/prisma'
 
 const s3 = new S3({
     region: 'ap-southeast-1',
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID_LIMITSS,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY_LIMITSS,
     signatureVersion: 'v4',
 })
 

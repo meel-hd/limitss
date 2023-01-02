@@ -4,15 +4,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { unstable_getServerSession } from "next-auth";
 import { Octokit } from "octokit";
 import { authOptions } from "pages/api/auth/[...nextauth]";
-import addGitignore from "./utils/addGitignore";
-import addIndexHtml from "./utils/addIndexHtml";
-import addPackageJsonToRepo from "./utils/addPackageJson";
-import addMainJs from "./utils/addMainJs";
-import AddTauriConfigJson from "./utils/addTauriConfigJson";
-import addCargoToml from "./utils/addCargoToml";
-import addBuildRs from "./utils/addBuildRs";
-import addAppIcon from "./utils/addAppIcon";
-import addPublishYml from "./utils/addPublishYml";
+import addGitignore from "../../../../../server/github/utils/addGitignore";
+import addIndexHtml from "../../../../../server/github/utils/addIndexHtml";
+import addPackageJsonToRepo from "../../../../../server/github/utils/addPackageJson";
+import addMainJs from "../../../../../server/github/utils/addMainJs";
+import AddTauriConfigJson from "../../../../../server/github/utils/addTauriConfigJson";
+import addCargoToml from "../../../../../server/github/utils/addCargoToml";
+import addBuildRs from "../../../../../server/github/utils/addBuildRs";
+import addAppIcon from "../../../../../server/github/utils/addAppIcon";
+import addPublishYml from "../../../../../server/github/utils/addPublishYml";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {

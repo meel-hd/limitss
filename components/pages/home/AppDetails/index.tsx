@@ -1,4 +1,4 @@
-import { Accordion, Avatar, Badge, Loader, Text } from "@mantine/core";
+import { Accordion, Avatar, Badge, Button, Loader, Text } from "@mantine/core";
 import axios from "axios";
 import { CreateAppOutput } from "generated/graphql";
 import { useEffect, useState } from "react";
@@ -9,10 +9,12 @@ import { WorkflowUsage } from "./WorkflowUsage";
 
 function AppDetails({
   appDetails,
+  close,
   handleRefetch,
 }: {
   appDetails: CreateAppOutput;
   handleRefetch: () => void;
+  close: () => void;
 }) {
   const {
     name,
@@ -42,7 +44,7 @@ function AppDetails({
   }, [name]);
 
   return (
-    <div className="ml-2 sm:ml-16 h-[85vh] max-h-[85vh]  px-5 py-2">
+    <div className="ml-2 sm:ml-16 h-[85vh] max-h-[85vh]  px-5 pb-2 pt-0">
       <div className="flex items-center">
         <Avatar radius={999} size="lg" src={icon} />
         <h1 className="ml-5">{name}</h1>
@@ -61,57 +63,65 @@ function AppDetails({
         </Text>
       </div>
       <section className="flex justify-end">
-        
-      <div className="w-full sm:w-2/3 lg:w-1/3">
-      <Accordion
-        pb={30}
-        variant="separated"
-        radius="xl"
-        defaultValue="status"
-        mt={20}
-      >
-        <Accordion.Item value="status">
-          <Accordion.Control>
-            <Text weight={600}>Status</Text>
-          </Accordion.Control>
-          <Accordion.Panel>
-            {workflow ? (
-              <Status jobs={workflow.firstRunJobs.jobs} />
-            ) : (
-              <Loader color={"violet"} />
-            )}
-          </Accordion.Panel>
-        </Accordion.Item>
-        <Accordion.Item value="releases">
-          <Accordion.Control>
-            <Text weight={600}>Releases</Text>
-          </Accordion.Control>
-          <Accordion.Panel>
-            <ReleasesDetails name={name} />
-          </Accordion.Panel>
-        </Accordion.Item>
-        <Accordion.Item value="usage">
-          <Accordion.Control>
-            <Text weight={600}>Build Time Usage</Text>
-          </Accordion.Control>
-          <Accordion.Panel>
-            {workflow?.usage ? (
-              <WorkflowUsage usage={workflow.usage} />
-            ) : (
-              <Loader color={"violet"} />
-            )}
-          </Accordion.Panel>
-        </Accordion.Item>
-        <Accordion.Item value="settings">
-          <Accordion.Control>
-            <Text weight={600}>Settings</Text>
-          </Accordion.Control>
-          <Accordion.Panel>
-            <DeleteApp id={id} handleRefetch={handleRefetch} />
-          </Accordion.Panel>
-        </Accordion.Item>
-      </Accordion>
-      </div>
+        <div className="w-full sm:w-2/3 lg:w-1/3">
+          <Accordion
+            pb={30}
+            variant="separated"
+            radius="xl"
+            defaultValue="status"
+            mt={20}
+          >
+            <Accordion.Item value="status">
+              <Accordion.Control>
+                <Text weight={600}>Status</Text>
+              </Accordion.Control>
+              <Accordion.Panel>
+                {workflow ? (
+                  <Status jobs={workflow.firstRunJobs.jobs} />
+                ) : (
+                  <Loader color={"violet"} />
+                )}
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="releases">
+              <Accordion.Control>
+                <Text weight={600}>Releases</Text>
+              </Accordion.Control>
+              <Accordion.Panel>
+                <ReleasesDetails name={name} />
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="usage">
+              <Accordion.Control>
+                <Text weight={600}>Build Time Usage</Text>
+              </Accordion.Control>
+              <Accordion.Panel>
+                {workflow?.usage ? (
+                  <WorkflowUsage usage={workflow.usage} />
+                ) : (
+                  <Loader color={"violet"} />
+                )}
+              </Accordion.Panel>
+            </Accordion.Item>
+            <Accordion.Item value="settings">
+              <Accordion.Control>
+                <Text weight={600}>Settings</Text>
+              </Accordion.Control>
+              <Accordion.Panel>
+                <DeleteApp id={id} handleRefetch={handleRefetch} />
+              </Accordion.Panel>
+            </Accordion.Item>
+          </Accordion>
+        </div>
+      </section>
+      <section className="flex justify-end">
+        <Button
+          onClick={close}
+          className="bg-violet-500 hover:bg-violet-400"
+          mt={20}
+        >
+          Close
+        </Button>
       </section>
     </div>
   );

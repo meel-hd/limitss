@@ -4,14 +4,14 @@ import { ArrowRight } from "tabler-icons-react";
 export type AppCardProps = {
   appName: string;
   appIcon: string;
-  appCompany: string;
+  version: string;
   description: string;
   margin?: string | number;
   selectApp: () => void;
 };
 
 function AppCard({
-  appCompany,
+  version,
   appName,
   description,
   margin,
@@ -19,16 +19,14 @@ function AppCard({
   selectApp
 }: AppCardProps) {
   return (
-    <Card radius={'lg'} className="relative hover:scale-105 transition-transform duration-300 hover:shadow-md" m={margin || 20} w={200} h={320} shadow={"sm"}>
+    <Card radius={'lg'} className="w-10/12 min-w-[200px] sm:w-[200px] relative hover:scale-105 transition-transform duration-300 hover:shadow-md" m={margin || 20} h={320} shadow={"sm"}>
       <div className="flex items-center ">
         <Avatar className="pointer-events-none select-none" src={appIcon} radius={999} size={"lg"} />
         <p className="truncate ml-4 font-semibold text-lg">{appName}</p>
       </div>
-      <Tooltip position="right" radius={"lg"} label="License">
-        <Badge variant="dot" color={"gray"}>
-          {appCompany}
+        <Badge variant="light" mt={10} color={"gray"}>
+          {version}
         </Badge>
-      </Tooltip>
       {/* <div className="truncate h-32"> */}
       <Text
         h={140}

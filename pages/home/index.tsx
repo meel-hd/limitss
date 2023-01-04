@@ -29,12 +29,12 @@ function Home() {
       </Head>
       <Navigation activeTab="home" />
       <AuthorizedOnly>
-        <div className="w-full py-5 mt-4 pl-4 sm:pl-32">
+        <div className="w-full py-5 mt-0 sm:mt-4 pl-4 sm:pl-32">
           <h1 className="font-semibold ">Your Apps</h1>
           {isLoading && (
             <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
-              <Skeleton radius={"lg"} m={20} w={200} h={320} />
-              <Skeleton radius={"lg"} m={20} w={200} h={320} />
+              <Skeleton radius={"lg"} className='w-10/12 min-w-[200px] sm:w-[200px]' m={20}  h={320} />
+              <Skeleton radius={"lg"} className='w-10/12 min-w-[200px] sm:w-[200px]' m={20}  h={320} />
             </div>
           )}
           {isError && (
@@ -55,7 +55,7 @@ function Home() {
                     }}
                     key={app.id}
                     appIcon={app.icon}
-                    appCompany={app.license}
+                    version={app.version}
                     appName={app.name}
                     description={app.description}
                   />
@@ -79,15 +79,6 @@ function Home() {
             <Modal
               closeButtonLabel="Back"
               zIndex={150}
-              styles={{
-                title: {
-                  marginLeft: 60,
-                  fontSize: 20,
-                  fontWeight: 600,
-                },
-              }}
-              title={"App Details"}
-              exitTransitionDuration={40000}
               fullScreen={true}
               onClose={() => setSelectedApp(null)}
               opened={selectedApp?.name?.length !== 0}
@@ -98,6 +89,7 @@ function Home() {
                   setSelectedApp(null);
                 }}
                 appDetails={selectedApp}
+                close={() => setSelectedApp(null)}
               />
             </Modal>
           )}

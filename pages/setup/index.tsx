@@ -127,7 +127,18 @@ function Setup() {
       titleBarStyle: advancedOptions.titleBarStyle,
       x: advancedOptions.x,
       y: advancedOptions.y,
+    }).then((res) => {
+      // Finish the creation
+      axios.post('/api/github/repos/create/finish',{
+        repo: res.data.repo,
+        owner: res.data.owner,
+        iconUrl: createAppVars.icon,
+        name: createAppVars.name,
+        description: createAppVars.description,
+        license: createAppVars.license,
+      })
     });
+    
   };
   return (
     <>

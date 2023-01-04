@@ -6,13 +6,10 @@ import { Octokit } from "octokit";
 import { authOptions } from "pages/api/auth/[...nextauth]";
 import addGitignore from "../../../../../server/github/utils/addGitignore";
 import addIndexHtml from "../../../../../server/github/utils/addIndexHtml";
-import addPackageJsonToRepo from "../../../../../server/github/utils/addPackageJson";
 import addMainJs from "../../../../../server/github/utils/addMainJs";
-import AddTauriConfigJson from "../../../../../server/github/utils/addTauriConfigJson";
-import addCargoToml from "../../../../../server/github/utils/addCargoToml";
-import addBuildRs from "../../../../../server/github/utils/addBuildRs";
-import addAppIcon from "../../../../../server/github/utils/addAppIcon";
+import addPackageJsonToRepo from "../../../../../server/github/utils/addPackageJson";
 import addPublishYml from "../../../../../server/github/utils/addPublishYml";
+import AddTauriConfigJson from "../../../../../server/github/utils/addTauriConfigJson";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: NextApiRequest, res: NextApiResponse) => {
@@ -86,26 +83,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     x: req.body.x,
     y: req.body.y,
   });
-  await addCargoToml(
-    octokit,
-    response.data.owner.login,
-    response.data.name,
-    req.body.name,
-    req.body.description,
-    req.body.license
-  );
-  await addBuildRs(octokit, response.data.owner.login, response.data.name);
-  await addAppIcon(
-    octokit,
-    response.data.owner.login,
-    response.data.name,
-    req.body.iconUrl
-  );
-  // Trigger the build workflow
-  await octokit.request("POST /repos/{owner}/{repo}/dispatches", {
-    owner: response.data.owner.login,
-    repo: response.data.name,
-    event_type: "publish",
-  });
-  res.status(200).json({ message: "Success" });
+  res.status(200).json({ message: "Success", owner: response.data.owner.login, repo: response.data.name });
 };

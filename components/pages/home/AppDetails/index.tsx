@@ -117,7 +117,7 @@ function AppDetails({
       <section className="flex justify-end">
         <Button
           onClick={close}
-          className="bg-violet-500 hover:bg-violet-400"
+          className="bg-violet-500 my-4 hover:bg-violet-400"
           mt={20}
         >
           Close

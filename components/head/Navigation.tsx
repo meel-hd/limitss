@@ -39,7 +39,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       color="violet"
       shadow={"xs"}
       style={{
-        transition: expanded && "width 0.2s ease-in" //: "width 0.4s ease-in",
+        transition: expanded ? "width 0.2s ease-in" : '' //: "width 0.4s ease-in",
         // width: expanded ? "170px" : "60px",
         // width
         // ${expanded ? "w-[170px]" : "w-[60px]"}
@@ -50,7 +50,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       ${!expanded ? 'flex-row' : 'flex-col'}  sm:flex-col 
       sm:left-0 sm:h-screen sm:min-h-[380px] flex
       justify-between items-center
-      pt-2 overflow-visible px-1 select-none z-[200] 
+      overflow-visible px-1 select-none z-[200] 
       `}
     >
       <div className="flex flex-col-reverse sm:flex-col justify-start ">

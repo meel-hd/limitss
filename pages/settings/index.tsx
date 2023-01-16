@@ -28,7 +28,7 @@ function Settings() {
       </Head>
       <Navigation activeTab="settings" />
       <AuthorizedOnly>
-        <div className="w-full mt-4 pl-4 sm:pl-32">
+        <div className="w-full mt-15 sm:mt-4 pl-4 sm:pl-32">
           <NavigationArrows onlyBack={true} />
           <h1 className="mt-10">Settings</h1>
           <section className="w-full mt-3">

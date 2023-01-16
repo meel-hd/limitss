@@ -29,7 +29,7 @@ function Home() {
       </Head>
       <Navigation activeTab="home" />
       <AuthorizedOnly>
-        <div className="w-full py-5 sm:py-0  mt-0 sm:mt-4 pl-4 sm:pl-32">
+        <div className="w-full py-5 sm:py-0  mt-10 sm:mt-4 pl-4 sm:pl-32">
           <h1 className="font-semibold ">Your Apps</h1>
           {isLoading && (
             <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">

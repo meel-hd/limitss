@@ -1,11 +1,10 @@
 import { Card } from "@mantine/core";
 import LoggedInUser from "components/auth/LoggedInUser";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  ChartTreemap,
-  ChevronsRight,
-  Home,
+  ChartTreemap, Home,
+  Menu2,
   Propeller
 } from "tabler-icons-react";
 import Logo from "./lib/Logo";
@@ -16,36 +15,70 @@ export type Tabs = "home" | "settings" | "setup" | "resources";
 
 function Navigation({ activeTab }: { activeTab: Tabs }) {
   const [expanded, setExpanded] = useState(false);
+
+  // set expanded to false if a click was outside of the navigation
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        expanded &&
+        event.target instanceof HTMLElement &&
+        !event.target.closest(".navigation")
+      ) {
+        setExpanded(false);
+      }
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [expanded]);
+  
+
   return (
     <Card
       color="violet"
-      shadow={"xl"}
+      shadow={"xs"}
       style={{
-        transition: expanded ? "width 0.2s ease-in" : "width 0.4s ease-in",
-        width: expanded ? "170px" : "60px",
+        transition: expanded && "width 0.2s ease-in" //: "width 0.4s ease-in",
+        // width: expanded ? "170px" : "60px",
+        // width
+        // ${expanded ? "w-[170px]" : "w-[60px]"}
       }}
-      className={` min-h-[380px] overflow-visible hidden px-1 sm:flex z-[200] select-none justify-between items-center flex-col fixed top-0 left-0 h-screen  pt-2`}
+      className={` fixed top-0 ${
+        !expanded ? "w-full sm:w-[60px]" : "w-[170px] left-0 h-screen min-h-[380px] " 
+      } 
+      ${!expanded ? 'flex-row' : 'flex-col'}  sm:flex-col 
+      sm:left-0 sm:h-screen sm:min-h-[380px] flex
+      justify-between items-center
+      pt-2 overflow-visible px-1 select-none z-[200] 
+      `}
     >
-      <div className="justify-start">
-        <Link href={"/home"}>
-            <Logo width={30} withoutText={!expanded} />
+      <div className="flex flex-col-reverse sm:flex-col justify-start ">
+        <Link className={`${!expanded && "hidden"} sm:flex`} href={"/home"}>
+          <Logo width={30} withoutText={!expanded} />
         </Link>
         <div
           className={`${
             expanded ? "w-[100%]" : "w-full"
           } p-0 flex justify-end items-center`}
         >
-          <ChevronsRight
+          <Menu2
             color="gray"
             size={25}
-            strokeWidth={1}
-            className={`cursor-pointer mt-10 ${expanded && "-rotate-180"} `}
+            strokeWidth={1.5}
+            className={`cursor-pointer ml-4 sm:mt-10 sm:ml-0  active:scale-105  ${
+              expanded ? "mb-5 sm:mb-0" : 'mt-0 sm:mt-10'
+            } `}
             onClick={() => setExpanded((oldVal) => !oldVal)}
           />
         </div>
       </div>
 
-      <div className="h-1/3 w-full flex flex-col items-center">
+      <div
+        className={`${
+          !expanded ? "hidden" : "flex"
+        } sm:flex flex-col items-center h-1/3 w-full`}
+      >
         <NavbarLink
           expanded={expanded}
           Icon={Home}
@@ -70,13 +103,13 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       </div>
 
       <div
-        className={
-          "flex flex-col w-full justify-between bg-redd-500 items-center gap-[10px]"
-        }
+        className={`${
+          !expanded ? "hidden" : "flex"
+        } sm:flex flex-col w-full justify-between items-center gap-[10px]`}
       >
         {/* <NavbarLink Icon={Settings} label="Settings" expanded={expanded} href={'/settings'} /> */}
         <ThemeSwitch expanded={expanded} size={25} />
-        <LoggedInUser expanded={expanded} size={30}/>
+        <LoggedInUser expanded={expanded} size={30} />
       </div>
     </Card>
   );

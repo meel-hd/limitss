@@ -1,5 +1,4 @@
-import { Avatar, Badge, Card, Text, Tooltip } from "@mantine/core";
-import { ArrowRight } from "tabler-icons-react";
+import { Avatar, Badge, Card, Text } from "@mantine/core";
 
 export type AppCardProps = {
   appName: string;
@@ -51,14 +50,6 @@ function AppCard({
       >
         {description}
       </Text>
-      {/* </div> */}
-      <div className="w-full absolute bottom-0 right-0 left-0 flex p-2 justify-end items-center">
-        <button
-          className="inline-flex w-10 h-10 justify-center items-center  hover:bg-violet-400 text-violet-400 hover:text-white rounded-full transition duration-150"
-        >
-          <ArrowRight />
-        </button>
-      </div>
     </Card>
   );
 }

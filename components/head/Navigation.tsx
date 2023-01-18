@@ -53,8 +53,8 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       overflow-visible px-1 select-none z-[200] 
       `}
     >
-      <div className="flex flex-col-reverse sm:flex-col justify-start ">
-        <Link className={`${!expanded && "hidden"} sm:flex`} href={"/home"}>
+      <div className="flex flex-row sm:flex-col items-center w-full">
+        <Link className={`${!expanded && "idden"} sm:flex`} href={"/home"}>
           <Logo width={30} withoutText={!expanded} />
         </Link>
         <div
@@ -66,9 +66,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
             color="gray"
             size={25}
             strokeWidth={1.5}
-            className={`cursor-pointer ml-4 sm:mt-10 sm:ml-0  active:scale-105  ${
-              expanded ? "mb-5 sm:mb-0" : 'mt-0 sm:mt-10'
-            } `}
+            className={`cursor-pointer mt-0 sm:mt-10 sm:mx-auto  active:scale-105`}
             onClick={() => setExpanded((oldVal) => !oldVal)}
           />
         </div>

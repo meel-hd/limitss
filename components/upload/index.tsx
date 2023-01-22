@@ -111,7 +111,7 @@ export default function Uploader({ setUrl, handleChange }: Props) {
           />
           <label
             htmlFor="upload"
-            className="cursor-pointer text-violet-500 text-sm"
+            className={`cursor-pointer ${!file && ' text-violet-500'} text-sm`}
           >
             {file ? "Change File" : "Select an icon"}
           </label>
@@ -120,7 +120,7 @@ export default function Uploader({ setUrl, handleChange }: Props) {
           <div className="flex flex-col gap-2 items-center">
             <button
               onClick={uploadFile}
-              className=" btn flex text-xs flex-row items-center max-w-[140px] truncate  cursor-pointer  gap-2"
+              className=" btn flex text-xs flex-row items-center  text-violet-500 max-w-[140px] truncate  cursor-pointer  gap-2"
             >
               <Upload size={15} />
               Upload {file.name}

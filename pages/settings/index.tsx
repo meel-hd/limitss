@@ -1,4 +1,4 @@
-import { Avatar, Button, Loader, Text } from "@mantine/core";
+import { Avatar, Button, Kbd, Loader, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import NavigationArrows from "components/head/lib/NavigationArrows";
@@ -33,7 +33,8 @@ function Settings() {
           <h1 className="mt-10">Settings</h1>
           <section className="w-full mt-3">
             <Text className="font-semibold">Theme</Text>
-            <div className="w-40 mt-2  px-10 rounded-full shadow-sm">
+            <Kbd className="mt-2">Ctrl + B</Kbd>
+            <div className="w-40 mt-2  px-10 ">
               <ThemeSwitch size={20} expanded={true} />
             </div>
           </section>

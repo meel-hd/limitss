@@ -1,4 +1,6 @@
 import { Button } from "@mantine/core";
+import AlphaRelease from "components/landing/AlphaRelease";
+import Compatibility from "components/landing/Compatibility";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -36,6 +38,8 @@ const Home: NextPage = () => {
         <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>
       </div>
       <CustomersApp />
+      <AlphaRelease />
+      <Compatibility />
       {/* <Pricing /> */}
     </>
   );

@@ -31,14 +31,14 @@ function HeroSection({
             When there is no limits
           </span>
           <Text
-            className={`mb-8 text-4xl font-bold leading-none tracking-tighter  md:text-5xl lg:text-6xl xl:text-7xl  
+            className={`mb-8 text-3xl font-bold  md:text-4xl lg:text-4xl  xl:text-6xl
             ${theme.colorScheme == "dark" ? "text-white" : "text-neutral"}
           `}
           >
-            Satisfy Users by Desktop App.
+            Native Desktop App from your Webapp.
           </Text>
-          <p className="mb-8 text-base leading-relaxed text-left text-gray-400">
-            Build native desktop app from your webapp within minutes, with no
+          <p className="mb-8 text-base leading-relaxed text-left text-gray-500">
+            Satisfy users by building native desktop app from your webapp within minutes, with no
             developers or code. With Limitss gain trust in your app more than
             ever.
           </p>

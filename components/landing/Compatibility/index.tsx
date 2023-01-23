@@ -41,6 +41,9 @@ function Compatibility() {
                 <Php className={smoothanimation}/>
                 <Angular className={smoothanimation}/>
             </div>
+            <Text mx={20} size={10} color={'dimmed'} mt={20}>
+                Compatible with any tech stack. We have integrations with all the major website builders and frameworks.
+            </Text>
 
 
         </section>);

@@ -1,6 +1,8 @@
 import { Button } from "@mantine/core";
 import AlphaRelease from "components/landing/AlphaRelease";
+import AlphaReleasePricing from "components/landing/AlphaReleasePricing";
 import Compatibility from "components/landing/Compatibility";
+import JoinInvitation from "components/landing/Invitation";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
@@ -40,7 +42,8 @@ const Home: NextPage = () => {
       <CustomersApp />
       <AlphaRelease />
       <Compatibility />
-      {/* <Pricing /> */}
+      <JoinInvitation />
+      <AlphaReleasePricing />
     </>
   );
 };

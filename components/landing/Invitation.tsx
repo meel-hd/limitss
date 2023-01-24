@@ -15,12 +15,12 @@ function JoinInvitation() {
           <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
             <stop
               id="stop1"
-              stop-color="rgba(139.23, 161.509, 212.566, 1)"
+              stopColor="rgba(139.23, 161.509, 212.566, 1)"
               offset="0%"
             ></stop>
             <stop
               id="stop2"
-              stop-color="rgba(127.397, 31, 251, 1)"
+              stopColor="rgba(127.397, 31, 251, 1)"
               offset="100%"
             ></stop>
           </linearGradient>
@@ -31,7 +31,7 @@ function JoinInvitation() {
           width="100%"
           height="100%"
           transform="translate(50 50)"
-          stroke-width="0"
+          strokeWidth="0"
           stroke="url(#sw-gradient)"
         ></path>
       </svg>
@@ -67,12 +67,12 @@ function JoinInvitation() {
             
             <stop
               id="stop1"
-              stop-color="rgba(41.306, 221.674, 218.924, 1)"
+              stopColor="rgba(41.306, 221.674, 218.924, 1)"
               offset="0%"
             ></stop>
             <stop
               id="stop2"
-              stop-color="rgba(31, 251, 38.205, 1)"
+              stopColor="rgba(31, 251, 38.205, 1)"
               offset="100%"
             ></stop>
           </linearGradient>
@@ -83,7 +83,7 @@ function JoinInvitation() {
           width="100%"
           height="100%"
           transform="translate(50 50)"
-          stroke-width="0"
+          strokeWidth="0"
           stroke="url(#sw-gradient2)"
         ></path>
       </svg>

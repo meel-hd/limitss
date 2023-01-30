@@ -18,7 +18,7 @@ function CustomersApp() {
                 The resulted app is a small bundle of 5MB-, which is a lot less
                 than the 100MB+ of the browser with better performance and a lot
                 more security. It allows users to download the app faster and
-                try it out.
+                try it.
               </p>
             </div>
           </div>
@@ -49,7 +49,7 @@ function CustomersApp() {
               </h4>
               <p className="mt-4 text-base font-normal text-gray-400 leading-relax">
                 Building the app requires zero interaction with the code, with
-                LimitsS everything from the start to the end is done with
+                LimitsS everything from the start to the end is done through
                 graphical interactions.
               </p>
             </div>

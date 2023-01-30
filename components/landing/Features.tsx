@@ -213,7 +213,7 @@ function Features() {
                     />
                     <Image
                       className="md:max-w-none absolute w-full left-0 transform animate-float"
-                      src={"/images/feature-fast.png"}
+                      src={"/images/feature-fast.svg"}
                       width="500"
                       height="44"
                       alt="Element"
@@ -243,7 +243,7 @@ function Features() {
                     />
                     <Image
                       className="md:max-w-none absolute w-full left-0 transform animate-float"
-                      src={"/images/feature-sec.png"}
+                      src={"/images/feature-sec.svg"}
                       width="500"
                       height="44"
                       alt="Element"
@@ -273,7 +273,7 @@ function Features() {
                     />
                     <Image
                       className="md:max-w-none absolute w-full left-0 transform animate-float"
-                      src={"/images/feature-bund.png"}
+                      src={"/images/feature-bund.svg"}
                       width="500"
                       height="44"
                       alt="Element"

@@ -75,7 +75,7 @@ function JoinInvitation() {
         </p>
         <div className="flex flex-row mt-4">
           <Link href={"/signin"}>
-            <PrimaryBtn>Try it out</PrimaryBtn>
+            <PrimaryBtn>Try it now</PrimaryBtn>
           </Link>
         </div>
       </div>

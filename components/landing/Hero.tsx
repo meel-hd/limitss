@@ -43,7 +43,7 @@ function HeroSection({
             ever.
           </p>
           <div className="flex flex-wrap w-full mt-2 -mx-4 text-left">
-            <div className="w-1/4 p-4 mt-4 sm:w-1/4">
+            {/* <div className="w-1/4 p-4 mt-4 sm:w-1/4">
               <svg
                 width="30"
                 height="30"
@@ -142,7 +142,7 @@ function HeroSection({
                   fill="#A259FF"
                 ></path>
               </svg>
-            </div>
+            </div> */}
           </div>
           <div className="w-full mt-4 flex justify-end items-center">
             {children}

@@ -5,7 +5,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { Building, Key, Mail, Sitemap, User } from "tabler-icons-react";
 import { z } from "zod";
-import Header from "../../components/head";
+import Header from "../../components/layout/head";
 import PrimaryBtn from "../../components/lib/PrimaryBtn";
 // import { Register } from "../../lib/gql.client";
 

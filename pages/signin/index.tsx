@@ -1,12 +1,12 @@
 import PrimaryBtn from "components/lib/PrimaryBtn";
 import Head from "next/head";
-import Header from "../../components/head";
+import Header from "../../components/layout/head";
 import { signIn, useSession } from "next-auth/react";
 import { Avatar, Button, Card, Text } from "@mantine/core";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { BrandGithub } from "tabler-icons-react";
-import Logo from "components/head/lib/Logo";
+import Logo from "components/layout/head/lib/Logo";
 import Link from "next/link";
 function SignInPage() {
   const { status, data: session } = useSession();

@@ -1,7 +1,7 @@
 import { Modal, Skeleton, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import Navigation from "components/head/Navigation";
+import Navigation from "components/layout/head/Navigation";
 import PrimaryBtn from "components/lib/PrimaryBtn";
 import AppCard from "components/pages/home/AppCard";
 import AppDetails from "components/pages/home/AppDetails";

@@ -5,7 +5,7 @@ import Head from "next/head";
 // import { useRouter } from "next/router";
 // import { useEffect, useState } from "react";
 // import { Key, Mail } from "tabler-icons-react";
-import Header from "../../components/head";
+import Header from "../../components/layout/head";
 // import PrimaryBtn from "../../components/lib/PrimaryBtn";
 // import { Login as LoginMutation } from "../../lib/gql.client";
 // import Notification from "../../components/lib/notifications";

@@ -1,7 +1,7 @@
 import { Button, Image, Text } from "@mantine/core";
 import Head from "next/head";
 import Link from "next/link";
-import NavigationArrows from "../components/head/lib/NavigationArrows";
+import NavigationArrows from "../components/layout/head/lib/NavigationArrows";
 
 function NotFound() {
   return (

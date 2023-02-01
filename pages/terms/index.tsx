@@ -1,6 +1,6 @@
 import { useMantineTheme } from "@mantine/core";
-import Header from "components/head";
-import Footer from "components/landing/Footer";
+import Header from "components/layout/head";
+import Footer from "components/pages/landing/Footer";
 import Head from "next/head";
 
 function TermsAndConditions() {

@@ -1,16 +1,16 @@
 import { Button } from "@mantine/core";
-import AlphaRelease from "components/landing/AlphaRelease";
-import AlphaReleasePricing from "components/landing/AlphaReleasePricing";
-import Compatibility from "components/landing/Compatibility";
-import Features from "components/landing/Features";
-import Footer from "components/landing/Footer";
-import JoinInvitation from "components/landing/Invitation";
+import AlphaRelease from "components/pages/landing/AlphaRelease";
+import AlphaReleasePricing from "components/pages/landing/AlphaReleasePricing";
+import Compatibility from "components/pages/landing/Compatibility";
+import Features from "components/pages/landing/Features";
+import Footer from "components/pages/landing/Footer";
+import JoinInvitation from "components/pages/landing/Invitation";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import Header from "../components/head";
-import CustomersApp from "../components/landing/CustomersApp";
-import HeroSection from "../components/landing/Hero";
+import Header from "../components/layout/head";
+import CustomersApp from "../components/pages/landing/CustomersApp";
+import HeroSection from "../components/pages/landing/Hero";
 
 const Home: NextPage = () => {
   return (

@@ -3,18 +3,18 @@ import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import AdvancedSetup from "components/setup/AdvancedSetup";
-import { advancedConfigValues } from "components/setup/types";
+import AdvancedSetup from "components/pages/setup/AdvancedSetup";
+import { advancedConfigValues } from "components/pages/setup/types";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Check, ExclamationMark } from "tabler-icons-react";
-import Navigation from "../../components/head/Navigation";
-import Preview from "../../components/setup/preview";
+import Navigation from "../../components/layout/head/Navigation";
+import Preview from "../../components/pages/setup/preview";
 import PrimaryInputs, {
   semverRegex,
-} from "../../components/setup/PrimaryInputs";
-import WindowValues, { urlRegex } from "../../components/setup/WindowValues";
+} from "../../components/pages/setup/PrimaryInputs";
+import WindowValues, { urlRegex } from "../../components/pages/setup/WindowValues";
 import { CreateAppInput } from "../../generated/graphql";
 import { CreateApp } from "../../lib/gql.client";
 

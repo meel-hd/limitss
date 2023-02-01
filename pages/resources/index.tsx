@@ -1,7 +1,7 @@
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import Navigation from "components/head/Navigation";
-import ActionsResources from "components/resources/ActionsResources";
-import { RequestsCard } from "components/resources/RequestsCard";
+import Navigation from "components/layout/head/Navigation";
+import ActionsResources from "components/pages/resources/ActionsResources";
+import { RequestsCard } from "components/pages/resources/RequestsCard";
 import Head from "next/head";
 
 function Resources() {

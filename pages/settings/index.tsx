@@ -1,9 +1,9 @@
 import { Avatar, Button, Kbd, Loader, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import NavigationArrows from "components/head/lib/NavigationArrows";
-import ThemeSwitch from "components/head/lib/ThemeSwitch";
-import Navigation from "components/head/Navigation";
+import NavigationArrows from "components/layout/head/lib/NavigationArrows";
+import ThemeSwitch from "components/layout/head/lib/ThemeSwitch";
+import Navigation from "components/layout/head/Navigation";
 import { Me } from "lib/gql.client";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";

@@ -1,4 +1,4 @@
-import Logo from "components/head/lib/Logo";
+import Logo from "components/layout/head/lib/Logo";
 import PrimaryBtn from "components/lib/PrimaryBtn";
 import Link from "next/link";
 

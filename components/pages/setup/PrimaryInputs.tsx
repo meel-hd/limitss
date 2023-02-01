@@ -1,10 +1,8 @@
-import { Select, TextInput, NumberInput, Button } from "@mantine/core";
+import { Button, NumberInput, Select, TextInput } from "@mantine/core";
 import { useWindowScroll } from "@mantine/hooks";
-import PrimaryBtn from "components/lib/PrimaryBtn";
-import useWindowDimensions from "hooks/useWindowDemensions";
 import { Dispatch, SetStateAction } from "react";
 import { ChevronsDown } from "tabler-icons-react";
-import { CreateAppInput } from "../../generated/graphql";
+import { CreateAppInput } from "../../../generated/graphql";
 
 export const LICENSES = ["MIT", "Apache", "BSD", "GPL"];
 interface PrimaryInputsProps {

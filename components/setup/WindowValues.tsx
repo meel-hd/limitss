@@ -46,29 +46,11 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
         value={createAppValues.link}
         onChange={(e) =>
           handleChange((oldValues) => {
-            return { ...oldValues, link: e.target.value };
+            return { ...oldValues, link: e.target.value.toLowerCase() };
           })
         }
       />
       <Uploader handleChange={handleChange} />
-      {/* <FileInput
-        className="w-full sm:w-1/2 truncate"
-        label="Icon"
-        accept="image/png"
-        description="This is the icon of the app"
-        placeholder="Choose app icon"
-        // TODO: Figure out how to implement icons
-        // value={createAppValues.icon}
-        onChange={(icon) => {
-          handleChange((oldValus) => {
-            if (icon != null) {
-              return { ...oldValus, icon: URL.createObjectURL(icon as Blob) };
-            } else {
-              return {...oldValus, icon:''};
-            }
-          });
-        }}
-      /> */}
       <Text mt={25} size={"xs"} color="dimmed">
         Whether the window is maximized or not.
       </Text>

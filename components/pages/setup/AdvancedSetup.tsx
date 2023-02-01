@@ -63,24 +63,6 @@ function AdvancedSetup({
                 });
               }}
             />
-            <Text mt={25} size={"xs"} color="dimmed">
-              Whether the window is visible initially or not.
-            </Text>
-            <Switch
-              color={"violet"}
-              size="sm"
-              label="Visible"
-              checked={advancedOptions.visible}
-              offLabel={<X size={15} />}
-              onLabel={<Check size={15} />}
-              onChange={(e) => {
-                setAdvancedOptions({
-                  ...advancedOptions,
-                  visible: e.target.checked,
-                });
-              }}
-            />
-
             <div>
               <Text mt={25} size={"xs"} color="dimmed">
                 Sets the window title to be hidden on macOS.

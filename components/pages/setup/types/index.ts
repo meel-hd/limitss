@@ -4,7 +4,6 @@ export type advancedConfigValues = {
   maximized: boolean;
   center: boolean;
   resizable: boolean;
-  visible: boolean;
   hiddenTitle: boolean;
   theme: null |  "Dark" | "Light";
   titleBarStyle: undefined | 'Visible' | 'Transparent';

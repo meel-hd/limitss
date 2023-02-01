@@ -15,7 +15,6 @@ import tauriConfigJsonTemplate from "../template/src-tauri/taur.config.json";
   maximized: boolean;
   center: boolean;
   resizable: boolean;
-  visible: boolean;
   hiddenTitle: boolean;
   theme: null |  "Dark" | "Light";
   titleBarStyle: undefined | 'Visible' | 'Transparent';
@@ -41,7 +40,6 @@ const AddTauriConfigJson = async ({
   maximized,
   center,
   resizable,
-  visible,
   hiddenTitle,
   theme,
   titleBarStyle,
@@ -68,7 +66,6 @@ const AddTauriConfigJson = async ({
   tauriConfigJsonTemplate.package.version = version;
   tauriConfigJsonTemplate.tauri.windows[0].center = center;
   tauriConfigJsonTemplate.tauri.windows[0].resizable = resizable;
-  tauriConfigJsonTemplate.tauri.windows[0].visible = visible;
   tauriConfigJsonTemplate.tauri.windows[0].hiddenTitle = hiddenTitle;
   tauriConfigJsonTemplate.tauri.windows[0].theme = theme;
   tauriConfigJsonTemplate.tauri.windows[0].titleBarStyle = titleBarStyle;

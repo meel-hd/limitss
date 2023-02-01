@@ -79,7 +79,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     minWidth: req.body.minWidth,
     theme: req.body.theme,
     titleBarStyle: req.body.titleBarStyle,
-    visible: req.body.visible,
     x: req.body.x,
     y: req.body.y,
   });

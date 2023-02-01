@@ -47,7 +47,6 @@ function Setup() {
     focus: true,
     center: false,
     hiddenTitle: false,
-    visible: true,
     resizable: true,
     maxHeight: null,
     maxWidth: null,
@@ -117,7 +116,6 @@ function Setup() {
       // Advanced Options
       center: advancedOptions.center,
       hiddenTitle: advancedOptions.hiddenTitle,
-      visible: advancedOptions.visible,
       resizable: advancedOptions.resizable,
       maxHeight: advancedOptions.maxHeight,
       maxWidth: advancedOptions.maxWidth,

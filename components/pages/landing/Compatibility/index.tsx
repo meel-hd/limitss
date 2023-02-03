@@ -51,7 +51,7 @@ function Compatibility() {
         <Php className={smoothanimation} />
         <Angular className={smoothanimation} />
       </div>
-      <Text mx={20} size={15} color={"dimmed"} mt={20}>
+      <Text mx={20} size={13} color={"dimmed"} mt={20}>
         Compatible with any tech stack or integration. If it works with a web
         browser, it works with <span className="font-semibold">Limitss</span>.
       </Text>

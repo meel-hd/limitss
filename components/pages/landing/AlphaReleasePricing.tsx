@@ -6,7 +6,7 @@ function AlphaReleasePricing() {
     <h1  className="font-bold mb-14 ">
          Pricing
     </h1>
-      <div className="relative flex flex-col p-8 bg-violet-500 rounded-2xl transition-transform duration-500 hover:-translate-y-2">
+      <div className="relative flex flex-col p-8 bg-violet-500/50 rounded-2xl transition-transform duration-500 hover:-translate-y-2">
         <div className="relative flex-1">
           <h3 className="text-xl font-semibold text-white">Startup</h3>
           <p className="flex items-baseline mt-4 text-white">

@@ -1,4 +1,3 @@
-import { Image } from "@mantine/core";
 import { CodeOff, EyeCheck, MoodCrazyHappy } from "tabler-icons-react";
 function CustomersApp() {
   return (

@@ -11,6 +11,7 @@ import Link from "next/link";
 import Header from "../components/layout/head";
 import CustomersApp from "../components/pages/landing/CustomersApp";
 import HeroSection from "../components/pages/landing/Hero";
+import Walkthrought from "../components/pages/landing/Walkthrough";
 
 const Home: NextPage = () => {
   return (
@@ -42,7 +43,8 @@ const Home: NextPage = () => {
         <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>
       </div>
       <Features />
-      <CustomersApp />
+      <Walkthrought />
+      {/* <CustomersApp /> */}
       <AlphaRelease />
       <Compatibility />
       <JoinInvitation />

@@ -59,7 +59,7 @@ function Features() {
             >
               <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                 <h3 className="h3 mb-3">Powerful suite of features</h3>
-                <p className={"text-xl text-gray-" + grayShade}>
+                <p className={"text-gray-" + grayShade}>
                   We build modern desktop app from your webapp. From
                   the core framework to the tools you need to build your app,
                   we&apos;ve got you covered.
@@ -118,7 +118,7 @@ function Features() {
                     <div className="text-gray-600 text-sm">
                       The app is sandboxed and protected from malicious code,
                       especially conventional attacks related to memory safety
-                      in browsers.
+                      in browsers making the app 70% safer than the browser.
                     </div>
                   </div>
                   <div className="flex justify-center items-center w-8 h-8 bg-white rounded-full shadow flex-shrink-0 ml-3">

@@ -67,7 +67,7 @@ function JoinInvitation() {
           ></animate>
         </path>
       </svg>
-      <div className="w-1/2 h-1/2 p-2 sm:p-10 flex flex-col items-center justify-center">
+      <div className="w-full lg:w-1/2 h-1/2 p-2 sm:p-10 flex flex-col items-center justify-center">
         <h1 className="font-bold mb-14 ">Try Limitss Alpha</h1>
         <p className=" text-center mb-6">
           Join us to try the alpha to get early and free access to Limitss and

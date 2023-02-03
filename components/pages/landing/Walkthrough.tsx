@@ -25,7 +25,13 @@ function Walkthrought() {
                   <div className="border-2-2 border-violet-555 absolute h-full border"></div>
                   <div className="border-2-2 border-violet-555 absolute h-full border"></div>
                   <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div className="order-1 w-5/12"></div>
+                    <div className="order-1 w-5/12">
+                      <Image
+                        alt="Setup icon and URL"
+                        className="mx-auto  "
+                        src="/images/icons.svg"
+                      />
+                    </div>
                     <div className="order-1 w-5/12 px-1 py-4 text-right">
                       <p className="mb-3 text-lg text-violet-400">First Step</p>
                       <h4 className="mb-3 font-bold text-lg md:text-2xl">
@@ -38,7 +44,13 @@ function Walkthrought() {
                     </div>
                   </div>
                   <div className="mb-8 flex justify-between items-center w-full right-timeline">
-                    <div className="order-1 w-5/12"></div>
+                    <div className="order-1 w-5/12">
+                      <Image
+                        alt="Fill in the details"
+                        className="mx-auto max-w-[90%] "
+                        src="/images/form.gif"
+                      />
+                    </div>
                     <div className="order-1  w-5/12 py-4 text-left hover:shadow-md rounded-lg px-6  backdrop-blur-sm">
                       <p className="mb-3 text-base text-violet-400 ">
                         Second Step
@@ -60,7 +72,13 @@ function Walkthrought() {
                     </div>
                   </div>
                   <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
-                    <div className="order-1 w-5/12"></div>
+                    <div className="order-1 w-5/12">
+                      <Image
+                        alt="Download Artifacts"
+                        className="mx-auto max-w-[90%] "
+                        src="/images/downl.gif"
+                      />
+                    </div>
                     <div className="order-1 w-5/12 px-1 py-4 text-right">
                       <p className="mb-3 text-base text-violet-400 ">
                         Third Step

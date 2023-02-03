@@ -8,7 +8,7 @@ function JoinInvitation() {
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 500 500"
-        width="22%"
+        className="w-5/6 sm:w-[22%]"
         id="blobSvg"
         style={{ opacity: 1 }}
         filter="blur(0px)"

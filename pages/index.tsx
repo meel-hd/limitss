@@ -12,6 +12,7 @@ import Header from "../components/layout/head";
 import CustomersApp from "../components/pages/landing/CustomersApp";
 import HeroSection from "../components/pages/landing/Hero";
 import Walkthrought from "../components/pages/landing/Walkthrough";
+import { Image } from "@mantine/core";
 
 const Home: NextPage = () => {
   return (
@@ -42,6 +43,14 @@ const Home: NextPage = () => {
         <div className="w-4 h-4 rounded-full bg-violet-400 animate-bounce mr-2"></div>
         <div className="w-3 h-3 rounded-full bg-indigo-400 animate-bounce"></div>
       </div>
+      <section className=" flex justify-center items-center">
+        <Image
+          src="/images/q.png"
+          alt="hero"
+          width={800}
+          className="max-w-[90vw] shadow-lg overflow-hidden rounded-xl"
+        />
+      </section>
       <Features />
       <Walkthrought />
       {/* <CustomersApp /> */}

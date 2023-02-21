@@ -62,7 +62,10 @@ function AppDetails({
           {description}
         </Text>
       </div>
-      <section className="flex justify-end">
+      <section className="flex flex-col-reverse sm:flex-row justify-between">
+        <div>
+          <ReleasesDetails name={name} />
+        </div>
         <div className="w-full sm:w-2/3 lg:w-1/3">
           <Accordion
             pb={30}
@@ -81,14 +84,6 @@ function AppDetails({
                 ) : (
                   <Loader color={"violet"} />
                 )}
-              </Accordion.Panel>
-            </Accordion.Item>
-            <Accordion.Item value="releases">
-              <Accordion.Control>
-                <Text weight={600}>Releases</Text>
-              </Accordion.Control>
-              <Accordion.Panel>
-                <ReleasesDetails name={name} />
               </Accordion.Panel>
             </Accordion.Item>
             <Accordion.Item value="usage">

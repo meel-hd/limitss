@@ -50,7 +50,7 @@ export function RequestsCard() {
       shadow={"xs"}
       className={classes.card + ' mx-2 sm:mx-0'}
       mt={ICON_SIZE / 3}
-      hidden={(data.resources.core.used / 5000) * 100 < 80}
+      hidden={!data || (data.resources.core.used / 5000) * 100 < 80}
     >
       {data ? (
         <>

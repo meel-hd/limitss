@@ -1,4 +1,4 @@
-import { Button, Text, useMantineTheme } from "@mantine/core";
+import { Button, useMantineTheme } from "@mantine/core";
 import LoggedInUser from "components/auth/LoggedInUser";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -15,36 +15,11 @@ function Header({ minimal }: { minimal?: boolean }) {
       className="fixed z-[300] w-full flex justify-between h-14  px-5 items-center"
     >
       <Link href={"/"}>
-          <Logo width={35} />
+        <Logo width={35} />
       </Link>
       {!minimal && (
         <>
-          <div className="flex justify-center items-center">
-            {/* <Text
-              className="hidden sm:flex"
-              color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
-              weight={400}
-              ml={25}
-            >
-              Company
-            </Text>
-            <Text
-              className="hidden sm:flex"
-              color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
-              weight={400}
-              ml={25}
-            >
-              Blog
-            </Text>
-            <Text
-              className="hidden sm:flex"
-              color={theme.colorScheme == "dark" ? theme.white : "dimmed"}
-              weight={400}
-              ml={25}
-            >
-              Careers
-            </Text> */}
-          </div>
+          <div className="flex justify-center items-center"></div>
           <div className="flex justify-center items-center">
             {status == "authenticated" ? (
               <LoggedInUser size={32} link="/home" />

@@ -1,12 +1,9 @@
-import { Card } from "@mantine/core";
+import { Card, Text } from "@mantine/core";
+import { useColorScheme } from "@mantine/hooks";
 import LoggedInUser from "components/auth/LoggedInUser";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import {
-  ChartTreemap, Home,
-  Menu2,
-  Propeller
-} from "tabler-icons-react";
+import { ChartTreemap, Home, Menu2, Propeller } from "tabler-icons-react";
 import Logo from "./lib/Logo";
 import NavbarLink from "./lib/NavbarLink";
 import ThemeSwitch from "./lib/ThemeSwitch";
@@ -15,6 +12,7 @@ export type Tabs = "home" | "settings" | "setup" | "resources";
 
 function Navigation({ activeTab }: { activeTab: Tabs }) {
   const [expanded, setExpanded] = useState(false);
+  const theme = useColorScheme();
 
   // set expanded to false if a click was outside of the navigation
   useEffect(() => {
@@ -32,30 +30,39 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [expanded]);
-  
 
   return (
     <Card
       color="violet"
       shadow={"xs"}
       style={{
-        transition: expanded ? "width 0.2s ease-in" : '' //: "width 0.4s ease-in",
+        transition: expanded ? "width 0.2s ease-in" : "", //: "width 0.4s ease-in",
         // width: expanded ? "170px" : "60px",
         // width
         // ${expanded ? "w-[170px]" : "w-[60px]"}
       }}
       className={` fixed top-0 ${
-        !expanded ? "w-full sm:w-[60px]" : "w-[170px] left-0 h-screen min-h-[380px] " 
+        !expanded
+          ? "w-full sm:w-[60px]"
+          : "w-[170px] left-0 h-screen min-h-[380px] "
       } 
-      ${!expanded ? 'flex-row' : 'flex-col'}  sm:flex-col 
+      ${!expanded ? "flex-row" : "flex-col"}  sm:flex-col 
       sm:left-0 sm:h-screen sm:min-h-[380px] flex
       justify-between items-center
-      overflow-visible px-1 select-none z-[200] 
+      overflow-visible px-3 sm:px-1 select-none z-[200] 
       `}
     >
       <div className="flex flex-row sm:flex-col items-center w-full">
-        <Link className={`${!expanded && "idden"} sm:flex`} href={"/home"}>
+        <Link className={`flex flex-row justify-center`} href={"/home"}>
           <Logo width={30} withoutText={!expanded} />
+          <Text
+            hidden={expanded}
+            weight={700}
+            color={theme == "dark" ? "white" : ""}
+            className=" select-none flex sm:hidden"
+          >
+            Limitss
+          </Text>
         </Link>
         <div
           className={`${

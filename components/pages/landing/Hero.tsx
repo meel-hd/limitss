@@ -30,12 +30,11 @@ function HeroSection() {
         backgroundRepeat: "no-repeat",
         // Transition for the background image
         transition: "background-image 1s ease-in-out",
-        
       }}
       className="relative flex flex-col w-full min-h-screen justify-center items-center text-white"
     >
       <Overlay
-        gradient={`linear-gradient( ${MainColor}95, ${MainColor}30, ${MainColor}30, ${MainColor}30,${MainColor}95)`}
+        gradient={`linear-gradient( ${MainColor}95, ${MainColor}30, ${MainColor}30, ${MainColor}30,${MainColor})`}
         opacity={0.85}
         zIndex={0}
       />

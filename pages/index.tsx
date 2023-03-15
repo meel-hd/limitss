@@ -14,6 +14,7 @@ import Walkthrought from "../components/pages/landing/Walkthrough";
 import { Image } from "@mantine/core";
 import { useEffect } from "react";
 import { useColorScheme } from "@mantine/hooks";
+import SupportedPlatforms from "components/pages/landing/Compatibility/SupportedPlatforms";
 
 export const MainColor = "#1C1C28";
 
@@ -41,19 +42,7 @@ const Home: NextPage = () => {
       </Head>
       <Header />
       <HeroSection />
-      <section className=" flex justify-center items-center">
-        <Image
-          src="/images/q.png"
-          alt="hero"
-          width={800}
-          className="max-w-[90vw] shadow-lg overflow-hidden rounded-xl"
-        />
-      </section>
-      <Features />
-      <Walkthrought />
-      {/* <CustomersApp /> */}
-      <AlphaRelease />
-      <Compatibility />
+      <SupportedPlatforms />
       <JoinInvitation />
       <AlphaReleasePricing />
       <Footer />

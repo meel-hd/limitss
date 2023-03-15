@@ -31,7 +31,6 @@ function PrimaryBtn({ children, props, loading }: PrimaryBtnProps) {
                     },
                 },
             }}
-            loading={loading}
             {...props}
             className=" bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]"
         >

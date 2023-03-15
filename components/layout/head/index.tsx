@@ -1,35 +1,42 @@
-import { Button, useMantineTheme } from "@mantine/core";
-import LoggedInUser from "components/auth/LoggedInUser";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Search from "../shared/Search";
 import Logo from "./lib/Logo";
 
-function Header({ minimal }: { minimal?: boolean }) {
-  const theme = useMantineTheme();
-  const { status } = useSession();
+const LINKS = [
+  {
+    label: "Home",
+    href: "/home",
+  },
+  {
+    label: "Join",
+    href: "/signin",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+];
+
+function Header({ minimal, notFixed }: { minimal?: boolean, notFixed?: boolean }) {
   return (
     <header
-      style={{
-        backgroundColor: theme.colorScheme == "light" ? "white" : "#1a1b1e",
-      }}
-      className="fixed z-[300] w-full flex justify-between h-14  px-5 items-center"
+      className={`${!notFixed && "fixed z-[300]"} w-full flex justify-between h-14  px-5 sm:px-32 items-center`}
     >
       <Link href={"/"}>
-        <Logo width={35} />
+        <Logo textSize={"lg"} gap={14} width={35} />
       </Link>
       {!minimal && (
         <>
           <div className="flex justify-center items-center"></div>
           <div className="flex justify-center items-center">
-            {status == "authenticated" ? (
-              <LoggedInUser size={32} link="/home" />
-            ) : (
-              <Link href={"/signin"}>
-                <Button className="bg-gradient-to-r from-indigo-500 px-4 to-violet-400 hover:opacity-70">
-                  Sign In
-                </Button>
-              </Link>
-            )}
+          <div className="hidden sm:flex justify-center gap-6 items-center font-semibold mr-14">
+            {
+              LINKS.map((link) => (
+                <Link className="hover:opacity-90" key={link.href + link.label} href={link.href}>{link.label}</Link>
+              ))
+            }
+          </div>
+          <Search />
           </div>
         </>
       )}

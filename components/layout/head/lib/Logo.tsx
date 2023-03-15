@@ -6,9 +6,10 @@ interface LogoProps {
   withoutText?: boolean;
   withoutIcon?: boolean;
   textSize?: MantineNumberSize;
+  gap?: number;
 }
 
-function Logo({ width, withoutText, withoutIcon, textSize }: LogoProps) {
+function Logo({ width, withoutText, withoutIcon, textSize, gap }: LogoProps) {
   const theme = useMantineTheme();
   return (
     <div className="flex  flex-row justify-center items-center">
@@ -21,6 +22,7 @@ function Logo({ width, withoutText, withoutIcon, textSize }: LogoProps) {
       )}
       {!withoutText && (
         <Text
+          ml={gap ? gap : 0}
           weight={700}
           size={textSize}
           color={theme.colorScheme == "dark" ? "white" : ""}

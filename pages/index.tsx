@@ -43,6 +43,7 @@ const Home: NextPage = () => {
       <Header />
       <HeroSection />
       <SupportedPlatforms />
+      <Features />
       <JoinInvitation />
       <AlphaReleasePricing />
       <Footer />

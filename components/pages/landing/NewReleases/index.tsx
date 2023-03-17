@@ -11,9 +11,9 @@ function NewReleases() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="min-h-screen relative mt-40 flex flex-col justify-center items-center"
+      className="min-h-screen relative mt-40 pb-14 sm:pb-0 flex flex-col justify-center items-center"
     >
-      <h1 className="text-3xl font-bold text-center z-40">
+      <h1 className="text-3xl font-bold mt-10 sm:mt-0 text-center z-40">
         Newly Released Games
       </h1>
       <div className="flex flex-col sm:flex-row items-center sm:flex-wrap justify-center mt-20 z-40 gap-20">

@@ -10,7 +10,7 @@ function TheBest() {
       <section className="min-h-screen mt-40">
         <div className="flex flex-col justify-around items-center">
           <h1 className="px-10 w-11/12 sm:w-2/3 text-center text-3xl sm:text-4xl font-bold mb-20">
-            We are the best game distributors of games from the web.
+            We are the best game distributors from the web.
           </h1>
           <div
             style={{

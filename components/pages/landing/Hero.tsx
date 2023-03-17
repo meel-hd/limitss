@@ -52,7 +52,7 @@ function HeroSection() {
         </Text>
         <Link href={"/signin"}>
           <Button className="mt-20 bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-sm h-[40px]" >
-            Become a Member Today for Free
+            Become a Member
           </Button>
         </Link>
       </div>

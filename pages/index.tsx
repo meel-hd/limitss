@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import { useColorScheme } from "@mantine/hooks";
 import SupportedPlatforms from "components/pages/landing/Compatibility/SupportedPlatforms";
 import NewReleases from "components/pages/landing/NewReleases";
+import TheBest from "components/pages/landing/TheBest";
 
 export const MainColor = "#1C1C28";
 
@@ -46,6 +47,7 @@ const Home: NextPage = () => {
       <SupportedPlatforms />
       <Features />
       <NewReleases />
+      <TheBest />
       <JoinInvitation />
       <AlphaReleasePricing />
       <Footer />

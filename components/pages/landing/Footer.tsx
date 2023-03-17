@@ -9,7 +9,6 @@ function Footer() {
       <div className="flex flex-col  items-center">
         <Logo />
         <small className="ml-10">All rights reserved</small>
-        <Newsletter />
       </div>
       <div className="flex flex-col items-center">
         <h1 className="text-2xl font-bold">Join the Limitss Alpha</h1>

@@ -4,7 +4,10 @@ import { Search as SearchIcon } from "tabler-icons-react";
 function Search() {
   const [opened, setOpened] = useState(false);
   return (
-    <div onClick={() => setOpened(true)} className="bg-white rounded-full min-w-[15vw] h-10 flex justify-between items-center pl-4 pr-1 py-1">
+    <div
+      onClick={() => setOpened(true)}
+      className="bg-white rounded-full min-w-[15vw] h-10 flex justify-between items-center pl-4 pr-1 py-1"
+    >
       <Text className="select-none mr-2" size={"sm"} color="dimmed">
         Search...
       </Text>
@@ -16,10 +19,15 @@ function Search() {
       >
         <SearchIcon width={20} strokeWidth={2} />
       </Button>
-      <Modal centered radius={'lg'} opened={opened} onClose={() => setOpened(false)}>
-        <Center>
-            Coming Soon!
-        </Center>
+      <Modal
+        centered
+        radius={"lg"}
+        opened={opened}
+        onClose={() => {
+          setOpened(false);
+        }}
+      >
+        <Center>Coming Soon!</Center>
       </Modal>
     </div>
   );

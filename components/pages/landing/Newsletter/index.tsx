@@ -17,6 +17,7 @@ function Newsletter() {
   };
   return (
     <div className="h-40 px-14 flex flex-col sm:flex-row justify-evenly sm:justify-between items-center">
+      <h1 className="font-semibold text-2xl">Join the Newsletter</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();

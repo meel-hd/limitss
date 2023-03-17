@@ -5,6 +5,7 @@ import Features from "components/pages/landing/Features";
 import Footer from "components/pages/landing/Footer";
 import JoinInvitation from "components/pages/landing/Invitation";
 import NewReleases from "components/pages/landing/NewReleases";
+import Newsletter from "components/pages/landing/Newsletter";
 import TheBest from "components/pages/landing/TheBest";
 import type { NextPage } from "next";
 import Head from "next/head";
@@ -43,6 +44,7 @@ const Home: NextPage = () => {
       <NewReleases />
       <TheBest />
       <JoinInvitation />
+      <Newsletter />
       <Footer />
     </main>
   );

@@ -1,0 +1,3 @@
+mutation JoinNewsletter($email: String!) {
+  joinNewsletter(email: $email)
+}

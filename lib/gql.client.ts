@@ -7,7 +7,7 @@ import { getSdk } from "../generated/graphql";
 const gqlClient = new GraphQLClient(process.env.NEXT_PUBLIC_API_URL as string);
 
 export const {
-    CreateApp,Me,UpdateUser,GetMyApps,DeleteApp
+    CreateApp,Me,UpdateUser,GetMyApps,DeleteApp, JoinNewsletter
     
 } = getSdk(gqlClient);
 
@@ -20,17 +20,4 @@ export const queryClient = new QueryClient({
             refetchOnReconnect: true,
         }
     }
-})
-// const result = await prisma.post.findMany({
-//     where: {
-//       published: false,
-//       User: {
-//         email: {
-//           contains: 'prisma.io',
-//         },
-//       },
-//     },
-//     select: {
-//       title: true,
-//     },
-//   })
+});

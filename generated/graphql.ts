@@ -52,6 +52,7 @@ export type Mutation = {
   createApp: CreateAppOutput;
   deleteApp: CreateAppOutput;
   githubMutation: Scalars['String'];
+  joinNewsletter: Scalars['Boolean'];
   updateUser: User;
 };
 
@@ -63,6 +64,11 @@ export type MutationCreateAppArgs = {
 
 export type MutationDeleteAppArgs = {
   appId: Scalars['Float'];
+};
+
+
+export type MutationJoinNewsletterArgs = {
+  email: Scalars['String'];
 };
 
 
@@ -112,6 +118,13 @@ export type GetMyAppsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, link: string }> };
+
+export type JoinNewsletterMutationVariables = Exact<{
+  email: Scalars['String'];
+}>;
+
+
+export type JoinNewsletterMutation = { __typename?: 'Mutation', joinNewsletter: boolean };
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -171,6 +184,11 @@ export const GetMyAppsDocument = gql`
   }
 }
     `;
+export const JoinNewsletterDocument = gql`
+    mutation JoinNewsletter($email: String!) {
+  joinNewsletter(email: $email)
+}
+    `;
 export const MeDocument = gql`
     query Me {
   me {
@@ -209,6 +227,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     GetMyApps(variables?: GetMyAppsQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<GetMyAppsQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<GetMyAppsQuery>(GetMyAppsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'GetMyApps', 'query');
+    },
+    JoinNewsletter(variables: JoinNewsletterMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<JoinNewsletterMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<JoinNewsletterMutation>(JoinNewsletterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'JoinNewsletter', 'mutation');
     },
     Me(variables?: MeQueryVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<MeQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<MeQuery>(MeDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'Me', 'query');

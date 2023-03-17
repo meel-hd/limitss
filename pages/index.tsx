@@ -43,7 +43,6 @@ const Home: NextPage = () => {
       <NewReleases />
       <TheBest />
       <JoinInvitation />
-      <AlphaReleasePricing />
       <Footer />
     </main>
   );

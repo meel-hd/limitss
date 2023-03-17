@@ -15,6 +15,7 @@ import { Image } from "@mantine/core";
 import { useEffect } from "react";
 import { useColorScheme } from "@mantine/hooks";
 import SupportedPlatforms from "components/pages/landing/Compatibility/SupportedPlatforms";
+import NewReleases from "components/pages/landing/NewReleases";
 
 export const MainColor = "#1C1C28";
 
@@ -44,6 +45,7 @@ const Home: NextPage = () => {
       <HeroSection />
       <SupportedPlatforms />
       <Features />
+      <NewReleases />
       <JoinInvitation />
       <AlphaReleasePricing />
       <Footer />

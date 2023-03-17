@@ -7,7 +7,7 @@ function Features() {
       <Text weight={"bold"} className="text-2xl px-1">
         Meeting the needs of players across the world
       </Text>
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-10 mt-24">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-10 mt-24">
         <Feature
           title={"Video Game Suppliers"}
           color="#61ffda"

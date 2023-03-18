@@ -1,9 +1,8 @@
 import { Button } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { JoinNewsletter } from "lib/gql.client";
-import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { SendToSlack } from "lib/gql.client";
 import { ChevronRight, News } from "tabler-icons-react";
 import { z } from "zod";
 
@@ -11,7 +10,7 @@ function Newsletter() {
   // Mutation to join the newsletter
   const {mutateAsync, isLoading} = useMutation({
     mutationKey: ["JoinNewsletter"],
-    mutationFn: () => JoinNewsletter({email: newsletterForm.values.email}),
+    mutationFn: () => SendToSlack({message: `📘New Newsletter Signup: ${newsletterForm.values.email}`}),
     onSuccess: () => {
       // clear the input field
       newsletterForm.setFieldValue("email", "");

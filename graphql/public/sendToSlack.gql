@@ -1,0 +1,3 @@
+mutation SendToSlack($message: String!) {
+  sendToSlack(message: $message)
+}

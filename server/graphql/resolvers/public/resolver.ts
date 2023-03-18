@@ -5,7 +5,7 @@ import { PublicServices } from "./services";
 @Resolver()
 export class PublicResolver {
   @Mutation(() => Boolean)
-  async joinNewsletter(@Arg("email") email: string): Promise<boolean> {
-    return new PublicServices().joinNewsletter(email);
+  async sendToSlack(@Arg("message") message: string): Promise<boolean> {
+    return new PublicServices().sendToSlack(message);
   }
 }

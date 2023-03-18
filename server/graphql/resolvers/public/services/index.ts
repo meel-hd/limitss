@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export class PublicServices {
-  async joinNewsletter(email: string): Promise<boolean> {
+  async sendToSlack(message: string): Promise<boolean> {
     const newletter_channel_id = process.env.NEWSLETTER_CHANNEL_ID;
     const slackToken = process.env.SLACK_TOKEN;
 
@@ -16,7 +16,7 @@ export class PublicServices {
           "https://slack.com/api/chat.postMessage",
           {
             channel: newletter_channel_id,
-            text: "📘Newsletter Signup: " + email,
+            text: message,
           },
           {
             headers: {

@@ -1,5 +1,4 @@
 import { useMantineColorScheme } from "@mantine/core";
-import AlphaReleasePricing from "components/pages/landing/AlphaReleasePricing";
 import SupportedPlatforms from "components/pages/landing/Compatibility/SupportedPlatforms";
 import Features from "components/pages/landing/Features";
 import Footer from "components/pages/landing/Footer";

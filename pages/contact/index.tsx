@@ -1,4 +1,4 @@
-import { Button, InputBase } from "@mantine/core";
+import { Button, InputBase, useMantineTheme } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
@@ -56,12 +56,10 @@ function ContactUs() {
     },
     validate: zodResolver(formSchema),
   });
+  
+  const theme = useMantineTheme();
   return (
     <main
-      style={{
-        backgroundColor: MainColor,
-        color: "white",
-      }}
       className="min-h-screen"
     >
       <Head>
@@ -71,10 +69,10 @@ function ContactUs() {
           content="Contact Limitss -  If you have any questions, please contact us."
         />
       </Head>
-      <Header notFixed={true} forceColor='white'/>
+      <Header notFixed={true}/>
       <div className="flex justify-center items-center mt-20">
         <div
-          className={`flex flex-col justify-evenly  items-center w-11/12 sm:w-7/12 h-[65vh] bg-white/5 rounded-2xl mb-[18vh] `}
+          className={`flex flex-col justify-evenly  items-center w-11/12 sm:w-7/12 h-[65vh] ${theme.colorScheme == 'dark' ? 'bg-white/5' : 'bg-gray-400/5'} rounded-2xl mb-[18vh] `}
         >
           <h1 className="font-semibold text-4xl">Contact us</h1>
           <form
@@ -89,7 +87,7 @@ function ContactUs() {
               }}
               placeholder="Email..."
               rightSection={
-                <div className=" w-7 h-7 mr-2 text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
+                <div className=" w-7 h-7 mr-2 text-white text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
                   <p>@</p>
                 </div>
               }
@@ -101,7 +99,7 @@ function ContactUs() {
               }}
               placeholder="Subject..."
               rightSection={
-                <div className=" w-7 h-7 mr-2 text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
+                <div className=" w-7 h-7 mr-2 text-white text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
                   <p>S</p>
                 </div>
               }
@@ -113,7 +111,7 @@ function ContactUs() {
               }}
               placeholder="Message..."
               rightSection={
-                <div className=" w-7 h-7 mr-2 text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
+                <div className=" w-7 h-7 mr-2 text-white text-center rounded-full bg-gradient-to-t from-violet-500 to-indigo-500">
                   <p>M</p>
                 </div>
               }

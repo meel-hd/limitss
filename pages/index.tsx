@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       <TheBest />
       <JoinInvitation />
       <Newsletter />
-      <Footer />
+      <Footer forceColor="white"/>
     </main>
   );
 };

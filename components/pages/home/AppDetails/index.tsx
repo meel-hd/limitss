@@ -32,7 +32,7 @@ function AppDetails({
   useEffect(() => {
     const getWorkflow = async () => {
       const { data: res } = await axios.post(
-        "api/github/repos/workflows/publish",
+        "/api/github/repos/workflows/publish",
         {
           name: name,
         }

@@ -7,7 +7,7 @@ function ReleasesDetails({ name }: { name: string }) {
   const [releases, setReleases] = useState<any>();
   useEffect(() => {
     const getReleases = async () => {
-      const { data: res } = await axios.post("api/github/repos/releases", {
+      const { data: res } = await axios.post("/api/github/repos/releases", {
         name: name,
       });
       setReleases(res);

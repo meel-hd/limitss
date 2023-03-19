@@ -8,7 +8,7 @@ import {
 } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AlertTriangle } from "tabler-icons-react";
 
 interface GameCardProps {
@@ -27,7 +27,20 @@ type gameLinks = {
 function GameCard({ image, name, publisher, links }: GameCardProps) {
   const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [platform, setPlatform] = useState("windows");
+  const [platform, setPlatform] = useState("mac");
+  useEffect(() => {
+    // default to users os
+    if (typeof window !== "undefined") {
+      const os = window.navigator.platform;
+      if (os.includes("Win")) {
+        setPlatform("windows");
+      } else if (os.includes("Mac")) {
+        setPlatform("mac");
+      } else if (os.includes("Linux")) {
+        setPlatform("linux");
+      }
+    }
+  }, []);
   return (
     <>
       <div className="bg-[#20202E80] backdrop-blur-md overflow-hidden rounded-2xl w-[270px] max-w-[90vw] h-[370px]">

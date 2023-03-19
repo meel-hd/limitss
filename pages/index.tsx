@@ -1,4 +1,3 @@
-import { useMantineColorScheme } from "@mantine/core";
 import SupportedPlatforms from "components/pages/landing/Compatibility/SupportedPlatforms";
 import Features from "components/pages/landing/Features";
 import Footer from "components/pages/landing/Footer";
@@ -8,18 +7,12 @@ import Newsletter from "components/pages/landing/Newsletter";
 import TheBest from "components/pages/landing/TheBest";
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
 import Header from "../components/layout/head";
 import HeroSection from "../components/pages/landing/Hero";
 
 export const MainColor = "#1C1C28";
 
 const Home: NextPage = () => {
-  const theme = useMantineColorScheme();
-  useEffect(() => {
-    theme.toggleColorScheme("dark");
-  }, [theme]);
-
   return (
     <main
       style={{
@@ -36,7 +29,7 @@ const Home: NextPage = () => {
           content="Build Native Desktop Apps from Webapps without Code."
         />
       </Head>
-      <Header />
+      <Header forceColor="white"/>
       <HeroSection />
       <SupportedPlatforms />
       <Features />

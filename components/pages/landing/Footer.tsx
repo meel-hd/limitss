@@ -7,7 +7,7 @@ function Footer() {
   return (
     <footer className="flex mt-2 flex-col sm:flex-row justify-between items-center px-5 py-10 bg-white/5 gap-3 rounded-md">
       <div className="flex flex-col  items-center">
-        <Logo />
+        <Logo forceColor="white"/>
         <small className="ml-10">All rights reserved</small>
       </div>
       <div className="flex flex-col items-center">

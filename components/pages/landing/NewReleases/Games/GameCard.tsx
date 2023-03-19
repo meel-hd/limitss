@@ -48,7 +48,7 @@ function GameCard({ image, name, publisher, links }: GameCardProps) {
         </div>
       </div>
       <Modal
-        title={<p className="font-semibold">{"Download " + name}</p>}
+        title={<p className="font-bold">{name}</p>}
         centered
         radius={"lg"}
         opened={open}

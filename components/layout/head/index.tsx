@@ -1,4 +1,4 @@
-import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
+import { useWindowScroll } from "@mantine/hooks";
 import Link from "next/link";
 import { MainColor } from "pages";
 import Search from "../shared/Search";
@@ -22,9 +22,11 @@ const LINKS = [
 function Header({
   minimal,
   notFixed,
+  forceColor,
 }: {
   minimal?: boolean;
   notFixed?: boolean;
+  forceColor?: string;
 }) {
   const [scroll] = useWindowScroll();
   return (
@@ -36,10 +38,10 @@ function Header({
         scroll.y > 0
           && `backdrop-blur-sm bg-[${MainColor}]/10`
       }
-      w-full flex justify-between h-14  px-5 sm:px-32 items-center`}
+      w-full flex justify-between h-14  px-5 md:px-32 items-center`}
     >
       <Link href={"/"}>
-        <Logo textSize={"lg"} gap={14} width={35} />
+        <Logo textSize={"lg"} gap={14} width={35} forceColor={forceColor} />
       </Link>
       {!minimal && (
         <>

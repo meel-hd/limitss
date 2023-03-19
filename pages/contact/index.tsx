@@ -1,21 +1,16 @@
-import { Button, Input, InputBase, useMantineColorScheme } from "@mantine/core";
+import { Button, InputBase } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import Header from "components/layout/head";
+import Footer from "components/pages/landing/Footer";
 import { SendToSlack } from "lib/gql.client";
 import Head from "next/head";
 import { MainColor } from "pages";
-import { useEffect } from "react";
 import { MoodHappy, MoodSad } from "tabler-icons-react";
 import { z } from "zod";
 
 function ContactUs() {
-  // Force dark mode
-  const theme = useMantineColorScheme();
-  useEffect(() => {
-    theme.toggleColorScheme("dark");
-  }, [theme]);
   // Send message
   const { mutateAsync, isLoading } = useMutation({
     mutationKey: ["contact"],
@@ -76,21 +71,21 @@ function ContactUs() {
           content="Contact Limitss -  If you have any questions, please contact us."
         />
       </Head>
-      <Header notFixed={true} />
+      <Header notFixed={true} forceColor='white'/>
       <div className="flex justify-center items-center mt-20">
         <div
-          className={`flex flex-col justify-evenly  items-center w-7/12 h-[65vh] bg-white/10 rounded-2xl `}
+          className={`flex flex-col justify-evenly  items-center w-11/12 sm:w-7/12 h-[65vh] bg-white/5 rounded-2xl mb-[18vh] `}
         >
           <h1 className="font-semibold text-4xl">Contact us</h1>
           <form
             onSubmit={form.onSubmit(() => {
               mutateAsync().catch((err) => {});
             })}
-            className="flex flex-col h-[40vh] justify-evenly items-center"
+            className="w-full  flex flex-col h-[40vh] justify-evenly items-center"
           >
             <InputBase
               classNames={{
-                input: `w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw]  sm:w-96 h-12  bg-[${MainColor}10] text-white`,
               }}
               placeholder="Email..."
               rightSection={
@@ -102,7 +97,7 @@ function ContactUs() {
             />
             <InputBase
               classNames={{
-                input: `w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10] text-white`,
               }}
               placeholder="Subject..."
               rightSection={
@@ -114,7 +109,7 @@ function ContactUs() {
             />
             <InputBase
               classNames={{
-                input: `w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10] text-white`,
               }}
               placeholder="Message..."
               rightSection={
@@ -124,7 +119,7 @@ function ContactUs() {
               }
               {...form.getInputProps("message")}
             />
-            <div className=" w-96 flex justify-end items-center ">
+            <div className="w-5/6 sm:w-96 flex justify-end items-center ">
               <Button
                 type="submit"
                 loading={isLoading}
@@ -136,6 +131,7 @@ function ContactUs() {
           </form>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

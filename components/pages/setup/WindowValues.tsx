@@ -17,7 +17,7 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
     <div className="flex flex-col justify-start items-start w-full sm:w-1/3">
       <TextInput
         label="Name"
-        description="This will show as the name of the app to users"
+        description="This will show as the name of the game to users"
         placeholder="The name "
         value={createAppValues.name}
         error={
@@ -33,14 +33,14 @@ function WindowValues({ createAppValues, handleChange }: WindowValuesProps) {
       />
       <TextInput
         label="Link"
-        description="The screen the app will open on it every time"
+        description="The home screen of the game"
         placeholder="https://example.com"
         error={
           createAppValues.link.length > 185
             ? "Link is too long, only 185 characters allowed."
             : createAppValues.link.length > 0 &&
               !urlRegex.test(createAppValues.link)
-            ? "Not a valid URL"
+            ? "Invalid URL"
             : false
         }
         value={createAppValues.link}

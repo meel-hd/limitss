@@ -53,7 +53,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       `}
     >
       <div className="flex flex-row sm:flex-col items-center w-full">
-        <Link className={`flex flex-row justify-center`} href={"/home"}>
+        <Link className={`flex flex-row justify-center`} href={"/creator/home"}>
           <Logo width={30} withoutText={!expanded} />
           <Text
             hidden={expanded}
@@ -87,14 +87,14 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
         <NavbarLink
           expanded={expanded}
           Icon={Home}
-          href="/home"
+          href="/creator/home"
           active={activeTab == "home"}
           label="Home"
         />
         <NavbarLink
           expanded={expanded}
           Icon={Propeller}
-          href="/setup"
+          href="/creator/setup"
           active={activeTab == "setup"}
           label="Setup"
         />
@@ -102,7 +102,7 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
           expanded={expanded}
           Icon={ChartTreemap}
           active={activeTab == "resources"}
-          href="/resources"
+          href="/creator/resources"
           label="Resources"
         />
       </div>

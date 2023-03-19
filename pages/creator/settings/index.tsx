@@ -23,7 +23,7 @@ function Settings() {
   return (
     <>
       <Head>
-        <title>Limitss | Settings</title>
+        <title>Limitss | Creator - Settings</title>
         <meta name="description" content="Manage your account settings"></meta>
       </Head>
       <Navigation activeTab="settings" />
@@ -91,7 +91,7 @@ function Settings() {
             </div>
           </section>
           <button
-            className="text-violet-400 mt-10"
+            className="text-red-500 mt-10"
             onClick={() => signOut({ callbackUrl: "/" })}
           >
             Sign Out

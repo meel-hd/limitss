@@ -1,16 +1,12 @@
-import PrimaryBtn from "components/lib/PrimaryBtn";
-import Head from "next/head";
-import Header from "../../components/layout/head";
+import { Badge, Button, Card, Text } from "@mantine/core";
+import Logo from "components/layout/head/lib/Logo";
 import { signIn, useSession } from "next-auth/react";
-import { Avatar, Button, Card, Text } from "@mantine/core";
-import { useEffect } from "react";
+import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { BrandGithub } from "tabler-icons-react";
-import Logo from "components/layout/head/lib/Logo";
-import Link from "next/link";
 function SignInPage() {
   const { status, data: session } = useSession();
-  const rounter = useRouter();
   return (
     <>
       <Head>
@@ -27,6 +23,7 @@ function SignInPage() {
           shadow={"sm"}
           className="w-[27%] min-w-[350px] h-[500px] flex flex-col justify-center items-center"
         >
+          <Badge variant="filled" color={'violet'} className="absolute top-10 -right-5 rotate-45" radius={5}>Creator Program</Badge>
           <h1 className="-mt-24 font-semibold">Sign In</h1>
           <div className="rounded-full shadow-md p-5  mb-2">
             <Logo width={80} withoutText={true} />
@@ -36,7 +33,7 @@ function SignInPage() {
             Works only with personal accounts not organization accounts for now.
           </Text> */}
           <Button
-            onClick={() => signIn("github", { callbackUrl: "/home" })}
+            onClick={() => signIn("github", { callbackUrl: "/creator/home" })}
             styles={{
               root: {
                 ":disabled": {
@@ -62,7 +59,7 @@ function SignInPage() {
               </Text>
             </Link>
           )}
-          <Text size={"xs"} className="mt-5" color="dimmed">
+          <Text size={"xs"} className="mt-5 absolute bottom-5" color="dimmed">
             By continuing you agree to{" "}
             <Link href="/terms" className="text-violet-500">
               Terms of Service

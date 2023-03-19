@@ -11,7 +11,7 @@ function LoggedInUser({ expanded, link,size }: Props) {
   return (
     <div>
       {status == "authenticated" ? (
-        <Link href={link || "/settings"}>
+        <Link href={link || "/creator/settings"}>
           <div className="flex justify-around max-w-[110px] cursor-pointer truncate items-center">
             <Avatar
               alt={session.user.name}
@@ -27,7 +27,7 @@ function LoggedInUser({ expanded, link,size }: Props) {
           </div>
         </Link>
       ) : (
-        <Link href={"/signin"}>
+        <Link href={"/creator/signin"}>
           <Button
             className={` bg-violet-400 hover:bg-violet-400 ${
               !expanded && "px-1 max-w-[60px]"

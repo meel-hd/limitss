@@ -6,7 +6,7 @@ function Preview({ appName, icon }: { appName: string; icon: string }) {
   const [isMacPrev, setIsMacPrev] = useState(true);
   return (
     <div className="">
-      {isMacPrev ? (
+      {!isMacPrev ? (
         <MacOsPrev appName={appName} icon={icon} togglePrev={setIsMacPrev} />
       ) : (
         <WindowsOsPrev

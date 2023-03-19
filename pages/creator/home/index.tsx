@@ -24,13 +24,13 @@ function Home() {
   return (
     <>
       <Head>
-        <title>Limitss | Home</title>
-        <meta name="description" content="Home page"></meta>
+        <title>Limitss | Creator - Home</title>
+        <meta name="description" content="Home page - Manage your games"></meta>
       </Head>
       <Navigation activeTab="home" />
       <AuthorizedOnly>
         <div className="w-full py-5 sm:py-0  mt-10 sm:mt-4 pl-4 sm:pl-32">
-          <h1 className="font-semibold ">Your Apps</h1>
+          <h1 className="font-semibold ">Your Games</h1>
           {isLoading && (
             <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
               <Skeleton radius={"lg"} className='w-10/12 min-w-[200px] sm:w-[200px]' m={20}  h={320} />
@@ -64,11 +64,11 @@ function Home() {
               {data.getMyApps.length == 0 && (
                 <div className="w-96 bg-violet-300/10  max-w-full rounded-xl  h-52 flex justify-center items-center flex-col">
                   <Text mb={30} size="lg" ml={20}>
-                    You have no apps yet
+                    You have no games yet
                   </Text>
                   <Link href={'/setup'}>
                     <PrimaryBtn>
-                      Create App
+                      Create Game
                     </PrimaryBtn>
                   </Link>
                 </div>

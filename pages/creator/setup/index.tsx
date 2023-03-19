@@ -1,22 +1,22 @@
-import { Button, Card, LoadingOverlay, Notification } from "@mantine/core";
+import { Button, Card, LoadingOverlay } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
+import Navigation from "components/layout/head/Navigation";
 import AdvancedSetup from "components/pages/setup/AdvancedSetup";
+import Preview from "components/pages/setup/preview";
+import PrimaryInputs, {
+  semverRegex
+} from "components/pages/setup/PrimaryInputs";
 import { advancedConfigValues } from "components/pages/setup/types";
+import WindowValues, { urlRegex } from "components/pages/setup/WindowValues";
+import { CreateAppInput } from "generated/graphql";
+import { CreateApp } from "lib/gql.client";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Check, ExclamationMark } from "tabler-icons-react";
-import Navigation from "../../components/layout/head/Navigation";
-import Preview from "../../components/pages/setup/preview";
-import PrimaryInputs, {
-  semverRegex,
-} from "../../components/pages/setup/PrimaryInputs";
-import WindowValues, { urlRegex } from "../../components/pages/setup/WindowValues";
-import { CreateAppInput } from "../../generated/graphql";
-import { CreateApp } from "../../lib/gql.client";
 
 enum CREATE_APP_STEP {
   GENERAL = "GENERAL",
@@ -141,7 +141,7 @@ function Setup() {
   return (
     <>
       <Head>
-        <title>Limitss | Setup</title>
+        <title>Limitss | Creator - Setup</title>
         <meta
           name="description"
           content="Start Building a Desktop from your Website without Code or Thinking about Time"

@@ -28,8 +28,9 @@ function WindowsOsPrev({ appName, icon, togglePrev }: PreviewProps) {
         )}
         <div
           style={{
-            backgroundImage: 'url("windowsDock.png")',
+            backgroundImage: 'url("../windowsDock.png")',
             backgroundSize: "100%",
+            backgroundColor:'#1c7ed654'
           }}
           className=" w-full h-[30px] flex justify-center items-center"
         >

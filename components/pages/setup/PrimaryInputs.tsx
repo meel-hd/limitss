@@ -42,8 +42,8 @@ function PrimaryInputs({ createAppValues, handleChange, showAdvanced }: PrimaryI
       />
       <TextInput
         label="Description"
-        description="This will show in some parts of the OS about the app"
-        placeholder="Two sentences describing the app..."
+        description="This will show in some parts of the OS about the game"
+        placeholder="Two sentences describing the game..."
         value={createAppValues.description}
         // todo: add error message
         onChange={(e) =>
@@ -73,7 +73,7 @@ function PrimaryInputs({ createAppValues, handleChange, showAdvanced }: PrimaryI
       />
       <TextInput
         label="Version"
-        description="For the users to know which version of the app they are using"
+        description="For the users to know which version of the game they are using"
         placeholder="Example: 1.0.0"
         value={createAppValues.version}
         // check if the length is valid and it's a valid version

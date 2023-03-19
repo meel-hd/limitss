@@ -8,7 +8,7 @@ function Resources() {
   return (
     <>
       <Head>
-        <title>Limitss | Resources</title>
+        <title>Limitss | Creator - Resources</title>
         <meta name="description" content="Resources page"></meta>
       </Head>
       <Navigation activeTab="resources" />

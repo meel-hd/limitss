@@ -28,7 +28,7 @@ function MacOsPrev({ appName, icon, togglePrev }: PreviewProps) {
         <div
           style={{
             backgroundColor:'rgba(243 ,244 ,246,0.7)',
-            backgroundImage: 'url("dock.png")',
+            backgroundImage: 'url("../dock.png")',
             backgroundSize: "90%",
             backgroundPosition: 'center'
           }}

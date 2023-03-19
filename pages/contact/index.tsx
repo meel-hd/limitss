@@ -83,7 +83,7 @@ function ContactUs() {
           >
             <InputBase
               classNames={{
-                input: `w-[80vw]  sm:w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw]  sm:w-96 h-12  bg-[${MainColor}10]`,
               }}
               placeholder="Email..."
               rightSection={
@@ -95,7 +95,7 @@ function ContactUs() {
             />
             <InputBase
               classNames={{
-                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10]`,
               }}
               placeholder="Subject..."
               rightSection={
@@ -107,7 +107,7 @@ function ContactUs() {
             />
             <InputBase
               classNames={{
-                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10] text-white`,
+                input: `w-[80vw] sm:w-96 h-12  bg-[${MainColor}10]`,
               }}
               placeholder="Message..."
               rightSection={

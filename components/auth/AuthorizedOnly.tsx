@@ -14,7 +14,7 @@ function AuthorizedOnly({ children, forCreators = false }) {
               <Text size={"lg"} my={10}>
                 You are not signed in
               </Text>
-              <Link href={forCreators ? "/creator/singin" : "/signin"}>
+              <Link href={forCreators ? "/creator/signin" : "/signin"}>
                 <Button className=" bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]">
                   Sign In
                 </Button>

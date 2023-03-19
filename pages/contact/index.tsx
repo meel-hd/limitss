@@ -1,4 +1,4 @@
-import { Button, InputBase, useMantineTheme } from "@mantine/core";
+import { Button, Card, InputBase, useMantineTheme } from "@mantine/core";
 import { useForm, zodResolver } from "@mantine/form";
 import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
@@ -56,12 +56,10 @@ function ContactUs() {
     },
     validate: zodResolver(formSchema),
   });
-  
+
   const theme = useMantineTheme();
   return (
-    <main
-      className="min-h-screen"
-    >
+    <main className="min-h-screen">
       <Head>
         <title>Limitss | Contact us</title>
         <meta
@@ -69,10 +67,12 @@ function ContactUs() {
           content="Contact Limitss -  If you have any questions, please contact us."
         />
       </Head>
-      <Header notFixed={true}/>
+      <Header notFixed={true} />
       <div className="flex justify-center items-center mt-20">
-        <div
-          className={`flex flex-col justify-evenly  items-center w-11/12 sm:w-7/12 h-[65vh] ${theme.colorScheme == 'dark' ? 'bg-white/5' : 'bg-gray-400/5'} rounded-2xl mb-[18vh] `}
+        <Card
+          radius="xl"
+          shadow={"sm"}
+          className={`flex flex-col justify-evenly  items-center w-11/12 sm:w-7/12 h-[65vh] mb-[18vh] `}
         >
           <h1 className="font-semibold text-4xl">Contact us</h1>
           <form
@@ -127,7 +127,7 @@ function ContactUs() {
               </Button>
             </div>
           </form>
-        </div>
+        </Card>
       </div>
       <Footer />
     </main>

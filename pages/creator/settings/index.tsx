@@ -92,7 +92,12 @@ function Settings() {
           </section>
           <button
             className="text-red-500 mt-10"
-            onClick={() => signOut({ callbackUrl: "/" })}
+            onClick={() => {
+              // ask for confirmation before signing out
+              if (confirm("Are you sure you want to sign out?")) {
+                signOut({ callbackUrl: "/" });
+              }
+            }}
           >
             Sign Out
           </button>

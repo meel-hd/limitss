@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import NavigationArrows from "components/layout/head/lib/NavigationArrows";
 import ThemeSwitch from "components/layout/head/lib/ThemeSwitch";
-import Navigation from "components/layout/head/Navigation";
+import CreatorNavigation from "components/layout/head/Navigation";
 import { Me } from "lib/gql.client";
 import { signOut, useSession } from "next-auth/react";
 import Head from "next/head";
@@ -26,8 +26,8 @@ function Settings() {
         <title>Limitss | Creator - Settings</title>
         <meta name="description" content="Manage your account settings"></meta>
       </Head>
-      <Navigation activeTab="settings" />
-      <AuthorizedOnly>
+      <CreatorNavigation activeTab="settings" />
+      <AuthorizedOnly forCreators={true}>
         <div className="w-full mt-15 sm:mt-4 pl-4 sm:pl-32">
           <NavigationArrows onlyBack={true} />
           <h1 className="mt-10">Settings</h1>

@@ -1,7 +1,7 @@
 import { Modal, Skeleton, Text } from "@mantine/core";
 import { useQuery } from "@tanstack/react-query";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import Navigation from "components/layout/head/Navigation";
+import CreatorNavigation from "components/layout/head/Navigation";
 import PrimaryBtn from "components/lib/PrimaryBtn";
 import AppCard from "components/pages/home/AppCard";
 import AppDetails from "components/pages/home/AppDetails";
@@ -27,8 +27,8 @@ function Home() {
         <title>Limitss | Creator - Home</title>
         <meta name="description" content="Home page - Manage your games"></meta>
       </Head>
-      <Navigation activeTab="home" />
-      <AuthorizedOnly>
+      <CreatorNavigation activeTab="home" />
+      <AuthorizedOnly forCreators={true}>
         <div className="w-full py-5 sm:py-0  mt-10 sm:mt-4 pl-4 sm:pl-32">
           <h1 className="font-semibold ">Your Games</h1>
           {isLoading && (

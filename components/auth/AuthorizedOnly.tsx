@@ -2,7 +2,7 @@ import { Button, LoadingOverlay, Text } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-function AuthorizedOnly({ children }) {
+function AuthorizedOnly({ children, forCreators = false }) {
   const { status, data: session } = useSession();
   return (
     <>
@@ -14,7 +14,7 @@ function AuthorizedOnly({ children }) {
               <Text size={"lg"} my={10}>
                 You are not signed in
               </Text>
-              <Link href={"/signin"}>
+              <Link href={forCreators ? "/creator/singin" : "/signin"}>
                 <Button className=" bg-gradient-to-r min-w-[120px] from-indigo-500 to-violet-400 hover:shadow-0xl h-[40px]">
                   Sign In
                 </Button>

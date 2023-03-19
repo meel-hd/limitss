@@ -10,7 +10,7 @@ import ThemeSwitch from "./lib/ThemeSwitch";
 
 export type Tabs = "home" | "settings" | "setup" | "resources";
 
-function Navigation({ activeTab }: { activeTab: Tabs }) {
+function CreatorNavigation({ activeTab }: { activeTab: Tabs }) {
   const [expanded, setExpanded] = useState(false);
   const theme = useColorScheme();
 
@@ -114,10 +114,10 @@ function Navigation({ activeTab }: { activeTab: Tabs }) {
       >
         {/* <NavbarLink Icon={Settings} label="Settings" expanded={expanded} href={'/settings'} /> */}
         <ThemeSwitch expanded={expanded} size={25} />
-        <LoggedInUser expanded={expanded} size={30} />
+        <LoggedInUser forCreators={true} expanded={expanded} size={30} />
       </div>
     </Card>
   );
 }
 
-export default Navigation;
+export default CreatorNavigation;

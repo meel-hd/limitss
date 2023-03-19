@@ -4,9 +4,10 @@ import Link from "next/link";
 type Props = {
   expanded?: boolean;
   link?: string;
-  size?:MantineNumberSize
+  size?: MantineNumberSize;
+  forCreators?: boolean;
 };
-function LoggedInUser({ expanded, link,size }: Props) {
+function LoggedInUser({ expanded, link, size, forCreators }: Props) {
   const { data: session, status } = useSession();
   return (
     <div>
@@ -27,7 +28,7 @@ function LoggedInUser({ expanded, link,size }: Props) {
           </div>
         </Link>
       ) : (
-        <Link href={"/creator/signin"}>
+        <Link href={forCreators ? "/creator/signin" : '/signin'}>
           <Button
             className={` bg-violet-400 hover:bg-violet-400 ${
               !expanded && "px-1 max-w-[60px]"

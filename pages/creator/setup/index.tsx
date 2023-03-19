@@ -3,7 +3,7 @@ import { showNotification } from "@mantine/notifications";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
-import Navigation from "components/layout/head/Navigation";
+import CreatorNavigation from "components/layout/head/Navigation";
 import AdvancedSetup from "components/pages/setup/AdvancedSetup";
 import Preview from "components/pages/setup/preview";
 import PrimaryInputs, {
@@ -147,8 +147,8 @@ function Setup() {
           content="Start Building a Desktop from your Website without Code or Thinking about Time"
         ></meta>
       </Head>
-      <Navigation activeTab="setup" />
-      <AuthorizedOnly>
+      <CreatorNavigation activeTab="setup" />
+      <AuthorizedOnly forCreators={true}>
         <div className="w-full min-h-screen flex flex-col justify-center items-center">
           <Card radius={0} my={30} shadow="sm" className="w-3/4 h-3/4">
             <Card.Section

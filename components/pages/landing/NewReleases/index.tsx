@@ -1,5 +1,4 @@
-import { MainColor } from "pages";
-import GameCard from "./GameCard";
+import GameCard from "./Games/GameCard";
 
 function NewReleases() {
   return (
@@ -21,19 +20,37 @@ function NewReleases() {
           image={"images/Games/HelloRun.png"}
           name={"HelloRun"}
           publisher="HELLOENJOY"
-          link="https://www.helloenjoy.com/hellorun"
+          links={{
+            linux:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Hello-run/hello-run_1.0.0_amd64.deb",
+            mac: "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Hello-run/hello-run_1.0.0_x64.dmg",
+            windows:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Hello-run/hello-run_1.0.0_x64_en-US.msi",
+          }}
         />
         <GameCard
           image={"images/Games/CoastalWorld.png"}
           name={"Coastal World"}
           publisher="Coastal World"
-          link={"https://coastalworld.com/"}
+          links={{
+            linux:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Coastal-world/coastal-world_1.0.0_amd64.deb",
+            mac: "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Coastal-world/coastal-world_1.0.0_x64.dmg",
+            windows:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Coastal-world/Coastal-world.msi",
+          }}
         />
         <GameCard
           image={"images/Games/KidDisco.png"}
           name={"Kid Disco"}
           publisher="A Small Game Studio"
-          link={"http://kiddisco.asmallgame.com/"}
+          links={{
+            linux:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Kid-disco/kid-disco_1.0.0_amd64.deb",
+            mac: "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Kid-disco/kid-disco_1.0.0_x64.dmg",
+            windows:
+              "https://limitss-v1.s3.ap-southeast-1.amazonaws.com/GameFiles/Kid-disco/kid-disco_1.0.0_x64_en-US.msi",
+          }}
         />
       </div>
     </section>

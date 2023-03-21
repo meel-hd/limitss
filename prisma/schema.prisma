@@ -17,11 +17,17 @@ model User {
   name          String?
   email         String?   @unique
   company       String?
-  role          String?
+  role          ROLE      @default(BASIC)
   emailVerified DateTime?
   image         String?
   accounts      Account[]
   apps          App[]
+}
+
+enum ROLE {
+  BASIC
+  CREATOR
+  ADMIN
 }
 
 model App {

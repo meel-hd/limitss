@@ -33,8 +33,18 @@ function Home() {
           <h1 className="font-semibold ">Your Games</h1>
           {isLoading && (
             <div className="flex justify-center sm:justify-start  flex-wrap  overflow-hidden ">
-              <Skeleton radius={"lg"} className='w-10/12 min-w-[200px] sm:w-[200px]' m={20}  h={320} />
-              <Skeleton radius={"lg"} className='w-10/12 min-w-[200px] sm:w-[200px]' m={20}  h={320} />
+              <Skeleton
+                radius={"lg"}
+                className="w-10/12 min-w-[200px] sm:w-[200px]"
+                m={20}
+                h={320}
+              />
+              <Skeleton
+                radius={"lg"}
+                className="w-10/12 min-w-[200px] sm:w-[200px]"
+                m={20}
+                h={320}
+              />
             </div>
           )}
           {isError && (
@@ -66,10 +76,8 @@ function Home() {
                   <Text mb={30} size="lg" ml={20}>
                     You have no games yet
                   </Text>
-                  <Link href={'/setup'}>
-                    <PrimaryBtn>
-                      Create Game
-                    </PrimaryBtn>
+                  <Link href={"/creator/setup"}>
+                    <PrimaryBtn>Create Game</PrimaryBtn>
                   </Link>
                 </div>
               )}

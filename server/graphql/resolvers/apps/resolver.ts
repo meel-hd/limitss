@@ -6,21 +6,27 @@ import { CreateAppInput, createAppOutput } from "./types/CreateApp";
 
 @Resolver(() => createAppOutput)
 export class AppsResolver {
-  @Authorized()
+  @Authorized("CREATOR")
   @Mutation(() => createAppOutput)
-  async createApp(@Arg("arg") arg: CreateAppInput, @Ctx() context:Context): Promise<createAppOutput> {
+  async createApp(
+    @Arg("arg") arg: CreateAppInput,
+    @Ctx() context: Context
+  ): Promise<createAppOutput> {
     return new GeneratorService(context).createApp(arg);
   }
 
-  @Authorized()
-  @Query(()=> [createAppOutput])
-  async getMyApps( @Ctx() context:Context):Promise<createAppOutput[]>{
+  @Authorized("CREATOR")
+  @Query(() => [createAppOutput])
+  async getMyApps(@Ctx() context: Context): Promise<createAppOutput[]> {
     return new GeneratorService(context).getMyApps();
   }
 
-  @Authorized()
+  @Authorized("CREATOR")
   @Mutation(() => createAppOutput)
-  async deleteApp(@Arg("appId") appId: number, @Ctx() context:Context): Promise<createAppOutput> {
+  async deleteApp(
+    @Arg("appId") appId: number,
+    @Ctx() context: Context
+  ): Promise<createAppOutput> {
     return new GeneratorService(context).deleteApp(appId);
   }
 }

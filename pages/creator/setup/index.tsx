@@ -7,7 +7,7 @@ import CreatorNavigation from "components/layout/head/Navigation";
 import AdvancedSetup from "components/pages/setup/AdvancedSetup";
 import Preview from "components/pages/setup/preview";
 import PrimaryInputs, {
-  semverRegex
+  semverRegex,
 } from "components/pages/setup/PrimaryInputs";
 import { advancedConfigValues } from "components/pages/setup/types";
 import WindowValues, { urlRegex } from "components/pages/setup/WindowValues";
@@ -72,7 +72,7 @@ function Setup() {
         message: "The app " + createAppVars.name + " is created.",
         icon: <Check color="white" />,
       });
-      router.replace("/home");
+      router.replace("/creator/home");
     },
     onError: () => {
       showNotification({
@@ -101,42 +101,43 @@ function Setup() {
     createAppVars.license.length == 0;
 
   const createRepo = async () => {
-    axios.post("/api/github/repos/create", {
-      name: createAppVars.name.split(" ").join("-"),
-      description: createAppVars.description,
-      version: createAppVars.version,
-      license: createAppVars.license,
-      link: createAppVars.link,
-      maximized: createAppVars.maximized,
-      focus: createAppVars.focus,
-      alwaysOnTop: createAppVars.alwaysOnTop,
-      height: createAppVars.height,
-      width: createAppVars.width,
-      iconUrl: createAppVars.icon,
-      // Advanced Options
-      center: advancedOptions.center,
-      hiddenTitle: advancedOptions.hiddenTitle,
-      resizable: advancedOptions.resizable,
-      maxHeight: advancedOptions.maxHeight,
-      maxWidth: advancedOptions.maxWidth,
-      minHeight: advancedOptions.minHeight,
-      minWidth: advancedOptions.minWidth,
-      theme: advancedOptions.theme,
-      titleBarStyle: advancedOptions.titleBarStyle,
-      x: advancedOptions.x,
-      y: advancedOptions.y,
-    }).then((res) => {
-      // Finish the creation
-      axios.post('/api/github/repos/create/finish',{
-        repo: res.data.repo,
-        owner: res.data.owner,
-        iconUrl: createAppVars.icon,
-        name: createAppVars.name,
+    axios
+      .post("/api/github/repos/create", {
+        name: createAppVars.name.split(" ").join("-"),
         description: createAppVars.description,
+        version: createAppVars.version,
         license: createAppVars.license,
+        link: createAppVars.link,
+        maximized: createAppVars.maximized,
+        focus: createAppVars.focus,
+        alwaysOnTop: createAppVars.alwaysOnTop,
+        height: createAppVars.height,
+        width: createAppVars.width,
+        iconUrl: createAppVars.icon,
+        // Advanced Options
+        center: advancedOptions.center,
+        hiddenTitle: advancedOptions.hiddenTitle,
+        resizable: advancedOptions.resizable,
+        maxHeight: advancedOptions.maxHeight,
+        maxWidth: advancedOptions.maxWidth,
+        minHeight: advancedOptions.minHeight,
+        minWidth: advancedOptions.minWidth,
+        theme: advancedOptions.theme,
+        titleBarStyle: advancedOptions.titleBarStyle,
+        x: advancedOptions.x,
+        y: advancedOptions.y,
       })
-    });
-    
+      .then((res) => {
+        // Finish the creation
+        axios.post("/api/github/repos/create/finish", {
+          repo: res.data.repo,
+          owner: res.data.owner,
+          iconUrl: createAppVars.icon,
+          name: createAppVars.name,
+          description: createAppVars.description,
+          license: createAppVars.license,
+        });
+      });
   };
   return (
     <>
@@ -236,7 +237,7 @@ function Setup() {
               advancedOptions={advancedOptions}
               hideAdvanced={() => setShowAdvanced(false)}
             />
-          )} 
+          )}
         </>
       </AuthorizedOnly>
     </>

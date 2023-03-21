@@ -36,7 +36,7 @@ function CreatorNavigation({ activeTab }: { activeTab: Tabs }) {
       color="violet"
       shadow={"xs"}
       style={{
-        transition: expanded ? "width 0.2s ease-in" : "", //: "width 0.4s ease-in",
+        transition: expanded ? "width 0.2s ease-in" : "nothing-", //: "width 0.4s ease-in",
         // width: expanded ? "170px" : "60px",
         // width
         // ${expanded ? "w-[170px]" : "w-[60px]"}

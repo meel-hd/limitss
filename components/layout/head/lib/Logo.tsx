@@ -7,16 +7,23 @@ interface LogoProps {
   withoutIcon?: boolean;
   textSize?: MantineNumberSize;
   gap?: number;
-  forceColor?: string;
+  forcecolor?: string;
 }
 
-function Logo({ width, withoutText, withoutIcon, textSize, gap, forceColor }: LogoProps) {
+function Logo({
+  width,
+  withoutText,
+  withoutIcon,
+  textSize,
+  gap,
+  forcecolor,
+}: LogoProps) {
   const theme = useMantineTheme();
   return (
     <div className="flex  flex-row justify-center items-center">
       {!withoutIcon && (
         <SvgLogo
-          forceColor={forceColor}
+          forcecolor={forcecolor}
           className="select-none pointer-events-none "
           width={width ? width : 20}
           height={width ? width : 20}

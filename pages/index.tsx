@@ -29,7 +29,7 @@ const Home: NextPage = () => {
           content="Build Native Desktop Apps from Webapps without Code."
         />
       </Head>
-      <Header forceColor="white"/>
+      <Header forcecolor="white" />
       <HeroSection />
       <SupportedPlatforms />
       <Features />
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
       <TheBest />
       <JoinInvitation />
       <Newsletter />
-      <Footer forceColor="white"/>
+      <Footer forcecolor="white" />
     </main>
   );
 };

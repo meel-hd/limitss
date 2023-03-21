@@ -2,11 +2,11 @@ import Logo from "components/layout/head/lib/Logo";
 import PrimaryBtn from "components/lib/PrimaryBtn";
 import Link from "next/link";
 
-function Footer({forceColor}:{forceColor?: string}) {
+function Footer({ forcecolor }: { forcecolor?: string }) {
   return (
     <footer className="flex mt-2 flex-col sm:flex-row justify-between items-center px-5 py-10 bg-white/5 gap-3 rounded-md">
       <div className="flex flex-col  items-center">
-        <Logo forceColor={forceColor}/>
+        <Logo forcecolor={forcecolor} />
         <small className="ml-10">All rights reserved</small>
       </div>
       <div className="flex flex-col items-center">

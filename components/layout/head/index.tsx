@@ -22,26 +22,21 @@ const LINKS = [
 function Header({
   minimal,
   notFixed,
-  forceColor,
+  forcecolor,
 }: {
   minimal?: boolean;
   notFixed?: boolean;
-  forceColor?: string;
+  forcecolor?: string;
 }) {
   const [scroll] = useWindowScroll();
   return (
     <header
-      className={`${
-        !notFixed && "fixed z-[300]"
-      } 
-      ${
-        scroll.y > 0
-          && `backdrop-blur-sm bg-[${MainColor}]/10`
-      }
+      className={`${!notFixed && "fixed z-[300]"} 
+      ${scroll.y > 0 && `backdrop-blur-sm bg-[${MainColor}]/10`}
       w-full flex justify-between h-14  px-5 md:px-32 items-center`}
     >
       <Link href={"/"}>
-        <Logo textSize={"lg"} gap={14} width={35} forceColor={forceColor} />
+        <Logo textSize={"lg"} gap={14} width={35} forcecolor={forcecolor} />
       </Link>
       {!minimal && (
         <>

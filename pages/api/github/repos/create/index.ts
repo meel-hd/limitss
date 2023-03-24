@@ -26,9 +26,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+
+  const githubAccount = await prisma.account.findFirst({
+    where: {
+      userId: user.id,
+      provider: "github",
+    },
+  });
+
   const octokit = new Octokit({
-    // @ts-ignore
-    auth: session.user.accessToken,
+    auth: githubAccount.access_token,
   });
   const response = await octokit.request("POST /user/repos", {
     name: req.body.name.split(" ").join("-") + "-" + nanoid(10),
@@ -82,5 +89,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     x: req.body.x,
     y: req.body.y,
   });
-  res.status(200).json({ message: "Success", owner: response.data.owner.login, repo: response.data.name });
+  res
+    .status(200)
+    .json({
+      message: "Success",
+      owner: response.data.owner.login,
+      repo: response.data.name,
+    });
 };

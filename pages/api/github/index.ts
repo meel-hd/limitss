@@ -18,13 +18,22 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
+  const { access_token } = await prisma.account.findFirst({
+    where: {
+      userId: user.id,
+      provider: "github",
+    },
+  });
+
+  if (!access_token) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
   const octokit = new Octokit({
-    auth:
-      // @ts-ignore
-      session.user.accessToken,
+    auth: access_token,
   });
   const response = await octokit.request("GET /user");
-  
+
   res.status(200).json(response);
 };
 

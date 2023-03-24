@@ -13,7 +13,14 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   // Check if variables are  provided
-  if (!req.body.repo || !req.body.owner || !req.body.iconUrl || !req.body.name || !req.body.description || !req.body.license) {
+  if (
+    !req.body.repo ||
+    !req.body.owner ||
+    !req.body.iconUrl ||
+    !req.body.name ||
+    !req.body.description ||
+    !req.body.license
+  ) {
     return res.status(400).json({ message: "Bad request" });
   }
   const repo = req.body.repo;
@@ -28,9 +35,18 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+
+  const githubAccount = await prisma.account.findFirst({
+    where: {
+      userId: user.id,
+      provider: "github",
+    },
+  });
+  if (!githubAccount) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
   const octokit = new Octokit({
-    // @ts-ignore
-    auth: session.user.accessToken,
+    auth: githubAccount.access_token,
   });
 
   await addCargoToml(

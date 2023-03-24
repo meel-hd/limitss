@@ -16,19 +16,29 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+  const githubAccount = await prisma.account.findFirst({
+    where: {
+      userId: user.id,
+      provider: "github",
+    },
+  });
+  if (!githubAccount) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
 
   const octokit = new Octokit({
-    auth:
-      // @ts-ignore
-      session.user.accessToken,
+    auth: githubAccount.access_token,
   });
 
   // Get username from github
   const { data: userGithub } = await octokit.request("GET /user");
   const username = userGithub.login;
-  const response = await octokit.request('GET /users/{username}/settings/billing/actions', {
-    username: username
-  })
-  res.status(200).json(response.data)
+  const response = await octokit.request(
+    "GET /users/{username}/settings/billing/actions",
+    {
+      username: username,
+    }
+  );
+  res.status(200).json(response.data);
 };
 export default handler;

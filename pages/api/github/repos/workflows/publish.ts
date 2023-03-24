@@ -15,14 +15,24 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (!user) {
     return res.status(401).json({ message: "Unauthorized" });
   }
+
+  const githubAccount = await prisma.account.findFirst({
+    where: {
+      userId: user.id,
+      provider: "github",
+    },
+  });
+  if (!githubAccount) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
   // Check if name is provided
   if (!req.body.name) {
     return res.status(400).json({ message: "Bad request" });
   }
 
   const octokit = new Octokit({
-    // @ts-ignore
-    auth: session.user.accessToken,
+    auth: githubAccount.access_token,
   });
   // Get username from github
   const { data: userGithub } = await octokit.request("GET /user");

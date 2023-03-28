@@ -4,13 +4,15 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import AuthorizedOnly from "components/auth/AuthorizedOnly";
 import CreatorNavigation from "components/layout/head/Navigation";
-import AdvancedSetup from "components/pages/setup/AdvancedSetup";
-import Preview from "components/pages/setup/preview";
+import AdvancedSetup from "components/pages/creator/setup/AdvancedSetup";
+import Preview from "components/pages/creator/setup/preview";
 import PrimaryInputs, {
   semverRegex,
-} from "components/pages/setup/PrimaryInputs";
-import { advancedConfigValues } from "components/pages/setup/types";
-import WindowValues, { urlRegex } from "components/pages/setup/WindowValues";
+} from "components/pages/creator/setup/PrimaryInputs";
+import { advancedConfigValues } from "components/pages/creator/setup/types";
+import WindowValues, {
+  urlRegex,
+} from "components/pages/creator/setup/WindowValues";
 import { CreateAppInput } from "generated/graphql";
 import { CreateApp } from "lib/gql.client";
 import Head from "next/head";

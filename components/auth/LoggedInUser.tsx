@@ -17,7 +17,7 @@ function LoggedInUser({ expanded, link, size, forCreators }: Props) {
             <Avatar
               alt={session.user.name}
               size={size || 35}
-              radius={"lg"}
+              radius={"xl"}
               src={session.user.image}
             />
             {expanded && (
@@ -28,7 +28,7 @@ function LoggedInUser({ expanded, link, size, forCreators }: Props) {
           </div>
         </Link>
       ) : (
-        <Link href={forCreators ? "/creator/signin" : '/signin'}>
+        <Link href={forCreators ? "/creator/signin" : "/signin"}>
           <Button
             className={` bg-violet-400 hover:bg-violet-400 ${
               !expanded && "px-1 max-w-[60px]"

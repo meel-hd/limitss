@@ -1,6 +1,5 @@
 import LoggedInUser from "components/auth/LoggedInUser";
 import Logo from "components/layout/head/lib/Logo";
-import InAppSearch from "../Search/InAppSearch";
 
 function Header() {
   return (
@@ -14,7 +13,6 @@ function Header() {
         </ul>
       </div>
       <div className="flex items-center justify-end w-[30vw] gap-3 sm:gap-10 ">
-        {/* <InAppSearch hiddenOnMobile={true} mr={10} /> */}
         <LoggedInUser forCreators={false} link="/settings" />
       </div>
     </header>

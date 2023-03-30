@@ -1,5 +1,6 @@
 import LoggedInUser from "components/auth/LoggedInUser";
 import Logo from "components/layout/head/lib/Logo";
+import Search from "components/layout/shared/Search";
 
 function Header() {
   return (
@@ -13,6 +14,7 @@ function Header() {
         </ul>
       </div>
       <div className="flex items-center justify-end w-[30vw] gap-3 sm:gap-10 ">
+        <Search onlySimple={true} />
         <LoggedInUser forCreators={false} link="/settings" />
       </div>
     </header>

@@ -11,44 +11,6 @@ datasource db {
   relationMode = "prisma"
 }
 
-model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  company       String?
-  role          ROLE      @default(BASIC)
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  apps          App[]
-}
-
-enum ROLE {
-  BASIC
-  CREATOR
-  ADMIN
-}
-
-model App {
-  id          Int     @id @default(autoincrement())
-  owner       User    @relation(fields: [ownerId], references: [id])
-  ownerId     String
-  name        String
-  link        String
-  description String
-  license     String
-  icon        String
-  appId       String
-  version     String
-  width       Int
-  height      Int
-  maximized   Boolean
-  alwaysOnTop Boolean
-  focus       Boolean
-
-  @@index([ownerId])
-}
-
 model Account {
   id                String  @id @default(cuid())
   userId            String
@@ -75,4 +37,74 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  company       String?
+  role          ROLE      @default(BASIC)
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  apps          App[]
+  publishedApps Game[]
+}
+
+enum ROLE {
+  BASIC
+  CREATOR
+  ADMIN
+}
+
+// The App model is the game before it is published
+// When it is published, it is moved to Game model
+model App {
+  id          Int     @id @default(autoincrement())
+  owner       User    @relation(fields: [ownerId], references: [id])
+  ownerId     String
+  name        String
+  link        String
+  description String
+  license     String
+  icon        String
+  appId       String
+  version     String
+  width       Int
+  height      Int
+  maximized   Boolean
+  alwaysOnTop Boolean
+  focus       Boolean
+  isPublished Boolean @default(false)
+
+  @@index([ownerId])
+}
+
+// The Game model is the game after it is published
+model Game {
+  id           String          @id @default(cuid())
+  publisher    User            @relation(fields: [publisherId], references: [id])
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  publisherId  String
+  name         String
+  description  String
+  license      String
+  icon         String
+  version      String
+  // installers for mac windows and linux
+  installers   GameInstallers? @relation(fields: [installersId], references: [id])
+  installersId String?         @unique
+
+  @@index([publisherId])
+}
+
+model GameInstallers {
+  id    String @id @default(cuid())
+  game  Game?
+  // Links to the installers
+  mac   String
+  win   String
+  linux String
 }

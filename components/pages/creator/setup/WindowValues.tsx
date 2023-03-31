@@ -1,8 +1,8 @@
-import { FileInput, Switch, Text, TextInput } from "@mantine/core";
+import { Switch, Text, TextInput } from "@mantine/core";
 import Uploader from "components/upload";
-import { Dispatch, SetStateAction, useState } from "react";
+import { CreateAppInput } from "generated/graphql";
+import { Dispatch, SetStateAction } from "react";
 import { Check, X } from "tabler-icons-react";
-import { CreateAppInput } from "../../../generated/graphql";
 
 interface WindowValuesProps {
   createAppValues: CreateAppInput;

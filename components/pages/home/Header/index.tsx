@@ -1,6 +1,7 @@
 import LoggedInUser from "components/auth/LoggedInUser";
 import Logo from "components/layout/head/lib/Logo";
 import Search from "components/layout/shared/Search";
+import Link from "next/link";
 
 function Header() {
   return (
@@ -8,9 +9,15 @@ function Header() {
       <div className="flex items-center gap-[10vw] w-[40vw] ">
         <Logo width={25} gap={20} />
         <ul className="hidden md:flex justify-center gap-16 font-semibold items-center">
-          <li>Home</li>
-          <li>Collections</li>
-          <li>Latest</li>
+          <li className="hover:scale-[1.03] duration-150">
+            <Link href={"/home"}>Home</Link>
+          </li>
+          <li className="hover:scale-[1.03] duration-150">
+            <Link href={"/collections"}>Collections</Link>
+          </li>
+          <li className="hover:scale-[1.03] duration-150">
+            <Link href={"/latest"}>Latest</Link>
+          </li>
         </ul>
       </div>
       <div className="flex items-center justify-end w-[30vw] gap-3 sm:gap-10 ">

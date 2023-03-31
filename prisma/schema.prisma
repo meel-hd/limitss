@@ -83,28 +83,26 @@ model App {
 
 // The Game model is the game after it is published
 model Game {
-  id           String          @id @default(cuid())
-  publisher    User            @relation(fields: [publisherId], references: [id])
-  createdAt    DateTime        @default(now())
-  updatedAt    DateTime        @updatedAt
-  publisherId  String
-  name         String
-  description  String
-  license      String
-  icon         String
-  version      String
-  // installers for mac windows and linux
-  installers   GameInstallers? @relation(fields: [installersId], references: [id])
-  installersId String?         @unique
+  id          String          @id @default(cuid())
+  publisher   User            @relation(fields: [publisherId], references: [id])
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  publisherId String
+  name        String
+  description String
+  license     String
+  icon        String
+  version     String
+  installers  GameInstallers?
 
   @@index([publisherId])
 }
 
 model GameInstallers {
-  id    String @id @default(cuid())
-  game  Game?
-  // Links to the installers
-  mac   String
-  win   String
-  linux String
+  id      String @id @default(cuid())
+  game    Game   @relation(fields: [gameId], references: [id])
+  gameId  String @unique
+  mac     String
+  windows String
+  linux   String
 }

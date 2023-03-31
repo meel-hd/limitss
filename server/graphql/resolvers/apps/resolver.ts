@@ -3,6 +3,7 @@ import { Context } from "server/types/Context";
 import { Arg, Authorized, Ctx, Mutation, Query, Resolver } from "type-graphql";
 import { GeneratorService } from "./services";
 import { CreateAppInput, createAppOutput } from "./types/CreateApp";
+import { PublishGameInput } from "./types/PublishGame";
 
 @Resolver(() => createAppOutput)
 export class AppsResolver {
@@ -28,5 +29,14 @@ export class AppsResolver {
     @Ctx() context: Context
   ): Promise<createAppOutput> {
     return new GeneratorService(context).deleteApp(appId);
+  }
+
+  @Authorized("CREATOR")
+  @Mutation(() => Boolean)
+  async publishGame(
+    @Arg("args") args: PublishGameInput,
+    @Ctx() context: Context
+  ): Promise<boolean> {
+    return new GeneratorService(context).publishAppToGame(args);
   }
 }

@@ -3,6 +3,7 @@ import prisma from "lib/prisma";
 import { Context } from "server/types/Context";
 import { UnauthorizedError } from "type-graphql";
 import { CreateAppInput, createAppOutput } from "../types/CreateApp";
+import { PublishGameInput } from "../types/PublishGame";
 
 export class GeneratorService {
   context: Context;
@@ -77,15 +78,52 @@ export class GeneratorService {
     }
     const app = await prisma.app.delete({
       where: {
-        id: appId ,
+        id: appId,
       },
     });
     if (!app) {
       throw new ApolloError("Failed to delete app");
     }
 
-
-    return app
+    return app;
   }
+
+  async publishAppToGame(args: PublishGameInput): Promise<boolean> {
+    const userEmail = this.context.user.email;
+    const user = await prisma.user.findUnique({
+      where: {
+        email: userEmail,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedError();
+    }
+    // Publish app to game
+    const game = await prisma.game.create({
+      data: {
+        description: args.description,
+        name: args.name,
+        icon: args.icon,
+        license: args.license,
+        version: args.version,
+        publisher: {
+          connect: { id: user.id },
+        },
+        installers: {
+          create: {
+            mac: args.macInstaller,
+            windows: args.windowsInstaller,
+            linux: args.linuxInstaller,
+          },
+        },
+      },
+    });
+    if (!game) {
+      throw new ApolloError("Failed to publish game");
+    }
+
+    return true;
+  }
+
   // Class close Bracket
 }

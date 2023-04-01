@@ -3,6 +3,7 @@ import axios from "axios";
 import { CreateAppOutput } from "generated/graphql";
 import { useEffect, useState } from "react";
 import DeleteApp from "./DeleteApp";
+import PublishAsGame from "./PublishAsGame";
 import ReleasesDetails from "./ReleasesDetails";
 import Status from "./Status";
 import { WorkflowUsage } from "./WorkflowUsage";
@@ -103,7 +104,10 @@ function AppDetails({
                 <Text weight={600}>Settings</Text>
               </Accordion.Control>
               <Accordion.Panel>
-                <DeleteApp id={id} handleRefetch={handleRefetch} />
+                <div className="flex gap-4">
+                  <PublishAsGame />
+                  <DeleteApp id={id} handleRefetch={handleRefetch} />
+                </div>
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>

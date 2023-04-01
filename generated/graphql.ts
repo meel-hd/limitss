@@ -52,6 +52,7 @@ export type Mutation = {
   createApp: CreateAppOutput;
   deleteApp: CreateAppOutput;
   githubMutation: Scalars['String'];
+  publishGame: Scalars['Boolean'];
   sendToSlack: Scalars['Boolean'];
   updateUser: User;
 };
@@ -67,6 +68,11 @@ export type MutationDeleteAppArgs = {
 };
 
 
+export type MutationPublishGameArgs = {
+  args: PublishGameInput;
+};
+
+
 export type MutationSendToSlackArgs = {
   message: Scalars['String'];
 };
@@ -74,6 +80,18 @@ export type MutationSendToSlackArgs = {
 
 export type MutationUpdateUserArgs = {
   args: UserArgs;
+};
+
+export type PublishGameInput = {
+  description: Scalars['String'];
+  icon: Scalars['String'];
+  license: Scalars['String'];
+  linuxInstaller: Scalars['String'];
+  macInstaller: Scalars['String'];
+  name: Scalars['String'];
+  sourceAppId: Scalars['Float'];
+  version: Scalars['String'];
+  windowsInstaller: Scalars['String'];
 };
 
 export type Query = {
@@ -106,6 +124,13 @@ export type CreateAppMutationVariables = Exact<{
 
 
 export type CreateAppMutation = { __typename?: 'Mutation', createApp: { __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, link: string } };
+
+export type PublishGameMutationVariables = Exact<{
+  args: PublishGameInput;
+}>;
+
+
+export type PublishGameMutation = { __typename?: 'Mutation', publishGame: boolean };
 
 export type DeleteAppMutationVariables = Exact<{
   appId: Scalars['Float'];
@@ -156,6 +181,11 @@ export const CreateAppDocument = gql`
     id
     link
   }
+}
+    `;
+export const PublishGameDocument = gql`
+    mutation PublishGame($args: PublishGameInput!) {
+  publishGame(args: $args)
 }
     `;
 export const DeleteAppDocument = gql`
@@ -221,6 +251,9 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
   return {
     CreateApp(variables: CreateAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<CreateAppMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<CreateAppMutation>(CreateAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'CreateApp', 'mutation');
+    },
+    PublishGame(variables: PublishGameMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<PublishGameMutation> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PublishGameMutation>(PublishGameDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'PublishGame', 'mutation');
     },
     DeleteApp(variables: DeleteAppMutationVariables, requestHeaders?: Dom.RequestInit["headers"]): Promise<DeleteAppMutation> {
       return withWrapper((wrappedRequestHeaders) => client.request<DeleteAppMutation>(DeleteAppDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'DeleteApp', 'mutation');

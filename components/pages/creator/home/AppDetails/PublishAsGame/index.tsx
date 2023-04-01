@@ -8,10 +8,19 @@ import {
   Tooltip,
 } from "@mantine/core";
 import axios from "axios";
+import { CreateAppOutput } from "generated/graphql";
 import { useState } from "react";
 import { CloudUpload } from "tabler-icons-react";
+import Publish from "./Publish";
 
-function PublishAsGame() {
+function PublishAsGame({
+  description,
+  version,
+  icon,
+  license,
+  name,
+  id,
+}: CreateAppOutput) {
   const [opened, setOpened] = useState(false);
   // Installers
   const [macFile, setMacFile] = useState<any>();
@@ -193,6 +202,23 @@ function PublishAsGame() {
                 </div>
               )
           }
+        </div>
+        <div className="px-10 mt-20 flex justify-end">
+          {macUploadStatus === "Uploaded!" &&
+            winUploadStatus === "Uploaded!" &&
+            linuxUploadStatus === "Uploaded!" && (
+              <Publish
+                sourceAppId={id}
+                description={description}
+                name={name}
+                version={version}
+                icon={icon}
+                license={license}
+                windowsInstaller={winUrl}
+                macInstaller={macUrl}
+                linuxInstaller={linuxUrl}
+              />
+            )}
         </div>
       </Drawer>
     </>

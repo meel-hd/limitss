@@ -3,6 +3,9 @@ import { Field, InputType, ObjectType } from "type-graphql";
 
 @InputType()
 export class PublishGameInput {
+  @Field(() => Number)
+  sourceAppId: number;
+
   @Length(1, 185)
   @Field(() => String)
   name: string;

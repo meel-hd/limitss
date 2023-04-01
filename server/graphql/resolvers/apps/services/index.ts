@@ -98,6 +98,29 @@ export class GeneratorService {
     if (!user) {
       throw new UnauthorizedError();
     }
+    const app = await prisma.app.findUnique({
+      where: {
+        id: args.sourceAppId,
+      },
+    });
+    if (!app) {
+      throw new ApolloError("Failed to find app");
+    }
+    if (app.isPublished === true) {
+      throw new ApolloError("App is already published");
+    }
+    // Update app to published
+    const updatedApp = await prisma.app.update({
+      where: {
+        id: args.sourceAppId,
+      },
+      data: {
+        isPublished: true,
+      },
+    });
+    if (!updatedApp) {
+      throw new ApolloError("Failed to update app");
+    }
     // Publish app to game
     const game = await prisma.game.create({
       data: {

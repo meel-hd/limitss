@@ -105,7 +105,7 @@ function AppDetails({
               </Accordion.Control>
               <Accordion.Panel>
                 <div className="flex gap-4">
-                  <PublishAsGame />
+                  <PublishAsGame {...appDetails} />
                   <DeleteApp id={id} handleRefetch={handleRefetch} />
                 </div>
               </Accordion.Panel>

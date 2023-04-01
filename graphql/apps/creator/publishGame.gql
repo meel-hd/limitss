@@ -1,0 +1,3 @@
+mutation PublishGame($args: PublishGameInput!) {
+  publishGame(args: $args)
+}

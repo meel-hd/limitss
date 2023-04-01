@@ -39,6 +39,7 @@ export type CreateAppOutput = {
   height: Scalars['Float'];
   icon: Scalars['String'];
   id: Scalars['Float'];
+  isPublished: Scalars['Boolean'];
   license: Scalars['String'];
   link: Scalars['String'];
   maximized: Scalars['Boolean'];
@@ -142,7 +143,7 @@ export type DeleteAppMutation = { __typename?: 'Mutation', deleteApp: { __typena
 export type GetMyAppsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', name: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, link: string }> };
+export type GetMyAppsQuery = { __typename?: 'Query', getMyApps: Array<{ __typename?: 'createAppOutput', name: string, link: string, description: string, license: string, icon: string, appId: string, version: string, width: number, height: number, maximized: boolean, alwaysOnTop: boolean, focus: boolean, id: number, isPublished: boolean }> };
 
 export type SendToSlackMutationVariables = Exact<{
   message: Scalars['String'];
@@ -199,6 +200,7 @@ export const GetMyAppsDocument = gql`
     query GetMyApps {
   getMyApps {
     name
+    link
     description
     license
     icon
@@ -210,7 +212,7 @@ export const GetMyAppsDocument = gql`
     alwaysOnTop
     focus
     id
-    link
+    isPublished
   }
 }
     `;

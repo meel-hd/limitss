@@ -1,6 +1,7 @@
 query GetMyApps {
   getMyApps {
     name
+    link
     description
     license
     icon
@@ -12,6 +13,6 @@ query GetMyApps {
     alwaysOnTop
     focus
     id
-    link
+    isPublished
   }
 }

@@ -59,6 +59,11 @@ function AppDetails({
         </Text>
       </div>
       <div className="pl-2 sm:pl-10 mt-4">
+        {appDetails.isPublished && (
+          <Badge m={10} size="lg" color={"violet"}>
+            Published
+          </Badge>
+        )}
         <Text className="sm:max-w-2xl" size="sm" color="dimmed">
           {description}
         </Text>
@@ -105,7 +110,11 @@ function AppDetails({
               </Accordion.Control>
               <Accordion.Panel>
                 <div className="flex gap-4">
-                  <PublishAsGame {...appDetails} />
+                  {appDetails.isPublished ? (
+                    ""
+                  ) : (
+                    <PublishAsGame {...appDetails} />
+                  )}
                   <DeleteApp id={id} handleRefetch={handleRefetch} />
                 </div>
               </Accordion.Panel>

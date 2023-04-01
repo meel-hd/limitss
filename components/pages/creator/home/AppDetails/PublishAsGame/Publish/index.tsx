@@ -34,14 +34,19 @@ function Publish({
       }),
     onSuccess: () => {
       showNotification({
+        radius: "lg",
         title: "Published!",
         message: "Your game has been published!",
         color: "green",
         icon: <Check />,
       });
+
+      // Reload the page
+      window.location.reload();
     },
     onError: (err) => {
       showNotification({
+        radius: "lg",
         title: "Error",
         // @ts-ignore
         message: err.response.errors[0].message,

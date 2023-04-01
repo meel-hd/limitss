@@ -1,104 +1,105 @@
-import { Length } from "class-validator"
-import { Field, InputType, ObjectType } from "type-graphql"
+import { Length } from "class-validator";
+import { Field, InputType, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class AppType {
-    
-    @Length(1,185)
-    @Field(() => String)
-    name: string 
+  @Length(1, 185)
+  @Field(() => String)
+  name: string;
 
-    @Length(1,185)
-    @Field(() => String)
-    link: string
+  @Length(1, 185)
+  @Field(() => String)
+  link: string;
 
-    @Length(1,185)
-    @Field(() => String)
-    description: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    license: string
-    
-    // TODO: Figure out how to add a propper lenght of icon's base46 string in the db
-    @Length(1,185)
-    @Field(() => String)
-    icon: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    appId: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    version: string
+  @Length(1, 185)
+  @Field(() => String)
+  description: string;
 
-    @Field(() => Number)
-    width: number
+  @Length(1, 185)
+  @Field(() => String)
+  license: string;
 
-    @Field(() => Number)
-    height: number
+  // TODO: Figure out how to add a propper lenght of icon's base46 string in the db
+  @Length(1, 185)
+  @Field(() => String)
+  icon: string;
 
-    @Field(() => Boolean)
-    maximized: boolean
+  @Length(1, 185)
+  @Field(() => String)
+  appId: string;
 
-    @Field(() => Boolean)
-    alwaysOnTop: boolean
+  @Length(1, 185)
+  @Field(() => String)
+  version: string;
 
-    @Field(() => Boolean)
-    focus: boolean
+  @Field(() => Number)
+  width: number;
+
+  @Field(() => Number)
+  height: number;
+
+  @Field(() => Boolean)
+  maximized: boolean;
+
+  @Field(() => Boolean)
+  alwaysOnTop: boolean;
+
+  @Field(() => Boolean)
+  focus: boolean;
 }
 
 @InputType()
-export class CreateAppInput {    
-    @Length(1,185)
-    @Field(() => String)
-    name: string 
+export class CreateAppInput {
+  @Length(1, 185)
+  @Field(() => String)
+  name: string;
 
-    @Length(1,185)
-    @Field(() => String)
-    link: string
+  @Length(1, 185)
+  @Field(() => String)
+  link: string;
 
-    @Length(1,185)
-    @Field(() => String)
-    description: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    license: string
-    
-    // TODO: Figure out how to add a propper lenght of icon's base46 string in the db
-    @Length(1,185)
-    @Field(() => String)
-    icon: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    appId: string
-    
-    @Length(1,185)
-    @Field(() => String)
-    version: string
+  @Length(1, 185)
+  @Field(() => String)
+  description: string;
 
-    @Field(() => Number)
-    width: number
+  @Length(1, 185)
+  @Field(() => String)
+  license: string;
 
-    @Field(() => Number)
-    height: number
+  // TODO: Figure out how to add a propper lenght of icon's base46 string in the db
+  @Length(1, 185)
+  @Field(() => String)
+  icon: string;
 
-    @Field(() => Boolean)
-    maximized: boolean
+  @Length(1, 185)
+  @Field(() => String)
+  appId: string;
 
-    @Field(() => Boolean)
-    alwaysOnTop: boolean
+  @Length(1, 185)
+  @Field(() => String)
+  version: string;
 
-    @Field(() => Boolean)
-    focus: boolean
+  @Field(() => Number)
+  width: number;
+
+  @Field(() => Number)
+  height: number;
+
+  @Field(() => Boolean)
+  maximized: boolean;
+
+  @Field(() => Boolean)
+  alwaysOnTop: boolean;
+
+  @Field(() => Boolean)
+  focus: boolean;
 }
-
 
 @ObjectType()
 export class createAppOutput extends AppType {
-    @Field(() => Number)
-    id: number
+  @Field(() => Number)
+  id: number;
+
+  @Field(() => Boolean)
+  isPublished: boolean;
 }

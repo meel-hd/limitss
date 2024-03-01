@@ -27,6 +27,9 @@ function HeroSection({
               <SvgComponent className=' hidden mt-5 md:block md:ml-[-30vw] md:max-w-3xl xl:ml-[-20vw] opacity-70 -z-10'/>
         </div>
         <div className="flex flex-col items-start mt-12 mb-16 text-left lg:flex-grow lg:w-1/2 lg:pl-6 xl:pl-24 md:mb-0 xl:mt-0">
+          <div className="w-full my-4 text-red-500 font-bold">
+            The app isn't fully operational due to limited funding to support the main database. Sorry :(
+          </div>
           <span className="mb-8 text-xs font-bold tracking-widest text-violet-500 uppercase">
             When there is no limits
           </span>
